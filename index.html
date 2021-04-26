@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Point Of Sale</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
 </head>
@@ -45,26 +46,26 @@
 
             <section>
                 <div class="row mt-3 d-flex justify-content-center flex-wrap ">
-                    <div class="middle-icon-container  col-lg-3 col-md-3">
+                    <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3">
                         <img class=" icon " src="./assets/fork.png " alt=" ">
                         <p class="icon-name ">Dine Inn</p>
                     </div>
-                    <div class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 ">
-                        <img class="icon " src="./assets/take-away.png " alt=" ">
+                    <div id="toGo" class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 ">
+                        <img class="icon " src="./assets/take-away-white.png " alt=" ">
                         <p class="icon-name ">To Go</p>
                     </div>
-                    <div class="middle-icon-container  col-lg-3 offset-1 col-md-3">
+                    <div id="delivery" class="middle-icon-container  col-lg-3 offset-1 col-md-3">
                         <img class="icon " src="./assets/delivery-man.png " alt=" ">
                         <p class="icon-name ">Delivery</p>
                     </div>
                 </div>
 
                 <div class="mt-3 row d-flex justify-content-center ">
-                    <div class="add-user col-lg-5  col-md-5 ">
+                    <div id="addCustomer" class="add-user col-lg-5  col-md-5 ">
                         <img class="icon " src="./assets/add-user.png " alt=" ">
                         <p class="label ">Add Customer</p>
                     </div>
-                    <div class="add-user selected col-lg-5 col-md-5 offset-1 ">
+                    <div id="noTable" class="add-user selected col-lg-5 col-md-5 offset-1 ">
                         <img class="icon " src="./assets/chair.png " alt=" ">
                         <p class="label ">No table</p>
                     </div>
@@ -81,11 +82,11 @@
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
-                            <div class="no">2</div>
+                            <div class="no">1</div>
                             <div class="arrow-up"><i class="fas fa-chevron-up"></i></div>
                             <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
                         </div>
-                        <div class="price ">99.50 EGP</div>
+                        <div class="price ">10 EGP</div>
                     </div>
                 </div>
                 <div class="order ">
@@ -101,7 +102,7 @@
                             <div class="arrow-up"><i class="fas fa-chevron-up"></i></div>
                             <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
                         </div>
-                        <div class="price ">99.50 EGP</div>
+                        <div class="price ">20 EGP</div>
                     </div>
                 </div>
                 <div class="order ">
@@ -113,11 +114,11 @@
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
-                            <div class="no">2</div>
+                            <div class="no">3</div>
                             <div class="arrow-up"><i class="fas fa-chevron-up"></i></div>
                             <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
                         </div>
-                        <div class="price ">99.50 EGP</div>
+                        <div class="price ">10 EGP</div>
                     </div>
                 </div>
                 <div class="order ">
@@ -129,39 +130,56 @@
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
-                            <div class="no">2</div>
+                            <div class="no">4</div>
                             <div class="arrow-up"><i class="fas fa-chevron-up"></i></div>
                             <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
                         </div>
-                        <div class="price ">99.50 EGP</div>
+                        <div class="price ">20 EGP</div>
                     </div>
                 </div>
-
-
             </div>
             <div class="row total-cheque ">
                 <p>subtotal</p>
-                <p>99.50 EGP</p>
+                <p><span id="subtotal">99.50</span> EGP</p>
             </div>
 
             <div class="row total-cheque ">
                 <p>taxes</p>
-                <p>21.00 EGP</p>
+                <p><span id="taxes">21.00</span> EGP</p>
             </div>
             <div class="row total-cheque total ">
                 <p>total</p>
-                <p>120.50 EGP</p>
+                <p><span id="total">120.50</span> EGP</p>
             </div>
             <div class="charge ">
                 <p>Charge</p>
                 <p>120.50 EGP</p>
             </div>
 
-            <div class="footer row ">
-                <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 94.png " alt=" " srcset=" ">
-                <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 97.png " alt=" " srcset=" ">
-                <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 98.png " alt=" " srcset=" ">
+            <!-- <div class="footer row "> -->
+            <div class=" footer row mt-3 d-flex justify-content-center flex-wrap ">
+                <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3" style="background-color: #FDDBDF; color: #f37685; border-radius: 30px ;">
+                    <!-- <img class=" icon " src="./assets/trash-bin.png" alt=" "> -->
+                    <span style="font-size: 1.8rem;"><i class="far fa-trash-alt"></i></span>
+                    <p class="icon-name">Discard</p>
+                </div>
+                <div id="toGo" class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 " style="background-color: #FCDC7B; color: #fcbd02; border-radius: 30px ;">
+                    <!-- <i class="fas fa-print"></i> -->
+                    <span style="font-size: 1.8rem;"><i class="fas fa-hand-holding-usd"></i></span>
+                    <!-- <img class="icon " src="./assets/Group 97.png " alt=" "> -->
+                    <p class="icon-name ">Discount</p>
+                </div>
+                <div id="delivery" class="middle-icon-container  col-lg-3 offset-1 col-md-3" style="background-color: #DAE6F3; color: #74afee; border-radius: 30px ;">
+
+                    <!-- <img class="icon " src="./assets/delivery-man.png " alt=" "> -->
+                    <span style="font-size: 1.8rem;"><i class="fas fa-print"></i></span>
+                    <p class="icon-name ">Print</p>
+                </div>
             </div>
+            <!-- <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 94.png " alt=" " srcset=" "> -->
+            <!-- <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 97.png " alt=" " srcset=" "> -->
+            <!-- <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 98.png " alt=" " srcset=" "> -->
+            <!-- </div> -->
         </section>
         <section class="col-lg-8 col-md-7 right-sectoin ">
             <header class="row">
@@ -176,45 +194,45 @@
             <section class="row ">
                 <div class="col-lg-11 col-md-12 ">
                     <div class="category ">
-                        <div class="sm-icon-container categoryActive ">
-                            <img class="icon " src="./assets/grilling.png " alt=" ">
+                        <div id="grill" class="sm-icon-container categoryActive ">
+                            <img class="icon " src="./assets/grilling-white.png " alt=" ">
                             <p class="icon-name ">Grill</p>
                         </div>
-                        <div class="sm-icon-container ">
+                        <div id="pizza" class="sm-icon-container ">
                             <img class="icon " src="./assets/pizza.png " alt=" ">
                             <p class="icon-name ">Pizza</p>
                         </div>
-                        <div class="sm-icon-container ">
+                        <div id="fish" class="sm-icon-container ">
                             <img class="icon " src="./assets/fish.png " alt=" ">
                             <p class="icon-name ">Fish</p>
                         </div>
-                        <div class="sm-icon-container ">
+                        <div id="soup" class="sm-icon-container ">
                             <img class="icon " src="./assets/soup.png " alt=" ">
                             <p class="icon-name ">Soup</p>
                         </div>
-                        <div class="sm-icon-container ">
+                        <div id="italianFood" class="sm-icon-container ">
                             <img class="icon " src="./assets/bucatini-carbonara.png " alt=" ">
                             <p class="icon-name ">Italian Food</p>
                         </div>
-                        <div class="sm-icon-container ">
+                        <div id="dessert" class="sm-icon-container ">
                             <img class="icon " src="./assets/ice-cream.png " alt=" ">
                             <p class="icon-name ">Dessert</p>
                         </div>
                     </div>
                     <div class="row ">
-                        <div class="middle-icon-container foodType food-selected ">
-                            <img class="icon " src="./assets/Outline.png " alt=" ">
+                        <div id="burger" class="middle-icon-container foodType food-selected ">
+                            <img class="icon " src="./assets/Outline-white.png " alt=" ">
                             <p class="icon-name ">Burger</p>
                         </div>
-                        <div class="middle-icon-container foodType ">
+                        <div id="seaFood" class="middle-icon-container foodType ">
                             <img class="icon fish " src="./assets/fish.png " alt=" ">
                             <p class="icon-name ">Sea Food</p>
                         </div>
-                        <div class="middle-icon-container foodType">
+                        <div id="meat" class="middle-icon-container foodType">
                             <img class="icon " src="./assets/steak.png " alt=" ">
                             <p class="icon-name "> Meat</p>
                         </div>
-                        <div class="middle-icon-container foodType">
+                        <div id="chicken" class="middle-icon-container foodType">
                             <img class="icon " src="./assets/boiled.png " alt=" ">
                             <p class="icon-name ">Chicken</p>
                         </div>
@@ -295,6 +313,183 @@
 
         </section>
     </div>
+
+
+    <script>
+        $(document).ready(function() {
+
+            // subtotal in the first time
+            let subtotal = 0;
+            $('.cheque > .order').each(function(index, order) {
+                let quantity = +$(order).children(".order-details").children('.count').children('.no')[0].textContent;
+                let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
+                let totalPriceOfOneOrder = quantity * pricePerOne;
+                subtotal += totalPriceOfOneOrder;
+            });
+            let taxes = +$('#taxes').html();
+            $('#subtotal').html(subtotal);
+            $('#total').html(subtotal + taxes)
+
+
+            // choose Dine In or take away or deliver
+            $('#dineIn').click(function(e) {
+                $(this).addClass("food-selected").siblings().removeClass("food-selected");
+                $('#dineIn img').attr('src', './assets/fork-white.png ')
+                $('#toGo img').attr('src', './assets/take-away.png ')
+                $('#delivery img').attr('src', './assets/delivery-man.png ')
+            })
+            $('#toGo').click(function(e) {
+                $(this).addClass("food-selected").siblings().removeClass("food-selected");
+                $('#dineIn img').attr('src', './assets/fork.png ')
+                $('#toGo img').attr('src', './assets/take-away-white.png ')
+                $('#delivery img').attr('src', './assets/delivery-man.png ')
+            })
+            $('#delivery').click(function(e) {
+                $(this).addClass("food-selected").siblings().removeClass("food-selected");
+                $('#dineIn img').attr('src', './assets/fork.png ')
+                $('#toGo img').attr('src', './assets/take-away.png ')
+                $('#delivery img').attr('src', './assets/delivery-man-white.png ')
+            })
+
+
+            // add customer or No table 
+            $('#addCustomer').click(function(e) {
+                $(this).addClass("selected").siblings().removeClass("selected");
+            })
+            $('#noTable').click(function(e) {
+                $(this).addClass("selected").siblings().removeClass("selected");
+            })
+
+            // delete Item
+            $('.delete-icon').click(function(e) {
+                $(e.target).closest('.order').remove();
+            })
+
+            // increase count
+            $('.arrow-up').click(function(e) {
+                let count = +($(e.target).closest('.count').children('.no')[0].textContent)
+                count++;
+                $(e.target).closest('.count').children('.no').html(count);
+
+                let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
+
+                let subtootal = +$('#subtotal').html();
+                subtootal += price
+                $('#subtotal').html(subtootal);
+
+                let taaxes = +$('#taxes').html();
+                $('#total').html(subtootal + taaxes)
+
+            })
+
+            // decrease count
+            $('.arrow-down').click(function(e) {
+                let count = +($(e.target).closest('.count').children('.no')[0].textContent)
+                count--;
+                if (count >= 0) {
+                    $(e.target).closest('.count').children('.no').html(count);
+                    let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
+
+                    let subtootal = +$('#subtotal').html();
+                    subtootal -= price
+                    $('#subtotal').html(subtootal);
+
+                    let taaxes = +$('#taxes').html();
+                    $('#total').html(subtootal + taaxes)
+                }
+
+            })
+
+
+            // choose category
+            $('#grill').click(function(e) {
+                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                $('#grill img').attr('src', './assets/grilling-white.png ')
+                $('#pizza img').attr('src', './assets/pizza.png ')
+                $('#fish img').attr('src', './assets/fish.png ')
+                $('#soup img').attr('src', './assets/soup.png ')
+                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ')
+                $('#dessert img').attr('src', './assets/ice-cream.png')
+            });
+            $('#pizza').click(function(e) {
+                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                $('#grill img').attr('src', './assets/grilling.png ')
+                $('#pizza img').attr('src', './assets/pizza-white.png ')
+                $('#fish img').attr('src', './assets/fish.png ')
+                $('#soup img').attr('src', './assets/soup.png ')
+                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ')
+                $('#dessert img').attr('src', './assets/ice-cream.png')
+            });
+            $('#fish').click(function(e) {
+                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                $('#grill img').attr('src', './assets/grilling.png ')
+                $('#pizza img').attr('src', './assets/pizza.png ')
+                $('#fish img').attr('src', './assets/fish-white.png ')
+                $('#soup img').attr('src', './assets/soup.png ')
+                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ')
+                $('#dessert img').attr('src', './assets/ice-cream.png')
+            });
+            $('#soup').click(function(e) {
+                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                $('#grill img').attr('src', './assets/grilling.png ')
+                $('#pizza img').attr('src', './assets/pizza.png ')
+                $('#fish img').attr('src', './assets/fish.png ')
+                $('#soup img').attr('src', './assets/soup-white.png ')
+                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ')
+                $('#dessert img').attr('src', './assets/ice-cream.png')
+            });
+            $('#italianFood').click(function(e) {
+                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                $('#grill img').attr('src', './assets/grilling.png ')
+                $('#pizza img').attr('src', './assets/pizza.png ')
+                $('#fish img').attr('src', './assets/fish.png ')
+                $('#soup img').attr('src', './assets/soup.png ')
+                $('#italianFood img').attr('src', './assets/bucatini-carbonara-white.png ')
+                $('#dessert img').attr('src', './assets/ice-cream.png')
+            })
+            $('#dessert').click(function(e) {
+                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                $('#grill img').attr('src', './assets/grilling.png ')
+                $('#pizza img').attr('src', './assets/pizza.png ')
+                $('#fish img').attr('src', './assets/fish.png ')
+                $('#soup img').attr('src', './assets/soup.png ')
+                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ')
+                $('#dessert img').attr('src', './assets/ice-cream-white.png')
+            })
+
+
+            // choose subategory
+            $('#burger').click(function(e) {
+                $(this).addClass("food-selected").siblings().removeClass("food-selected ");
+                $('#burger img').attr('src', './assets/Outline-white.png  ')
+                $('#seaFood img').attr('src', './assets/fish.png ')
+                $('#meat img').attr('src', './assets/steak.png  ')
+                $('#chicken img').attr('src', './assets/boiled.png')
+            });
+            $('#seaFood').click(function(e) {
+                $(this).addClass("food-selected").siblings().removeClass("food-selected ");
+                $('#burger img').attr('src', './assets/Outline.png  ')
+                $('#seaFood img').attr('src', './assets/fish-white.png ')
+                $('#meat img').attr('src', './assets/steak.png  ')
+                $('#chicken img').attr('src', './assets/boiled.png')
+            });
+            $('#meat').click(function(e) {
+                $(this).addClass("food-selected").siblings().removeClass("food-selected ");
+                $('#burger img').attr('src', './assets/Outline.png  ')
+                $('#seaFood img').attr('src', './assets/fish.png ')
+                $('#meat img').attr('src', './assets/steak-white.png  ')
+                $('#chicken img').attr('src', './assets/boiled.png')
+            });
+            $('#chicken').click(function(e) {
+                $(this).addClass("food-selected").siblings().removeClass("food-selected ");
+                $('#burger img').attr('src', './assets/Outline.png  ')
+                $('#seaFood img').attr('src', './assets/fish.png ')
+                $('#meat img').attr('src', './assets/steak.png  ')
+                $('#chicken img').attr('src', './assets/boiled-white.png')
+            });
+
+        });
+    </script>
 
 </body>
 

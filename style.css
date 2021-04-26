@@ -85,7 +85,7 @@
 }
 
 .main-wrapper .middle-section .cheque {
-  height: 12rem;
+  height: 50vh;
   overflow-y: auto;
   margin: auto;
   margin-bottom: .5rem;
@@ -252,7 +252,7 @@
 
 .main-wrapper .middle-section .footer {
   position: fixed;
-  bottom: 0;
+  bottom: 2rem;
   height: 3.5rem;
   width: 23%;
 }
@@ -514,18 +514,30 @@
 }
 
 .margin-top {
-  margin-top: 15rem;
+  margin-top: 30rem;
 }
 
 @media (max-width: 2250px) {
   .barcode {
     width: 41% !important;
   }
+  .margin-top {
+    margin-top: 25rem !important;
+  }
+  .cheque {
+    height: 40vh !important;
+  }
 }
 
 @media (max-width: 1600px) {
   .barcode {
     width: 51% !important;
+  }
+  .margin-top {
+    margin-top: 15rem !important;
+  }
+  .cheque {
+    height: 30vh !important;
   }
 }
 
