@@ -5,7 +5,7 @@
 
 .main-wrapper .left-section {
   height: 100%;
-  background-color: #dd9d08;
+  background-color: #d19710;
 }
 
 .main-wrapper .left-section .lg-icon-container {
@@ -156,7 +156,7 @@
 }
 
 .main-wrapper .middle-section .cheque .order .order-details .count .arrow-up {
-  background-color: #dd9d08;
+  background-color: #d19710;
   display: inline-block;
   width: 2rem;
   height: 1rem;
@@ -171,7 +171,7 @@
 }
 
 .main-wrapper .middle-section .cheque .order .order-details .count .arrow-down {
-  background-color: #dd9d08;
+  background-color: #d19710;
   display: inline-block;
   width: 2rem;
   height: 1rem;
@@ -201,7 +201,7 @@
 }
 
 .main-wrapper .middle-section ::-webkit-scrollbar-thumb {
-  background: #dd9d08;
+  background: #d19710;
   border-radius: 1rem;
 }
 
@@ -234,7 +234,7 @@
 
 .main-wrapper .middle-section .charge {
   height: 3rem;
-  background-color: #dd9d08;
+  background-color: #d19710;
   color: white;
   border-radius: .8rem;
   font-size: 1.4rem;
@@ -379,7 +379,7 @@
 }
 
 .main-wrapper .right-sectoin ::-webkit-scrollbar-thumb {
-  background: #dd9d08;
+  background: #d19710;
   border-radius: 1rem;
 }
 
@@ -470,7 +470,7 @@
 }
 
 .categoryActive {
-  background-color: #dd9d08;
+  background-color: #d19710;
   border-radius: 2rem;
   color: white;
 }
@@ -505,7 +505,7 @@
 }
 
 .food-selected {
-  background-color: #dd9d08;
+  background-color: #d19710;
   color: white;
 }
 
