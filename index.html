@@ -154,7 +154,7 @@
             </div>
             <div class="charge ">
                 <p>Charge</p>
-                <p>120.50 EGP</p>
+                <p><span id="charge">120.50</span> EGP</p>
             </div>
 
             <!-- <div class="footer row "> -->
@@ -413,7 +413,10 @@
             });
             let taxes = +$('#taxes').html();
             $('#subtotal').html(subtotal);
-            $('#total').html(subtotal + taxes)
+            $('#total').html(subtotal + taxes);
+            $('#charge').html(subtotal + taxes);
+
+
 
 
             // choose Dine In or take away or deliver
@@ -455,6 +458,8 @@
                 $('#subtotal').html(subtootal);
                 let taaxes = +$('#taxes').html();
                 $('#total').html(subtootal + taaxes);
+                $('#charge').html(subtootal + taxes)
+
 
                 $(e.target).closest('.order').remove();
             })
@@ -469,7 +474,8 @@
                 subtootal += price
                 $('#subtotal').html(subtootal);
                 let taaxes = +$('#taxes').html();
-                $('#total').html(subtootal + taaxes)
+                $('#total').html(subtootal + taxes);
+                $('#charge').html(subtootal + taaxes);
             })
 
             // decrease count
@@ -486,6 +492,8 @@
 
                     let taaxes = +$('#taxes').html();
                     $('#total').html(subtootal + taaxes)
+                    $('#charge').html(subtootal + taxes)
+
                 }
 
             })
