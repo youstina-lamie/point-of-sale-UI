@@ -494,10 +494,6 @@
   margin-top: .3rem;
 }
 
-.middle-icon-container .fish {
-  width: 48%;
-}
-
 .middle-icon-container:hover {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
@@ -672,9 +668,6 @@
   }
   .middle-icon-container {
     width: 5rem;
-  }
-  .middle-icon-container .fish {
-    width: 78%;
   }
   .sm-icon-container {
     width: 4.2rem;

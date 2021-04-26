@@ -159,18 +159,18 @@
 
             <!-- <div class="footer row "> -->
             <div class=" footer row mt-3 d-flex justify-content-center flex-wrap ">
-                <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3" style="background-color: #FDDBDF; color: #f37685; border-radius: 30px ;">
+                <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3" style="background-color: #FDDBDF; color: #f37685; ">
                     <!-- <img class=" icon " src="./assets/trash-bin.png" alt=" "> -->
                     <span style="font-size: 1.8rem;"><i class="far fa-trash-alt"></i></span>
                     <p class="icon-name">Discard</p>
                 </div>
-                <div id="toGo" class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 " style="background-color: #FCDC7B; color: #fcbd02; border-radius: 30px ;">
+                <div id="toGo" class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 " style="background-color: #FCDC7B; color: #fcbd02;">
                     <!-- <i class="fas fa-print"></i> -->
                     <span style="font-size: 1.8rem;"><i class="fas fa-hand-holding-usd"></i></span>
                     <!-- <img class="icon " src="./assets/Group 97.png " alt=" "> -->
                     <p class="icon-name ">Discount</p>
                 </div>
-                <div id="delivery" class="middle-icon-container  col-lg-3 offset-1 col-md-3" style="background-color: #DAE6F3; color: #74afee; border-radius: 30px ;">
+                <div id="delivery" class="middle-icon-container  col-lg-3 offset-1 col-md-3" style="background-color: #DAE6F3; color: #74afee; ">
 
                     <!-- <img class="icon " src="./assets/delivery-man.png " alt=" "> -->
                     <span style="font-size: 1.8rem;"><i class="fas fa-print"></i></span>
@@ -194,8 +194,8 @@
             <section class="row ">
                 <div class="col-lg-11 col-md-12 ">
                     <div class="category ">
-                        <div id="grill" class="sm-icon-container">
-                            <img class="icon " src="./assets/grilling.png " alt=" ">
+                        <div id="grill" class="sm-icon-container categoryActive">
+                            <img class="icon " src="./assets/grilling-white.png " alt=" ">
                             <p class="icon-name ">Grill</p>
                         </div>
                         <div id="pizza" class="sm-icon-container ">
@@ -219,54 +219,96 @@
                             <p class="icon-name ">Dessert</p>
                         </div>
                     </div>
-                    <div class="row ">
-                        <div id="burger" class="middle-icon-container foodType ">
+                    <div class="row grid">
+                        <div id="burger" class="middle-icon-container foodType grill  grid-item">
                             <img class="icon " src="./assets/Outline.png " alt=" ">
                             <p class="icon-name ">Burger</p>
                         </div>
-                        <div id="seaFood" class="middle-icon-container foodType ">
-                            <img class="icon fish " src="./assets/fish.png " alt=" ">
+                        <div id="seaFood" class="middle-icon-container foodType grill  grid-item">
+                            <img class="icon " src="./assets/fish.png " alt=" ">
                             <p class="icon-name ">Sea Food</p>
                         </div>
-                        <div id="meat" class="middle-icon-container foodType">
+                        <div id="meat" class="middle-icon-container foodType grill  grid-item">
                             <img class="icon " src="./assets/steak.png " alt=" ">
                             <p class="icon-name "> Meat</p>
                         </div>
-                        <div id="chicken" class="middle-icon-container foodType">
+                        <div id="chicken" class="middle-icon-container foodType grill  grid-item">
                             <img class="icon " src="./assets/boiled.png " alt=" ">
                             <p class="icon-name ">Chicken</p>
                         </div>
+
+                        <div id="burger" class="middle-icon-container foodType pizza  grid-item">
+                            <img class="icon " src="./assets/pizza.png" alt=" ">
+                            <p class="icon-name ">small</p>
+                        </div>
+                        <div id="seaFood" class="middle-icon-container foodType pizza  grid-item">
+                            <img class="icon " src="./assets/pizza.png" alt=" ">
+                            <p class="icon-name ">medium</p>
+                        </div>
+                        <div id="meat" class="middle-icon-container foodType pizza  grid-item">
+                            <img class="icon " src="./assets/pizza.png" alt=" ">
+                            <p class="icon-name "> large</p>
+                        </div>
+
+                        <div id="burger" class="middle-icon-container foodType fish  grid-item">
+                            <img class="icon " src="./assets/fish.png" alt=" ">
+                            <p class="icon-name ">shrimp</p>
+                        </div>
+                        <div id="seaFood" class="middle-icon-container foodType fish  grid-item">
+                            <img class="icon fish " src="./assets/fish.png " alt=" ">
+                            <p class="icon-name ">gray mullet</p>
+                        </div>
+
+                        <div id="burger" class="middle-icon-container foodType soup  grid-item">
+                            <img class="icon " src="./assets/soup.png" alt=" ">
+                            <p class="icon-name ">soup1</p>
+                        </div>
+                        <div id="seaFood" class="middle-icon-container foodType soup  grid-item">
+                            <img class="icon " src="./assets/soup.png" alt=" ">
+                            <p class="icon-name ">soup2</p>
+                        </div>
+
+                        <div id="burger" class="middle-icon-container foodType italianFood  grid-item">
+                            <img class="icon " src="./assets/bucatini-carbonara.png " alt=" ">
+                            <p class="icon-name ">italian food</p>
+                        </div>
+                        <div id="seaFood" class="middle-icon-container foodType dessert  grid-item">
+                            <img class="icon " src="./assets/ice-cream.png" alt=" ">
+                            <p class="icon-name ">dessert</p>
+                        </div>
+
+
                     </div>
-                    <div class="cards-container grid">
-                        <div class="card grill grid-item">
+                    <div class="cards-container cardContainer">
+                        <div class="card grill card">
                             <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">grill</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card pizza grid-item">
+                        <div class="card pizza card">
                             <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">pizza</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card fish grid-item">
+                        <div class="card fish card">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">fish</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card soup grid-item">
+                        <div class="card soup card">
                             <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">soup</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card italianFood grid-item">
+                        <div class="card grill card">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">italian food</p>
@@ -274,42 +316,42 @@
                             </div>
                         </div>
 
-                        <div class="card dessert grid-item">
+                        <div class="card pizza card">
                             <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">dessert</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card grill grid-item">
+                        <div class="card grill card">
                             <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">grill</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card pizza grid-item">
+                        <div class="card pizza card">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif "></div>
                             <div class="card-body ">
                                 <p class="card-title ">pizza</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card fish grid-item">
+                        <div class="card fish card">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">fish</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card soup grid-item">
+                        <div class="card soup card">
                             <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">soup</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card italianFood grid-item">
+                        <div class="card grill card">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">itlalian food</p>
@@ -317,7 +359,7 @@
                             </div>
                         </div>
 
-                        <div class="card dessert grid-item">
+                        <div class="card pizza card">
                             <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">dessert</p>
@@ -352,6 +394,14 @@
                 itemSelector: '.grid-item',
                 layoutMode: 'fitRows'
             });
+            let card = $('.cardContainer').isotope({
+                // options
+                itemSelector: '.card',
+                layoutMode: 'fitRows'
+            });
+            grid.isotope({
+                filter: '.grill'
+            })
 
             // subtotal in the first time
             let subtotal = 0;
@@ -397,6 +447,15 @@
 
             // delete Item
             $('.delete-icon').click(function(e) {
+                let price = +$(e.target).closest('.order').children(".order-details").children('.price')[0].textContent.split(' ')[0];
+                let quantity = +$(e.target).closest('.order').children(".order-details").children('.count').children('.no')[0].textContent;
+                let PriceOfItemDeleted = price * quantity;
+                let subtootal = +$('#subtotal').html();
+                subtootal -= PriceOfItemDeleted;
+                $('#subtotal').html(subtootal);
+                let taaxes = +$('#taxes').html();
+                $('#total').html(subtootal + taaxes);
+
                 $(e.target).closest('.order').remove();
             })
 
@@ -405,16 +464,12 @@
                 let count = +($(e.target).closest('.count').children('.no')[0].textContent)
                 count++;
                 $(e.target).closest('.count').children('.no').html(count);
-
                 let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
-
                 let subtootal = +$('#subtotal').html();
                 subtootal += price
                 $('#subtotal').html(subtootal);
-
                 let taaxes = +$('#taxes').html();
                 $('#total').html(subtootal + taaxes)
-
             })
 
             // decrease count
@@ -514,31 +569,43 @@
             // choose subategory
             $('#burger').click(function(e) {
                 $(this).addClass("food-selected").siblings().removeClass("food-selected ");
-                $('#burger img').attr('src', './assets/Outline-white.png  ')
-                $('#seaFood img').attr('src', './assets/fish.png ')
-                $('#meat img').attr('src', './assets/steak.png  ')
-                $('#chicken img').attr('src', './assets/boiled.png')
+                $('#burger img').attr('src', './assets/Outline-white.png  ');
+                $('#seaFood img').attr('src', './assets/fish.png ');
+                $('#meat img').attr('src', './assets/steak.png  ');
+                $('#chicken img').attr('src', './assets/boiled.png');
+                card.isotope({
+                    filter: '.grill'
+                })
             });
             $('#seaFood').click(function(e) {
                 $(this).addClass("food-selected").siblings().removeClass("food-selected ");
-                $('#burger img').attr('src', './assets/Outline.png  ')
-                $('#seaFood img').attr('src', './assets/fish-white.png ')
-                $('#meat img').attr('src', './assets/steak.png  ')
-                $('#chicken img').attr('src', './assets/boiled.png')
+                $('#burger img').attr('src', './assets/Outline.png  ');
+                $('#seaFood img').attr('src', './assets/fish-white.png ');
+                $('#meat img').attr('src', './assets/steak.png  ');
+                $('#chicken img').attr('src', './assets/boiled.png');
+                card.isotope({
+                    filter: '.pizza'
+                })
             });
             $('#meat').click(function(e) {
                 $(this).addClass("food-selected").siblings().removeClass("food-selected ");
-                $('#burger img').attr('src', './assets/Outline.png  ')
-                $('#seaFood img').attr('src', './assets/fish.png ')
-                $('#meat img').attr('src', './assets/steak-white.png  ')
-                $('#chicken img').attr('src', './assets/boiled.png')
+                $('#burger img').attr('src', './assets/Outline.png  ');
+                $('#seaFood img').attr('src', './assets/fish.png ');
+                $('#meat img').attr('src', './assets/steak-white.png  ');
+                $('#chicken img').attr('src', './assets/boiled.png');
+                card.isotope({
+                    filter: '.fish'
+                })
             });
             $('#chicken').click(function(e) {
                 $(this).addClass("food-selected").siblings().removeClass("food-selected ");
-                $('#burger img').attr('src', './assets/Outline.png  ')
-                $('#seaFood img').attr('src', './assets/fish.png ')
-                $('#meat img').attr('src', './assets/steak.png  ')
-                $('#chicken img').attr('src', './assets/boiled-white.png')
+                $('#burger img').attr('src', './assets/Outline.png  ');
+                $('#seaFood img').attr('src', './assets/fish.png ');
+                $('#meat img').attr('src', './assets/steak.png  ');
+                $('#chicken img').attr('src', './assets/boiled-white.png');
+                card.isotope({
+                    filter: '.soup'
+                })
             });
 
         });
