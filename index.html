@@ -280,35 +280,35 @@
 
                     </div>
                     <div class="cards-container cardContainer">
-                        <div class="card grill card">
+                        <div class="card grill " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">grill</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card pizza card">
+                        <div class="card pizza" onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">pizza</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card fish card">
+                        <div class="card fish " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">fish</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card soup card">
+                        <div class="card soup " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">soup</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card grill card">
+                        <div class="card grill " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">italian food</p>
@@ -316,42 +316,42 @@
                             </div>
                         </div>
 
-                        <div class="card pizza card">
+                        <div class="card pizza " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">dessert</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card grill card">
+                        <div class="card grill " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">grill</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card pizza card">
+                        <div class="card pizza " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif "></div>
                             <div class="card-body ">
                                 <p class="card-title ">pizza</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card fish card">
+                        <div class="card fish " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">fish</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card soup card">
+                        <div class="card soup " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">soup</p>
                                 <p class="card-text ">35 EGP.</p>
                             </div>
                         </div>
-                        <div class="card grill card">
+                        <div class="card grill " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">itlalian food</p>
@@ -359,7 +359,7 @@
                             </div>
                         </div>
 
-                        <div class="card pizza card">
+                        <div class="card pizza " onclick="addToMyOrder(event)">
                             <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
                             <div class="card-body ">
                                 <p class="card-title ">dessert</p>
@@ -617,6 +617,97 @@
             });
 
         });
+
+        function increaseQuantity(e) {
+            let count = +($(e.target).closest('.count').children('.no')[0].textContent)
+            count++;
+            $(e.target).closest('.count').children('.no').html(count);
+            let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
+            let subtootal = +$('#subtotal').html();
+            subtootal += price
+            $('#subtotal').html(subtootal);
+            let taaxes = +$('#taxes').html();
+            $('#total').html(subtootal + taaxes);
+            $('#charge').html(subtootal + taaxes);
+
+        }
+
+        function decreaseQuantity(e) {
+            let count = +($(e.target).closest('.count').children('.no')[0].textContent)
+            count--;
+            if (count >= 0) {
+                $(e.target).closest('.count').children('.no').html(count);
+                let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
+
+                let subtootal = +$('#subtotal').html();
+                subtootal -= price
+                $('#subtotal').html(subtootal);
+
+                let taaxes = +$('#taxes').html();
+                $('#total').html(subtootal + taaxes)
+                $('#charge').html(subtootal + taaxes)
+
+            }
+
+        }
+
+        function addToMyOrder(e) {
+
+            let subtotal = +$('#subtotal').html();
+            let taxes = +$('#taxes').html();
+
+
+            let description = $(e.target).closest('.card').children('.card-body').children('.card-title')[0].textContent;
+            let priceAddItem = +$(e.target).closest('.card').children('.card-body').children('.card-text')[0].textContent.split(' ')[0];
+            let thisTypeIsEXIST;
+            let quantityIfExist;
+            let itemPriceIfExit;
+            $('.cheque > .order').each(function(index, order) {
+                let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
+                let descriptioperOne = $(order).children(".order-details").children('.order-info')[0].textContent;
+                if (description === descriptioperOne && priceAddItem === pricePerOne) {
+                    quantityIfExist = +$(order).children(".order-details").children('.count').children('.no')[0].textContent;
+                    thisTypeIsEXIST = true;
+                    quantityIfExist++;
+                    $(order).children(".order-details").children('.count').children('.no')[0].textContent = quantityIfExist;
+
+
+                    subtotal += priceAddItem;
+                    $('#subtotal').html(subtotal);
+                    $('#total').html(subtotal + taxes);
+                    $('#charge').html(subtotal + taxes);
+                }
+            });
+            if (!thisTypeIsEXIST) {
+                $('.cheque ').append(` <div class="order ">
+                            <div class="delete-icon">
+                                <img src="./assets/trash-bin.png" alt="">
+                            </div>
+                            <div class="order-details ">
+                                <div class="order-info">${description}</div>
+                                <div class="count">
+                                    <div class="no">1</div>
+                                    <div class="arrow-up" onclick="increaseQuantity(event)"><i class="fas fa-chevron-up"></i></div>
+                                    <div class="arrow-down" onclick="decreaseQuantity(event)"><i class="fas fa-chevron-down"></i></div>
+                                </div>
+                                <div class="price ">${priceAddItem} EGP</div>
+                            </div>
+                        </div>`)
+                $(".cheque").animate({
+                    scrollTop: $(
+                        'html, body').get(0).scrollHeight
+                }, 2000);
+
+
+                subtotal += priceAddItem;
+                $('#subtotal').html(subtotal);
+                $('#total').html(subtotal + taxes);
+                $('#charge').html(subtotal + taxes);
+            }
+
+
+
+        }
     </script>
 
 </body>
