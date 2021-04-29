@@ -157,9 +157,8 @@
                 <p><span id="charge">120.50</span> EGP</p>
             </div>
 
-            <!-- <div class="footer row "> -->
             <div class=" footer row mt-3 d-flex justify-content-center flex-wrap ">
-                <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3" style="background-color: #FDDBDF; color: #f37685; ">
+                <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3" style="background-color: #FDDBDF; color: #f37685; " onclick="discard()">
                     <!-- <img class=" icon " src="./assets/trash-bin.png" alt=" "> -->
                     <span style="font-size: 1.8rem;"><i class="far fa-trash-alt"></i></span>
                     <p class="icon-name">Discard</p>
@@ -177,10 +176,7 @@
                     <p class="icon-name ">Print</p>
                 </div>
             </div>
-            <!-- <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 94.png " alt=" " srcset=" "> -->
-            <!-- <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 97.png " alt=" " srcset=" "> -->
-            <!-- <img style=" cursor: pointer; " class="col-lg-4 col-md-4 " src="./assets/Group 98.png " alt=" " srcset=" "> -->
-            <!-- </div> -->
+
         </section>
         <section class="col-lg-8 col-md-7 right-sectoin ">
             <header class="row">
@@ -706,6 +702,19 @@
             }
 
 
+
+        }
+
+
+        function discard() {
+            console.log('a')
+            $('.cheque > .order').each(function(index, order) {
+                $(order).remove()
+            });
+            $('#total').html(0);
+            $('#subtotal').html(0);
+            $('#taxes').html(0);
+            $('#charge').html(0);
 
         }
     </script>
