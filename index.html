@@ -141,20 +141,20 @@
             </div>
             <div class="row total-cheque ">
                 <p>subtotal</p>
-                <p><span id="subtotal">99.50</span> EGP</p>
+                <p><span id="subtotal"></span> EGP</p>
             </div>
 
             <div class="row total-cheque ">
                 <p>taxes</p>
-                <p><span id="taxes">21.00</span> EGP</p>
+                <p><span id="taxes"></span> EGP</p>
             </div>
             <div class="row total-cheque total ">
                 <p>total</p>
-                <p><span id="total">120.50</span> EGP</p>
+                <p><span id="total"></span> EGP</p>
             </div>
             <div class="charge ">
                 <p>Charge</p>
-                <p><span id="charge">120.50</span> EGP</p>
+                <p><span id="charge"></span> EGP</p>
             </div>
 
             <div class=" footer row mt-3 d-flex justify-content-center flex-wrap ">
@@ -401,13 +401,16 @@
 
             // subtotal in the first time
             let subtotal = 0;
+            const taxesPercentage = 14 / 100;
+
             $('.cheque > .order').each(function(index, order) {
                 let quantity = +$(order).children(".order-details").children('.count').children('.no')[0].textContent;
                 let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
                 let totalPriceOfOneOrder = quantity * pricePerOne;
                 subtotal += totalPriceOfOneOrder;
             });
-            let taxes = +$('#taxes').html();
+            let taxes = subtotal * taxesPercentage
+            $('#taxes').html(taxes.toFixed(2));
             $('#subtotal').html(subtotal);
             $('#total').html(subtotal + taxes);
             $('#charge').html(subtotal + taxes);
@@ -452,10 +455,13 @@
                 $(e.target).closest('.count').children('.no').html(count);
                 let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
                 let subtootal = +$('#subtotal').html();
-                subtootal += price
+                subtootal += price;
+
+                let taaxes = subtootal * taxesPercentage;
+
                 $('#subtotal').html(subtootal);
-                let taaxes = +$('#taxes').html();
-                $('#total').html(subtootal + taxes);
+                $('#taxes').html(taaxes.toFixed(2));
+                $('#total').html(subtootal + taaxes);
                 $('#charge').html(subtootal + taaxes);
             })
 
@@ -468,12 +474,15 @@
                     let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
 
                     let subtootal = +$('#subtotal').html();
-                    subtootal -= price
+                    subtootal -= price;
+
+                    let taaxes = subtootal * taxesPercentage;
+
                     $('#subtotal').html(subtootal);
 
-                    let taaxes = +$('#taxes').html();
+                    $('#taxes').html(taaxes.toFixed(2));
                     $('#total').html(subtootal + taaxes)
-                    $('#charge').html(subtootal + taxes)
+                    $('#charge').html(subtootal + taaxes)
 
                 }
 
@@ -600,13 +609,17 @@
         });
 
         function deleteItem(e) {
+            const taxesPercentage = 14 / 100;
+
             let price = +$(e.target).closest('.order').children(".order-details").children('.price')[0].textContent.split(' ')[0];
             let quantity = +$(e.target).closest('.order').children(".order-details").children('.count').children('.no')[0].textContent;
             let PriceOfItemDeleted = price * quantity;
             let subtotal = +$('#subtotal').html();
             subtotal -= PriceOfItemDeleted;
+
+            let taxes = subtotal * taxesPercentage;
             $('#subtotal').html(subtotal);
-            let taxes = +$('#taxes').html();
+            $('#taxes').html(taxes.toFixed(2));
             $('#total').html(subtotal + taxes);
             $('#charge').html(subtotal + taxes)
 
@@ -615,20 +628,26 @@
         }
 
         function increaseQuantity(e) {
+            const taxesPercentage = 14 / 100;
+
             let count = +($(e.target).closest('.count').children('.no')[0].textContent)
             count++;
             $(e.target).closest('.count').children('.no').html(count);
             let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
             let subtootal = +$('#subtotal').html();
-            subtootal += price
+            subtootal += price;
+            let taxes = subtootal * taxesPercentage;
+
             $('#subtotal').html(subtootal);
-            let taaxes = +$('#taxes').html();
-            $('#total').html(subtootal + taaxes);
-            $('#charge').html(subtootal + taaxes);
+            $('#taxes').html(taxes.toFixed(2));
+            $('#total').html(subtootal + taxes);
+            $('#charge').html(subtootal + taxes);
 
         }
 
         function decreaseQuantity(e) {
+            const taxesPercentage = 14 / 100;
+
             let count = +($(e.target).closest('.count').children('.no')[0].textContent)
             count--;
             if (count >= 0) {
@@ -636,21 +655,27 @@
                 let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
 
                 let subtootal = +$('#subtotal').html();
-                subtootal -= price
+                subtootal -= price;
+
+                let taxes = subtootal * taxesPercentage;
+
                 $('#subtotal').html(subtootal);
 
-                let taaxes = +$('#taxes').html();
-                $('#total').html(subtootal + taaxes)
-                $('#charge').html(subtootal + taaxes)
+                $('#taxes').html(taxes.toFixed(2));
+
+                $('#total').html(subtootal + taxes)
+                $('#charge').html(subtootal + taxes)
 
             }
 
         }
 
         function addToMyOrder(e) {
+            const taxesPercentage = 14 / 100;
+
 
             let subtotal = +$('#subtotal').html();
-            let taxes = +$('#taxes').html();
+
 
 
             let description = $(e.target).closest('.card').children('.card-body').children('.card-title')[0].textContent;
@@ -669,7 +694,10 @@
 
 
                     subtotal += priceAddItem;
+                    let taxes = subtotal * taxesPercentage;
+
                     $('#subtotal').html(subtotal);
+                    $('#taxes').html(taxes.toFixed(2))
                     $('#total').html(subtotal + taxes);
                     $('#charge').html(subtotal + taxes);
                 }
@@ -695,8 +723,12 @@
                 }, 2000);
 
 
+
                 subtotal += priceAddItem;
+                let taxes = subtotal * taxesPercentage;
                 $('#subtotal').html(subtotal);
+                $('#taxes').html(taxes.toFixed(2))
+
                 $('#total').html(subtotal + taxes);
                 $('#charge').html(subtotal + taxes);
             }
