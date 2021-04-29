@@ -75,7 +75,7 @@
             </section>
             <div class="cheque ">
                 <div class="order ">
-                    <div class="delete-icon">
+                    <div class="delete-icon" onclick="deleteItem(event)">
                         <img src="./assets/trash-bin.png" alt="">
                     </div>
                     <div class="order-details ">
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="order ">
-                    <div class="delete-icon">
+                    <div class="delete-icon" onclick="deleteItem(event)">
                         <img src="./assets/trash-bin.png" alt="">
                     </div>
                     <div class="order-details ">
@@ -107,7 +107,7 @@
                     </div>
                 </div>
                 <div class="order ">
-                    <div class="delete-icon">
+                    <div class="delete-icon" onclick="deleteItem(event)">
                         <img src="./assets/trash-bin.png" alt="">
                     </div>
                     <div class="order-details ">
@@ -123,7 +123,7 @@
                     </div>
                 </div>
                 <div class="order ">
-                    <div class="delete-icon">
+                    <div class="delete-icon" onclick="deleteItem(event)">
                         <img src="./assets/trash-bin.png" alt="">
                     </div>
                     <div class="order-details ">
@@ -448,21 +448,6 @@
                 $(this).addClass("selected").siblings().removeClass("selected");
             })
 
-            // delete Item
-            $('.delete-icon').click(function(e) {
-                let price = +$(e.target).closest('.order').children(".order-details").children('.price')[0].textContent.split(' ')[0];
-                let quantity = +$(e.target).closest('.order').children(".order-details").children('.count').children('.no')[0].textContent;
-                let PriceOfItemDeleted = price * quantity;
-                let subtootal = +$('#subtotal').html();
-                subtootal -= PriceOfItemDeleted;
-                $('#subtotal').html(subtootal);
-                let taaxes = +$('#taxes').html();
-                $('#total').html(subtootal + taaxes);
-                $('#charge').html(subtootal + taxes)
-
-
-                $(e.target).closest('.order').remove();
-            })
 
             // increase count
             $('.arrow-up').click(function(e) {
@@ -618,6 +603,21 @@
 
         });
 
+        function deleteItem(e) {
+            let price = +$(e.target).closest('.order').children(".order-details").children('.price')[0].textContent.split(' ')[0];
+            let quantity = +$(e.target).closest('.order').children(".order-details").children('.count').children('.no')[0].textContent;
+            let PriceOfItemDeleted = price * quantity;
+            let subtotal = +$('#subtotal').html();
+            subtotal -= PriceOfItemDeleted;
+            $('#subtotal').html(subtotal);
+            let taxes = +$('#taxes').html();
+            $('#total').html(subtotal + taxes);
+            $('#charge').html(subtotal + taxes)
+
+
+            $(e.target).closest('.order').remove();
+        }
+
         function increaseQuantity(e) {
             let count = +($(e.target).closest('.count').children('.no')[0].textContent)
             count++;
@@ -680,7 +680,7 @@
             });
             if (!thisTypeIsEXIST) {
                 $('.cheque ').append(` <div class="order ">
-                            <div class="delete-icon">
+                            <div class="delete-icon" onclick="deleteItem(event)">
                                 <img src="./assets/trash-bin.png" alt="">
                             </div>
                             <div class="order-details ">
