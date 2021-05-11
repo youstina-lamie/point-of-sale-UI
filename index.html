@@ -152,6 +152,10 @@
                 <p>total</p>
                 <p><span id="total"></span> EGP</p>
             </div>
+            <div class="row total-cheque ">
+                <p>Discount</p>
+                <p id="discount">0 EGP</p>
+            </div>
             <div class="charge ">
                 <p>Charge</p>
                 <p><span id="charge"></span> EGP</p>
@@ -163,7 +167,7 @@
                     <span style="font-size: 1.8rem;"><i class="far fa-trash-alt"></i></span>
                     <p class="icon-name">Discard</p>
                 </div>
-                <div id="toGo" class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 " style="background-color: #FCDC7B; color: #fcbd02;">
+                <div id="toGo" class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 " onclick="addDiscount()" style="background-color: #FCDC7B; color: #fcbd02;">
                     <!-- <i class="fas fa-print"></i> -->
                     <span style="font-size: 1.8rem;"><i class="fas fa-hand-holding-usd"></i></span>
                     <!-- <img class="icon " src="./assets/Group 97.png " alt=" "> -->
@@ -379,6 +383,28 @@
             </footer>
 
         </section>
+    </div>
+
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <p>Add Discount</p> -->
+                <p class="close">&times;</p>
+            </div>
+            <!-- <form method=""> -->
+            <!-- <hr style="width: 100%;"> -->
+
+            <div class="btnsContainer">
+                <input id="discountInput" type="number" placeholder="Enter a Discount Value" style="width:90%;">
+
+                <div type="" class="btn button" onclick="applyDiscount()">Apply</div>
+            </div>
+            <!-- </form> -->
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -606,7 +632,18 @@
                 })
             });
 
+
+
+            // close Modal
+            $('.close').click(function() {
+                $('#myModal').css('display', 'none');
+            })
         });
+
+        // open modal
+        function addDiscount() {
+            $('#myModal').css('display', 'block');
+        }
 
         function deleteItem(e) {
             const taxesPercentage = 14 / 100;
@@ -747,6 +784,25 @@
             $('#subtotal').html(0);
             $('#taxes').html(0);
             $('#charge').html(0);
+
+        }
+
+        function applyDiscount() {
+            if (+$('#discountInput').val()) {
+
+                let discountValue = +$('#discountInput').val();
+                $('#discountInput').val('');
+                let total = +$('#total').html();
+
+                console.log(total)
+                let discountEGP = discountValue * 100 / total;
+                let totalAfteriscount = total - discountEGP;
+
+                $('#discount').html(`${discountEGP.toFixed(2)} EGP (${discountValue}%)`)
+                $('#charge').html(totalAfteriscount.toFixed(2));
+            }
+            $('#myModal').css('display', 'none');
+
 
         }
     </script>
