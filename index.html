@@ -399,7 +399,7 @@
             <!-- <hr style="width: 100%;"> -->
 
             <div class="btnsContainer">
-                <input id="discountInput" type="number" placeholder="Enter a Discount Value" style="width:90%;">
+                <input id="discountInput" type="number" placeholder="Enter a Discount Value without %" style="width:90%;">
 
                 <div type="" class="btn button" onclick="applyDiscount()">Apply</div>
             </div>
@@ -784,6 +784,8 @@
             $('#subtotal').html(0);
             $('#taxes').html(0);
             $('#charge').html(0);
+            $('#discount').html(`0 EGP`)
+
 
         }
 
