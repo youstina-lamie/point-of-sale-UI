@@ -796,11 +796,10 @@
                 $('#discountInput').val('');
                 let total = +$('#total').html();
 
-                console.log(total)
-                let discountEGP = discountValue * 100 / total;
+                let discountEGP = (discountValue / 100) * total;
                 let totalAfteriscount = total - discountEGP;
 
-                $('#discount').html(`${discountEGP.toFixed(2)} EGP (${discountValue}%)`)
+                $('#discount').html(`${discountEGP.toFixed(2)} EGP (${discountValue}%)`);
                 $('#charge').html(totalAfteriscount.toFixed(2));
             }
             $('#myModal').css('display', 'none');
