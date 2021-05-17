@@ -154,7 +154,9 @@
             </div>
             <div class="row total-cheque ">
                 <p>Discount</p>
-                <p id="discount">0 EGP</p>
+                <p id="discountContainer">
+                    <span id="discount">18.24</span> EGP (<span id='discountValue'>10</span>%)
+                </p>
             </div>
             <div class="charge ">
                 <p>Charge</p>
@@ -435,11 +437,12 @@
                 let totalPriceOfOneOrder = quantity * pricePerOne;
                 subtotal += totalPriceOfOneOrder;
             });
-            let taxes = subtotal * taxesPercentage
+            let taxes = subtotal * taxesPercentage;
+            let discEGP = +$('#discount').html();
             $('#taxes').html(taxes.toFixed(2));
             $('#subtotal').html(subtotal);
             $('#total').html(subtotal + taxes);
-            $('#charge').html(subtotal + taxes);
+            $('#charge').html(subtotal + taxes - discEGP);
 
 
 
@@ -488,7 +491,16 @@
                 $('#subtotal').html(subtootal);
                 $('#taxes').html(taaxes.toFixed(2));
                 $('#total').html(subtootal + taaxes);
-                $('#charge').html(subtootal + taaxes);
+                // $('#charge').html(subtootal + taaxes);
+
+                let discountValue = +$('#discountValue').html();
+                if (discountValue !== 0) {
+                    let discountEGP = (discountValue / 100) * (subtootal + taaxes);
+                    let totalAfterdiscount = (subtootal + taaxes) - discountEGP;
+
+                    $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                    $('#charge').html(totalAfterdiscount.toFixed(2));
+                }
             })
 
             // decrease count
@@ -508,7 +520,16 @@
 
                     $('#taxes').html(taaxes.toFixed(2));
                     $('#total').html(subtootal + taaxes)
-                    $('#charge').html(subtootal + taaxes)
+                        // $('#charge').html(subtootal + taaxes)
+
+                    let discountValue = +$('#discountValue').html();
+                    if (discountValue !== 0) {
+                        let discountEGP = (discountValue / 100) * (subtootal + taaxes);
+                        let totalAfterdiscount = (subtootal + taaxes) - discountEGP;
+
+                        $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                        $('#charge').html(totalAfterdiscount.toFixed(2));
+                    }
 
                 }
 
@@ -658,10 +679,18 @@
             $('#subtotal').html(subtotal);
             $('#taxes').html(taxes.toFixed(2));
             $('#total').html(subtotal + taxes);
-            $('#charge').html(subtotal + taxes)
-
 
             $(e.target).closest('.order').remove();
+
+            // calculate discount
+            let discountValue = +$('#discountValue').html();
+            if (discountValue !== 0) {
+                let discountEGP = (discountValue / 100) * (subtotal + taxes);
+                let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+
+                $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                $('#charge').html(totalAfterdiscount.toFixed(2));
+            }
         }
 
         function increaseQuantity(e) {
@@ -678,7 +707,17 @@
             $('#subtotal').html(subtootal);
             $('#taxes').html(taxes.toFixed(2));
             $('#total').html(subtootal + taxes);
-            $('#charge').html(subtootal + taxes);
+            // $('#charge').html(subtootal + taxes);
+
+            let discountValue = +$('#discountValue').html();
+            if (discountValue !== 0) {
+                let discountEGP = (discountValue / 100) * (subtootal + taxes);
+                let totalAfterdiscount = (subtootal + taxes) - discountEGP;
+
+                $('#discount').html(`${discountEGP.toFixed(2)}`);
+                $('#charge').html(totalAfterdiscount.toFixed(2));
+            }
+
 
         }
 
@@ -701,7 +740,15 @@
                 $('#taxes').html(taxes.toFixed(2));
 
                 $('#total').html(subtootal + taxes)
-                $('#charge').html(subtootal + taxes)
+                    // $('#charge').html(subtootal + taxes)
+                let discountValue = +$('#discountValue').html();
+                if (discountValue !== 0) {
+                    let discountEGP = (discountValue / 100) * (subtootal + taxes);
+                    let totalAfterdiscount = (subtootal + taxes) - discountEGP;
+
+                    $('#discount').html(`${discountEGP.toFixed(2)}`);
+                    $('#charge').html(totalAfterdiscount.toFixed(2));
+                }
 
             }
 
@@ -736,7 +783,15 @@
                     $('#subtotal').html(subtotal);
                     $('#taxes').html(taxes.toFixed(2))
                     $('#total').html(subtotal + taxes);
-                    $('#charge').html(subtotal + taxes);
+                    // $('#charge').html(subtotal + taxes);
+                    let discountValue = +$('#discountValue').html();
+                    if (discountValue !== 0) {
+                        let discountEGP = (discountValue / 100) * (subtotal + taxes);
+                        let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+
+                        $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                        $('#charge').html(totalAfterdiscount.toFixed(2));
+                    }
                 }
             });
             if (!thisTypeIsEXIST) {
@@ -767,10 +822,16 @@
                 $('#taxes').html(taxes.toFixed(2))
 
                 $('#total').html(subtotal + taxes);
-                $('#charge').html(subtotal + taxes);
+                // $('#charge').html(subtotal + taxes);
+                let discountValue = +$('#discountValue').html();
+                if (discountValue !== 0) {
+                    let discountEGP = (discountValue / 100) * (subtotal + taxes);
+                    let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+
+                    $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                    $('#charge').html(totalAfterdiscount.toFixed(2));
+                }
             }
-
-
 
         }
 
@@ -784,7 +845,9 @@
             $('#subtotal').html(0);
             $('#taxes').html(0);
             $('#charge').html(0);
-            $('#discount').html(`0 EGP`)
+            $('#discount').html(0);
+            $('#discountValue').html(0)
+
 
 
         }
@@ -799,7 +862,9 @@
                 let discountEGP = (discountValue / 100) * total;
                 let totalAfteriscount = total - discountEGP;
 
-                $('#discount').html(`${discountEGP.toFixed(2)} EGP (${discountValue}%)`);
+                // $(').html(' ');
+                $('#discount').html(`${discountEGP.toFixed(2)}`);
+                $('#discountValue').html(`${discountValue}`);
                 $('#charge').html(totalAfteriscount.toFixed(2));
             }
             $('#myModal').css('display', 'none');
