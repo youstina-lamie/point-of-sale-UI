@@ -1,6 +1,6 @@
                                 $lightFontColor:#707070;
                                 $darkFontColor:#3E3E3E;
-                                $primaryColor:#d19710;
+                                $primaryColor:rgb(209, 151, 16);
                                 .main-wrapper {
                                     height: 100vh;
                                     width: 100vw;
@@ -405,14 +405,14 @@
                                     background-color: rgb(0, 0, 0);
                                     background-color: rgba(0, 0, 0, 0.4);
                                     .modal-header {
-                                        background-color: lightgray;
                                         display: flex;
+                                        justify-content: space-evenly;
                                         margin-bottom: 1rem;
                                     }
                                     .modal-content {
                                         background-color: #fefefe;
                                         position: absolute;
-                                        top: 1%;
+                                        top: 15%;
                                         right: 15%;
                                         margin: 0 auto;
                                         border: 1px solid #888;
@@ -430,18 +430,56 @@
                                         text-decoration: none;
                                         cursor: pointer;
                                     }
+                                    label {
+                                        text-align: left;
+                                        font-weight: bold;
+                                        margin-bottom: 0;
+                                    }
+                                    .margin-bottom {
+                                        margin-bottom: 2.5rem;
+                                    }
+                                    .column-six {
+                                        width: 49%;
+                                        display: inline-block;
+                                    }
+                                    .column-three {
+                                        width: 32.5%;
+                                        display: inline-block;
+                                    }
+                                    .column-two {
+                                        width: 23%;
+                                        display: inline-block;
+                                    }
+                                    input:hover,
+                                    select:hover,
+                                    textarea:hover {
+                                        cursor: pointer;
+                                    }
+                                    .row {
+                                        margin: 0 0 !important;
+                                    }
                                     .btnsContainer {
                                         display: flex;
                                         margin-bottom: 20px;
-                                        justify-content: space-between;
+                                        justify-content: space-around;
                                         padding: 0 2rem;
                                     }
                                     .button {
-                                        background-color: #25476a;
+                                        background-color: $primaryColor;
                                         color: white;
                                     }
                                 }
                                 
+                                #addCustomerModal {
+                                    input {
+                                        border: none;
+                                        outline: none;
+                                        background-color: #E8E8E8;
+                                        padding: .5rem;
+                                    }
+                                }
+                                
+                                ////////////////////////////////////////////////
                                 @media (max-width: 2250px) {
                                     .barcode {
                                         width: 41% !important;

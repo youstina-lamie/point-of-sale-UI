@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="mt-3 row d-flex justify-content-center ">
-                    <div id="addCustomer" class="add-user col-lg-5  col-md-5 ">
+                    <div id="addCustomer" class="add-user col-lg-5  col-md-5 " onclick="addCustomer()">
                         <img class="icon " src="./assets/add-user.png " alt=" ">
                         <p class="label ">Add Customer</p>
                     </div>
@@ -394,7 +394,7 @@
         <!-- Modal content -->
         <div class="modal-content">
             <div class="modal-header">
-                <!-- <p>Add Discount</p> -->
+                <p style=" font-size: 1rem;  font-weight: bold;">Add Discount</p>
                 <p class="close">&times;</p>
             </div>
             <!-- <form method=""> -->
@@ -406,6 +406,77 @@
                 <div type="" class="btn button" onclick="applyDiscount()">Apply</div>
             </div>
             <!-- </form> -->
+        </div>
+    </div>
+
+    <!-- add customer modal -->
+    <div id="addCustomerModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <p style=" font-size: 1rem;  font-weight: bold;">New Customer</p>
+                <p class="close" onclick="cancelModal()">&times;</p>
+            </div>
+
+            <form method="">
+                <div style="padding: 20px; height:40vh; ">
+                    <div class="row margin-bottom">
+
+                        <div class="col-lg-6">
+                            <div class="margin-bottom">
+                                <label for="name" style="float: left;">Name</label>
+                                <input type="text" name="name" id="name" style="display: block; width:100%" placeholder="Name">
+                            </div>
+                            <div class="margin-bottom">
+                                <div class="column-six">
+                                    <label for="building" style="float: left;">Building</label>
+                                    <input type="text" name="building" id="building" style="display: block; width:100%" placeholder="Building">
+                                </div>
+                                <div class="column-six">
+                                    <label for="street" style="float: left;">Street</label>
+                                    <input type="text" name="street" id="street" style="display: block; width:100%" placeholder="Street">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="margin-bottom">
+                                <label for="phone" style="float: left;">Phone</label>
+                                <input type="tel" phone="phone" id="phone" style="display: block; width:100%" placeholder="Phone">
+                            </div>
+                            <div class="margin-bottom">
+                                <div class="column-six">
+                                    <label for="floor" style="float: left;">Floor</label>
+                                    <input type="text" name="floor" id="floor" style="display: block; width:100%" placeholder="Floor">
+                                </div>
+                                <div class="column-six">
+                                    <label for="apartment" style="float: left;">Apartment</label>
+                                    <input type="text" name="apartment" id="apartment" style="display: block; width:100%" placeholder="Apartment">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="margin-bottom">
+                                <label for="note" style="float: left;">Note</label>
+                                <input type="text" note="note" id="note" style="display: block; width:100%" placeholder="Note">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width: 100%;">
+
+                <div class="btnsContainer offset-9 col-lg-3 ">
+
+                    <div class="btn button" onclick="createCustomer()">Create</div>
+                    <div class="btn button" onclick="cancelModal()">Cancel</div>
+
+                </div>
+
+
+            </form>
         </div>
     </div>
 
@@ -862,7 +933,6 @@
                 let discountEGP = (discountValue / 100) * total;
                 let totalAfteriscount = total - discountEGP;
 
-                // $(').html(' ');
                 $('#discount').html(`${discountEGP.toFixed(2)}`);
                 $('#discountValue').html(`${discountValue}`);
                 $('#charge').html(totalAfteriscount.toFixed(2));
@@ -870,6 +940,26 @@
             $('#myModal').css('display', 'none');
 
 
+        }
+
+        // open add customer modal
+        function addCustomer() {
+            $('#addCustomerModal').css('display', 'block');
+        }
+
+        function cancelModal() {
+            $('input').val('');
+            $('#addCustomerModal').css('display', 'none');
+        }
+
+        function createCustomer() {
+
+            let customerName = $('#addCustomerModal #name').val();
+            if (customerName !== "") {
+                $('#addCustomer').html(`<img class="icon " src="./assets/user-added.png " alt=" "> <p class="label ">${customerName}</p>`)
+                $('#addCustomerModal').css('display', 'none');
+
+            }
         }
     </script>
 
