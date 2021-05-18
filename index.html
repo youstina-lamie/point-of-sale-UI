@@ -948,7 +948,7 @@
         }
 
         function cancelModal() {
-            $('input').val('');
+            $('#addCustomerModal input').val('');
             $('#addCustomerModal').css('display', 'none');
         }
 
@@ -964,7 +964,7 @@
 
         function deleteCustomer(e) {
             e.stopPropagation();
-            $('input').val('');
+            $('#addCustomerModal input').val('');
             $('#addCustomer').html(`<img class="icon " src="./assets/add-user.png " alt=" "> <p class="label ">Add Customer</p>`);
 
         }
