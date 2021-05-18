@@ -66,6 +66,7 @@
                                         .cheque {
                                             height: 50vh;
                                             overflow-y: auto;
+                                            overflow-x: hidden;
                                             margin: auto;
                                             margin-bottom: .5rem;
                                             margin-top: 1rem;
@@ -108,6 +109,15 @@
                                                             text-align: center;
                                                             border-top-left-radius: 10px;
                                                             border-bottom-left-radius: 10px;
+                                                            input[type=number]::-webkit-inner-spin-button {
+                                                                -webkit-appearance: none;
+                                                            }
+                                                            input {
+                                                                border: none;
+                                                                padding-left: .5rem;
+                                                                outline: none;
+                                                                background-color: transparent;
+                                                            }
                                                         }
                                                         .arrow-up {
                                                             background-color: $primaryColor;

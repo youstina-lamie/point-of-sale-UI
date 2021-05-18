@@ -83,7 +83,7 @@
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
-                            <div class="no">1</div>
+                            <div class="no"><input type="number" value="1" min="1" oninput="changeQuantityInput(event)"></div>
                             <div class="arrow-up"><i class="fas fa-chevron-up"></i></div>
                             <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
                         </div>
@@ -99,7 +99,7 @@
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
-                            <div class="no">2</div>
+                            <div class="no"><input type="number" value="2" min="1" oninput="changeQuantityInput(event)"></div>
                             <div class="arrow-up"><i class="fas fa-chevron-up"></i></div>
                             <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
                         </div>
@@ -115,7 +115,7 @@
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
-                            <div class="no">3</div>
+                            <div class="no"><input type="number" value="3" min="1" oninput="changeQuantityInput(event)"></div>
                             <div class="arrow-up"><i class="fas fa-chevron-up"></i></div>
                             <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
                         </div>
@@ -131,7 +131,7 @@
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
-                            <div class="no">4</div>
+                            <div class="no"><input type="number" value="4" min="1" oninput="changeQuantityInput(event)"></div>
                             <div class="arrow-up"><i class="fas fa-chevron-up"></i></div>
                             <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
                         </div>
@@ -503,7 +503,7 @@
             const taxesPercentage = 14 / 100;
 
             $('.cheque > .order').each(function(index, order) {
-                let quantity = +$(order).children(".order-details").children('.count').children('.no')[0].textContent;
+                let quantity = +$(order).children(".order-details").children('.count').children('.no').children().val();
                 let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
                 let totalPriceOfOneOrder = quantity * pricePerOne;
                 subtotal += totalPriceOfOneOrder;
@@ -511,9 +511,9 @@
             let taxes = subtotal * taxesPercentage;
             let discEGP = +$('#discount').html();
             $('#taxes').html(taxes.toFixed(2));
-            $('#subtotal').html(subtotal);
-            $('#total').html(subtotal + taxes);
-            $('#charge').html(subtotal + taxes - discEGP);
+            $('#subtotal').html(subtotal.toFixed(2));
+            $('#total').html((subtotal + taxes).toFixed(2));
+            $('#charge').html((subtotal + taxes - discEGP).toFixed(2));
 
 
 
@@ -550,9 +550,9 @@
 
             // increase count
             $('.arrow-up').click(function(e) {
-                let count = +($(e.target).closest('.count').children('.no')[0].textContent)
+                let count = +($(e.target).closest('.count').children('.no').children().val());
                 count++;
-                $(e.target).closest('.count').children('.no').html(count);
+                $(e.target).closest('.count').children('.no').children().val(count);
                 let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
                 let subtootal = +$('#subtotal').html();
                 subtootal += price;
@@ -576,10 +576,10 @@
 
             // decrease count
             $('.arrow-down').click(function(e) {
-                let count = +($(e.target).closest('.count').children('.no')[0].textContent)
+                let count = +($(e.target).closest('.count').children('.no').children().val())
                 count--;
                 if (count >= 0) {
-                    $(e.target).closest('.count').children('.no').html(count);
+                    $(e.target).closest('.count').children('.no').children().val(count);
                     let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
 
                     let subtootal = +$('#subtotal').html();
@@ -741,7 +741,7 @@
             const taxesPercentage = 14 / 100;
 
             let price = +$(e.target).closest('.order').children(".order-details").children('.price')[0].textContent.split(' ')[0];
-            let quantity = +$(e.target).closest('.order').children(".order-details").children('.count').children('.no')[0].textContent;
+            let quantity = +$(e.target).closest('.order').children(".order-details").children('.count').children('.no').children().val();
             let PriceOfItemDeleted = price * quantity;
             let subtotal = +$('#subtotal').html();
             subtotal -= PriceOfItemDeleted;
@@ -767,9 +767,9 @@
         function increaseQuantity(e) {
             const taxesPercentage = 14 / 100;
 
-            let count = +($(e.target).closest('.count').children('.no')[0].textContent)
+            let count = +($(e.target).closest('.count').children('.no').children().val())
             count++;
-            $(e.target).closest('.count').children('.no').html(count);
+            $(e.target).closest('.count').children('.no').children().val(count);
             let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
             let subtootal = +$('#subtotal').html();
             subtootal += price;
@@ -795,10 +795,10 @@
         function decreaseQuantity(e) {
             const taxesPercentage = 14 / 100;
 
-            let count = +($(e.target).closest('.count').children('.no')[0].textContent)
+            let count = +($(e.target).closest('.count').children('.no').children().val())
             count--;
             if (count >= 0) {
-                $(e.target).closest('.count').children('.no').html(count);
+                $(e.target).closest('.count').children('.no').children().val(count);
                 let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
 
                 let subtootal = +$('#subtotal').html();
@@ -842,17 +842,17 @@
                 let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
                 let descriptioperOne = $(order).children(".order-details").children('.order-info')[0].textContent;
                 if (description === descriptioperOne && priceAddItem === pricePerOne) {
-                    quantityIfExist = +$(order).children(".order-details").children('.count').children('.no')[0].textContent;
+                    quantityIfExist = +$(order).children(".order-details").children('.count').children('.no').children().val();
                     thisTypeIsEXIST = true;
                     quantityIfExist++;
-                    $(order).children(".order-details").children('.count').children('.no')[0].textContent = quantityIfExist;
+                    $(order).children(".order-details").children('.count').children('.no').children().val(quantityIfExist);
 
 
                     subtotal += priceAddItem;
                     let taxes = subtotal * taxesPercentage;
 
                     $('#subtotal').html(subtotal);
-                    $('#taxes').html(taxes.toFixed(2))
+                    $('#taxes').html(taxes.toFixed(2));
                     $('#total').html(subtotal + taxes);
                     // $('#charge').html(subtotal + taxes);
                     let discountValue = +$('#discountValue').html();
@@ -873,7 +873,7 @@
                             <div class="order-details ">
                                 <div class="order-info">${description}</div>
                                 <div class="count">
-                                    <div class="no">1</div>
+                                    <div class="no"><input type="number" value="1" min="1" oninput="changeQuantityInput(event)"></div>
                                     <div class="arrow-up" onclick="increaseQuantity(event)"><i class="fas fa-chevron-up"></i></div>
                                     <div class="arrow-down" onclick="decreaseQuantity(event)"><i class="fas fa-chevron-down"></i></div>
                                 </div>
@@ -968,8 +968,34 @@
             $('#addCustomer').html(`<img class="icon " src="./assets/add-user.png " alt=" "> <p class="label ">Add Customer</p>`);
 
         }
+
+
+        function changeQuantityInput(e) {
+            if (e.target.value) {
+                let subtotal = 0;
+                const taxesPercentage = 14 / 100;
+
+                // console.log(e.target.value)
+                $('.cheque > .order').each(function(index, order) {
+                    let quantity = +$(order).children(".order-details").children('.count').children('.no').children().val();
+                    let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
+                    let totalPriceOfOneOrder = quantity * pricePerOne;
+                    subtotal += totalPriceOfOneOrder;
+                });
+                let taxes = subtotal * taxesPercentage;
+                let discEGP = +$('#discount').html();
+                $('#taxes').html(taxes.toFixed(2));
+                $('#subtotal').html(subtotal.toFixed(2));
+                $('#total').html((subtotal + taxes).toFixed(2));
+                $('#charge').html((subtotal + taxes - discEGP).toFixed(2));
+
+
+            }
+        }
     </script>
 
 </body>
+
+</html>
 
 </html>
