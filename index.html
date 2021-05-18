@@ -956,10 +956,17 @@
 
             let customerName = $('#addCustomerModal #name').val();
             if (customerName !== "") {
-                $('#addCustomer').html(`<img class="icon " src="./assets/user-added.png " alt=" "> <p class="label ">${customerName}</p>`)
+                $('#addCustomer').html(`<img class="icon " src="./assets/user-added.png " alt=" "> <p class="label ">${customerName}</p> <p onclick="deleteCustomer(event)" class="close">&times;</p>`)
                 $('#addCustomerModal').css('display', 'none');
 
             }
+        }
+
+        function deleteCustomer(e) {
+            e.stopPropagation();
+            $('input').val('');
+            $('#addCustomer').html(`<img class="icon " src="./assets/add-user.png " alt=" "> <p class="label ">Add Customer</p>`);
+
         }
     </script>
 
