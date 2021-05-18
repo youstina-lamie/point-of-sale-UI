@@ -975,7 +975,7 @@
                 let subtotal = 0;
                 const taxesPercentage = 14 / 100;
 
-                // console.log(e.target.value)
+
                 $('.cheque > .order').each(function(index, order) {
                     let quantity = +$(order).children(".order-details").children('.count').children('.no').children().val();
                     let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
@@ -983,11 +983,19 @@
                     subtotal += totalPriceOfOneOrder;
                 });
                 let taxes = subtotal * taxesPercentage;
-                let discEGP = +$('#discount').html();
+
+
+                let discountValue = +$('#discountValue').html();
+                let discountEGP = (discountValue / 100) * (subtotal + taxes);
+                let totalAfteriscount = (subtotal + taxes) - discountEGP;
+
+                $('#discount').html(`${discountEGP.toFixed(2)}`);
+
                 $('#taxes').html(taxes.toFixed(2));
                 $('#subtotal').html(subtotal.toFixed(2));
                 $('#total').html((subtotal + taxes).toFixed(2));
-                $('#charge').html((subtotal + taxes - discEGP).toFixed(2));
+                $('#charge').html(totalAfteriscount.toFixed(2));
+
 
 
             }
