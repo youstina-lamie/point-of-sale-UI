@@ -176,7 +176,6 @@
                 <p>subtotal</p>
                 <p><span id="subtotal"></span> EGP</p>
             </div>
-
             <div class="row total-cheque ">
                 <p>taxes</p>
                 <p><span id="taxes"></span> EGP</p>
@@ -602,63 +601,63 @@
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container  " style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 1</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">1</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container" style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 2</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">2</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container  " style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 3</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">3</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container" style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 4</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">4</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container  " style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 5</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">5</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container" style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 6</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">6</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container  " style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 7</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">7</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container" style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 8</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">8</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
                 <div class="table" onclick="reserveTable(event)">
                     <div class="middle-icon-container" style="width: 8rem;">
                         <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="icon-name ">Table No : 9</p>
+                        <p class="icon-name ">Table No : <span class="tableNo">9</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3">Available</span>
                 </div>
@@ -1165,13 +1164,19 @@
             function reserveTable(e) {
 
                 let table = $(e.target).closest('.table')[0];
+                let tableNo = $(e.target).closest('.table').children().children().children('.tableNo')[0].textContent;
+
                 if ($(table).children().hasClass('bg-success')) {
                     $(table).children('.badge').removeClass('bg-success').addClass('bg-danger');
                     $(table).children('.badge').html('Reserved');
+                    $('#Tables').html(` <img class="icon " src="./assets/chair.png " alt=" "> <p class="label "> NO : <span class='reservedtableNo'>${tableNo}</span></p><p onclick="deleteCustomerOrDeliverMan(event,'table')" class="close">&times;</p>`);
+                    $('#tablesModal').css('display', 'none');
 
                 } else {
                     $(table).children('.badge').removeClass('bg-danger').addClass('bg-success');
                     $(table).children('.badge').html('Available');
+                    $('#Tables').html(` <img class="icon " src="./assets/chair.png " alt=" "> <p class="label ">Tables</p>`);
+
                 }
 
             }
@@ -1253,6 +1258,20 @@
                     case 'deliveryMan':
                         $('#deliveryManModal select').val('none');
                         $('.secondOptionDelivery').html(`<img class="icon " src="./assets/delivery-man.png " alt=" "> <p class="label ">Delivery Man</p> `);
+                        break;
+
+                    case 'table':
+                        // console.log($('.reservedtableNo')[0].textContent)
+                        let reservedTableNo = +$('.reservedtableNo')[0].textContent;
+                        $('.table').each(function(index, ele) {
+
+                            if (reservedTableNo === index + 1) {
+                                $(ele).children('.badge').removeClass('bg-danger').addClass('bg-success');
+                                $(ele).children('.badge').html('Available');
+                            }
+
+                        })
+                        $('#Tables').html(` <img class="icon " src="./assets/chair.png " alt=" "> <p class="label ">Tables</p>`);
                         break;
                     default:
                 }
