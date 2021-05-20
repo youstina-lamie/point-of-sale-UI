@@ -63,13 +63,21 @@
                                         .selected {
                                             background-color: #E8E8E8;
                                         }
+                                        .display-flex {
+                                            display: flex;
+                                            justify-content: center;
+                                            flex-wrap: wrap;
+                                        }
+                                        .display-none {
+                                            display: none;
+                                        }
                                         .cheque {
-                                            height: 50vh;
+                                            height: 40vh;
                                             overflow-y: auto;
                                             overflow-x: hidden;
                                             margin: auto;
                                             margin-bottom: .5rem;
-                                            margin-top: 1rem;
+                                            margin-top: .5rem;
                                             .order {
                                                 color: $lightFontColor;
                                                 display: flex;
@@ -196,7 +204,7 @@
                                             padding: 1rem;
                                             line-height: .5;
                                             justify-content: space-between;
-                                            margin-top: 1.5rem;
+                                            margin-top: 1rem;
                                         }
                                         .footer {
                                             position: fixed;
@@ -480,6 +488,31 @@
                                     }
                                 }
                                 
+                                .table {
+                                    margin-top: 1rem;
+                                    transition: 1s;
+                                    cursor: pointer;
+                                    display: inline-block;
+                                    text-align: center;
+                                }
+                                
+                                 ::-webkit-scrollbar {
+                                    width: 6px;
+                                }
+                                
+                                 ::-webkit-scrollbar-track {
+                                    background: #f1f1f1;
+                                }
+                                
+                                 ::-webkit-scrollbar-thumb {
+                                    background: $primaryColor;
+                                    border-radius: 1rem;
+                                }
+                                
+                                 ::-webkit-scrollbar-thumb:hover {
+                                    background: rgba(202, 42, 1, .5);
+                                }
+                                
                                 #addCustomerModal {
                                     input {
                                         border: none;
@@ -510,7 +543,7 @@
                                         margin-top: 15rem !important;
                                     }
                                     .cheque {
-                                        height: 30vh !important;
+                                        height: 25vh !important;
                                     }
                                 }
                                 
@@ -644,7 +677,6 @@
                                                         }
                                                     }
                                                     .count {
-                                                        // width: 20%;
                                                         .no {
                                                             width: 1.2rem;
                                                         }

@@ -84,13 +84,28 @@
   background-color: #E8E8E8;
 }
 
+.main-wrapper .middle-section .display-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main-wrapper .middle-section .display-none {
+  display: none;
+}
+
 .main-wrapper .middle-section .cheque {
-  height: 50vh;
+  height: 40vh;
   overflow-y: auto;
   overflow-x: hidden;
   margin: auto;
   margin-bottom: .5rem;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 .main-wrapper .middle-section .cheque .order {
@@ -259,7 +274,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .main-wrapper .middle-section .footer {
@@ -622,6 +637,32 @@
   color: white;
 }
 
+.table {
+  margin-top: 1rem;
+  -webkit-transition: 1s;
+  transition: 1s;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d19710;
+  border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(202, 42, 1, 0.5);
+}
+
 #addCustomerModal input {
   border: none;
   outline: none;
@@ -649,7 +690,7 @@
     margin-top: 15rem !important;
   }
   .cheque {
-    height: 30vh !important;
+    height: 25vh !important;
   }
 }
 

@@ -47,7 +47,7 @@
 
             <section>
                 <div class="row mt-3 d-flex justify-content-center flex-wrap ">
-                    <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3">
+                    <div id="dineIn" class="middle-icon-container  col-lg-3 col-md-3">
                         <img class=" icon " src="./assets/fork.png " alt=" ">
                         <p class="icon-name ">Dine Inn</p>
                     </div>
@@ -61,16 +61,49 @@
                     </div>
                 </div>
 
-                <div class="mt-3 row d-flex justify-content-center ">
-                    <div id="addCustomer" class="add-user col-lg-5  col-md-5 " onclick="addCustomer()">
-                        <img class="icon " src="./assets/add-user.png " alt=" ">
-                        <p class="label ">Add Customer</p>
+                <div class=" mt-3 ">
+                    <div id="dineInOptions" class="row display-flex display-none">
+                        <div id="addCustomer" class="add-user col-lg-5 col-md-5 firstOptionDineIn" onclick="openModal('addCustomer')">
+                            <img class="icon " src="./assets/add-user.png " alt=" ">
+                            <p class="label ">Add Customer</p>
+                        </div>
+                        <div id="Tables" class="add-user selected col-lg-5 col-md-5 offset-1 secondOptionDineIn" onclick="openModal('tables')">
+                            <img class="icon " src="./assets/chair.png " alt=" ">
+                            <p class="label ">Tables</p>
+                        </div>
                     </div>
-                    <div id="noTable" class="add-user selected col-lg-5 col-md-5 offset-1 ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
-                        <p class="label ">No table</p>
+
+                    <!-- second option -->
+                    <div id="toGoOptions" class="row display-flex ">
+                        <div id="addCustomer" class="add-user col-lg-5  col-md-5 firstOptiontoGo" onclick="openModal('addCustomer')">
+                            <img class="icon " src="./assets/add-user.png " alt=" ">
+                            <p class="label ">Add Customer</p>
+                        </div>
+                        <div id="noTable" class="add-user selected col-lg-5 col-md-5 offset-1 secondOptiontoGo">
+                            <img class="icon " src="./assets/chair.png " alt=" ">
+                            <p class="label ">7aga tanya </p>
+                        </div>
+                    </div>
+
+                    <!-- third -->
+                    <div id="deliveryOptions" class="row display-flex display-none">
+                        <div id="addCustomer" class="add-user col-lg-5  col-md-5 firstOptionDelivery" onclick="openModal('addCustomer')">
+                            <img class="icon " src="./assets/add-user.png " alt=" ">
+                            <p class="label ">Add Customer</p>
+                        </div>
+                        <div class="add-user col-lg-5 col-md-5 offset-1 secondOptionDelivery " onclick="openModal('deliveryMan')">
+                            <img class="icon " src="./assets/delivery-man.png " alt=" ">
+                            <p class="label ">Delviery Man</p>
+                        </div>
+                        <div class="add-user selected col-lg-5 col-md-5 offset-1 thirdOptionDelivery" onclick="openModal('shippingArea')" style="margin-top: 1rem;">
+                            <img class="icon " src="./assets/location.png " alt=" ">
+                            <p class="label ">Shipping Area </p>
+                        </div>
                     </div>
                 </div>
+
+
+
 
             </section>
             <div class="cheque ">
@@ -165,19 +198,14 @@
 
             <div class=" footer row mt-3 d-flex justify-content-center flex-wrap ">
                 <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3" style="background-color: #FDDBDF; color: #f37685; " onclick="discard()">
-                    <!-- <img class=" icon " src="./assets/trash-bin.png" alt=" "> -->
                     <span style="font-size: 1.8rem;"><i class="far fa-trash-alt"></i></span>
                     <p class="icon-name">Discard</p>
                 </div>
-                <div id="toGo" class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 " onclick="addDiscount()" style="background-color: #FCDC7B; color: #fcbd02;">
-                    <!-- <i class="fas fa-print"></i> -->
+                <div id="toGo" class="middle-icon-container food-selected col-lg-3 col-md-3 offset-1 " onclick="openModal('discount')" style="background-color: #FCDC7B; color: #fcbd02;">
                     <span style="font-size: 1.8rem;"><i class="fas fa-hand-holding-usd"></i></span>
-                    <!-- <img class="icon " src="./assets/Group 97.png " alt=" "> -->
                     <p class="icon-name ">Discount</p>
                 </div>
                 <div id="delivery" class="middle-icon-container  col-lg-3 offset-1 col-md-3" style="background-color: #DAE6F3; color: #74afee; ">
-
-                    <!-- <img class="icon " src="./assets/delivery-man.png " alt=" "> -->
                     <span style="font-size: 1.8rem;"><i class="fas fa-print"></i></span>
                     <p class="icon-name ">Print</p>
                 </div>
@@ -389,23 +417,28 @@
 
 
 
-    <!-- The Modal -->
-    <div id="myModal" class="modal">
-        <!-- Modal content -->
+    <!-- discount modal -->
+    <div id="discountModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
                 <p style=" font-size: 1rem;  font-weight: bold;">Add Discount</p>
-                <p class="close">&times;</p>
+                <p class="close" onclick="cancelModal('discount')">&times;</p>
             </div>
-            <!-- <form method=""> -->
-            <!-- <hr style="width: 100%;"> -->
+            <form method="">
+                <div style="padding: 20px; height:10vh; ">
+                    <div class="row margin-bottom">
 
-            <div class="btnsContainer">
-                <input id="discountInput" type="number" placeholder="Enter a Discount Value without %" style="width:90%;">
+                        <input id="discountInput" type="number" placeholder="Enter a Discount Value without %" style="width:90%;">
 
-                <div type="" class="btn button" onclick="applyDiscount()">Apply</div>
-            </div>
-            <!-- </form> -->
+                    </div>
+                </div>
+                <hr style="width: 100%;">
+
+                <div class="btnsContainer offset-9 col-lg-3 ">
+                    <div class="btn button" onclick="applyDiscount()">Apply Dicount</div>
+                    <div class="btn button" onclick="cancelModal('discount')">Cancel</div>
+                </div>
+            </form>
         </div>
     </div>
 
@@ -415,7 +448,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <p style=" font-size: 1rem;  font-weight: bold;">New Customer</p>
-                <p class="close" onclick="cancelModal()">&times;</p>
+                <p class="close" onclick="cancelModal('addCustomer')">&times;</p>
             </div>
 
             <form method="">
@@ -471,7 +504,7 @@
                 <div class="btnsContainer offset-9 col-lg-3 ">
 
                     <div class="btn button" onclick="createCustomer()">Create</div>
-                    <div class="btn button" onclick="cancelModal()">Cancel</div>
+                    <div class="btn button" onclick="cancelModal('addCustomer')">Cancel</div>
 
                 </div>
 
@@ -480,118 +513,261 @@
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-    <script>
-        $(document).ready(function() {
-            let grid = $('.grid').isotope({
-                // options
-                itemSelector: '.grid-item',
-                layoutMode: 'fitRows'
-            });
-            let card = $('.cardContainer').isotope({
-                // options
-                itemSelector: '.card',
-                layoutMode: 'fitRows'
-            });
-            grid.isotope({
-                filter: '.grill'
-            })
+    <!-- delivery man modal -->
+    <div id="deliveryManModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <p style=" font-size: 1rem;  font-weight: bold;">Delivery Man</p>
+                <p class="close" onclick="cancelModal('deliveryMan')">&times;</p>
+            </div>
 
-            // subtotal in the first time
-            let subtotal = 0;
-            const taxesPercentage = 14 / 100;
+            <form method="">
+                <div style="padding: 20px; height:10vh; ">
+                    <div class="row margin-bottom">
+                        <label for="deliveryMan" class="mr-2"> Choose Delivery Man:  </label>
+                        <select name="" id="deliveryMan">
+                            <option value="none">....</option>
+                            <option value="Ahmed">Ahmed</option>
+                            <option value="Omar">Omar</option>
+                            <option value="Mohammed">Mohammed</option>
+                            <option value="Said">Said</option>
+                        </select>
 
-            $('.cheque > .order').each(function(index, order) {
-                let quantity = +$(order).children(".order-details").children('.count').children('.no').children().val();
-                let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
-                let totalPriceOfOneOrder = quantity * pricePerOne;
-                subtotal += totalPriceOfOneOrder;
-            });
-            let taxes = subtotal * taxesPercentage;
-            let discEGP = +$('#discount').html();
-            $('#taxes').html(taxes.toFixed(2));
-            $('#subtotal').html(subtotal.toFixed(2));
-            $('#total').html((subtotal + taxes).toFixed(2));
-            $('#charge').html((subtotal + taxes - discEGP).toFixed(2));
+                    </div>
+                </div>
+                <hr style="width: 100%;">
+
+                <div class="btnsContainer offset-9 col-lg-3 ">
+                    <div class="btn button" onclick="addDeliveryMan()">Add</div>
+                    <div class="btn button" onclick="cancelModal('deliveryMan')">Cancel</div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- shipping area modal -->
+    <div id="shippingAreaModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <p style=" font-size: 1rem;  font-weight: bold;">Shipping Area</p>
+                <p class="close" onclick="cancelModal('shippingArea')">&times;</p>
+            </div>
+
+            <form method="">
+                <div style="padding: 20px; height:50vh; ">
+                    <div class="row">
+                        <label for="deliveryMan" class="mr-2"> Choose Shipping Area:  </label>
+                        <select name="" id="deliveryMan">
+                            <option value="none">....</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+
+                    </div>
+                    <div class="row ">
+                        <div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3451.8816628404284!2d31.378890315070755!3d30.09757528186296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458153889a2ca3f%3A0xab4b81ddc8527316!2sOncreation%20Business%20Solutions!5e0!3m2!1sen!2seg!4v1621506402939!5m2!1sen!2seg"
+                                width="1020" height="330" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                        </div>
+
+                    </div>
+                </div>
+                <hr style="width: 100%;">
+
+                <div class="btnsContainer offset-9 col-lg-3 ">
+                    <div class="btn button" onclick="addDeliveryMan()">Done</div>
+                    <div class="btn button" onclick="cancelModal('shippingArea')">Cancel</div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- tables modal -->
+    <div id="tablesModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <p style=" font-size: 1rem;  font-weight: bold;">Tables</p>
+                <p class="close" onclick="cancelModal('tables')">&times;</p>
+            </div>
+
+            <div style="padding: 40px; height:50vh;overflow-x: hidden; overflow-y: auto; display:grid;grid-gap: 1rem 1rem; grid-template-columns: repeat(auto-fit, minmax(8rem, 8rem)); ">
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container  " style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 1</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container" style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 2</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container  " style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 3</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container" style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 4</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container  " style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 5</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container" style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 6</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container  " style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 7</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container" style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 8</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+                <div class="table" onclick="reserveTable(event)">
+                    <div class="middle-icon-container" style="width: 8rem;">
+                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <p class="icon-name ">Table No : 9</p>
+                    </div>
+                    <span class="badge rounded-pill bg-success mt-3">Available</span>
+                </div>
+
+
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+        <script>
+            $(document).ready(function() {
+                let grid = $('.grid').isotope({
+                    // options
+                    itemSelector: '.grid-item',
+                    layoutMode: 'fitRows'
+                });
+                let card = $('.cardContainer').isotope({
+                    // options
+                    itemSelector: '.card',
+                    layoutMode: 'fitRows'
+                });
+                grid.isotope({
+                    filter: '.grill'
+                })
+
+                // subtotal in the first time
+                let subtotal = 0;
+                const taxesPercentage = 14 / 100;
+
+                $('.cheque > .order').each(function(index, order) {
+                    let quantity = +$(order).children(".order-details").children('.count').children('.no').children().val();
+                    let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
+                    let totalPriceOfOneOrder = quantity * pricePerOne;
+                    subtotal += totalPriceOfOneOrder;
+                });
+                let taxes = subtotal * taxesPercentage;
+                let discEGP = +$('#discount').html();
+                $('#taxes').html(taxes.toFixed(2));
+                $('#subtotal').html(subtotal.toFixed(2));
+                $('#total').html((subtotal + taxes).toFixed(2));
+                $('#charge').html((subtotal + taxes - discEGP).toFixed(2));
 
 
 
 
-            // choose Dine In or take away or deliver
-            $('#dineIn').click(function(e) {
-                $(this).addClass("food-selected").siblings().removeClass("food-selected");
-                $('#dineIn img').attr('src', './assets/fork-white.png ')
-                $('#toGo img').attr('src', './assets/take-away.png ')
-                $('#delivery img').attr('src', './assets/delivery-man.png ')
-            })
-            $('#toGo').click(function(e) {
-                $(this).addClass("food-selected").siblings().removeClass("food-selected");
-                $('#dineIn img').attr('src', './assets/fork.png ')
-                $('#toGo img').attr('src', './assets/take-away-white.png ')
-                $('#delivery img').attr('src', './assets/delivery-man.png ')
-            })
-            $('#delivery').click(function(e) {
-                $(this).addClass("food-selected").siblings().removeClass("food-selected");
-                $('#dineIn img').attr('src', './assets/fork.png ')
-                $('#toGo img').attr('src', './assets/take-away.png ')
-                $('#delivery img').attr('src', './assets/delivery-man-white.png ')
-            })
+                // choose Dine In or take away or deliver
+                $('#dineIn').click(function(e) {
+                    $(this).addClass("food-selected").siblings().removeClass("food-selected");
+                    $('#dineInOptions').removeClass('display-none').siblings().addClass('display-none');
+                    $('#dineIn img').attr('src', './assets/fork-white.png ')
+                    $('#toGo img').attr('src', './assets/take-away.png ')
+                    $('#delivery img').attr('src', './assets/delivery-man.png ')
+                })
+                $('#toGo').click(function(e) {
+                    $(this).addClass("food-selected").siblings().removeClass("food-selected");
+                    $('#toGoOptions').removeClass('display-none').siblings().addClass('display-none');
+                    $('#dineIn img').attr('src', './assets/fork.png ')
+                    $('#toGo img').attr('src', './assets/take-away-white.png ')
+                    $('#delivery img').attr('src', './assets/delivery-man.png ')
+                })
+                $('#delivery').click(function(e) {
+                    $(this).addClass("food-selected").siblings().removeClass("food-selected");
+                    $('#deliveryOptions').removeClass('display-none').siblings().addClass('display-none');
+
+                    $('#dineIn img').attr('src', './assets/fork.png ')
+                    $('#toGo img').attr('src', './assets/take-away.png ')
+                    $('#delivery img').attr('src', './assets/delivery-man-white.png ')
+                })
 
 
-            // add customer or No table 
-            $('#addCustomer').click(function(e) {
-                $(this).addClass("selected").siblings().removeClass("selected");
-            })
-            $('#noTable').click(function(e) {
-                $(this).addClass("selected").siblings().removeClass("selected");
-            })
+                // add customer or No table 
+                $('.firstOptionDineIn').click(function(e) {
+                    $(this).addClass("selected").siblings().removeClass("selected");
+                })
+                $('.secondOptionDineIn').click(function(e) {
+                    $(this).addClass("selected").siblings().removeClass("selected");
+                })
+                $('.firstOptiontoGo').click(function(e) {
+                    $(this).addClass("selected").siblings().removeClass("selected");
+                })
+                $('.secondOptiontoGo').click(function(e) {
+                    $(this).addClass("selected").siblings().removeClass("selected");
+                })
+                $('.firstOptionDelivery').click(function(e) {
+                    $(this).addClass("selected").siblings().removeClass("selected");
+                })
+                $('.secondOptionDelivery').click(function(e) {
+                    $(this).addClass("selected").siblings().removeClass("selected");
+                })
+                $('.thirdOptionDelivery').click(function(e) {
+                    $(this).addClass("selected").siblings().removeClass("selected");
+                })
 
-
-            // increase count
-            $('.arrow-up').click(function(e) {
-                let count = +($(e.target).closest('.count').children('.no').children().val());
-                count++;
-                $(e.target).closest('.count').children('.no').children().val(count);
-                let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
-                let subtootal = +$('#subtotal').html();
-                subtootal += price;
-
-                let taaxes = subtootal * taxesPercentage;
-
-                $('#subtotal').html(subtootal);
-                $('#taxes').html(taaxes.toFixed(2));
-                $('#total').html(subtootal + taaxes);
-                // $('#charge').html(subtootal + taaxes);
-
-                let discountValue = +$('#discountValue').html();
-                if (discountValue !== 0) {
-                    let discountEGP = (discountValue / 100) * (subtootal + taaxes);
-                    let totalAfterdiscount = (subtootal + taaxes) - discountEGP;
-
-                    $('#discount ').html(`${discountEGP.toFixed(2)}`);
-                    $('#charge').html(totalAfterdiscount.toFixed(2));
-                }
-            })
-
-            // decrease count
-            $('.arrow-down').click(function(e) {
-                let count = +($(e.target).closest('.count').children('.no').children().val())
-                count--;
-                if (count >= 0) {
+                // increase count
+                $('.arrow-up').click(function(e) {
+                    let count = +($(e.target).closest('.count').children('.no').children().val());
+                    count++;
                     $(e.target).closest('.count').children('.no').children().val(count);
                     let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
-
                     let subtootal = +$('#subtotal').html();
-                    subtootal -= price;
+                    subtootal += price;
 
                     let taaxes = subtootal * taxesPercentage;
 
                     $('#subtotal').html(subtootal);
-
                     $('#taxes').html(taaxes.toFixed(2));
-                    $('#total').html(subtootal + taaxes)
-                        // $('#charge').html(subtootal + taaxes)
+                    $('#total').html(subtootal + taaxes);
+                    // $('#charge').html(subtootal + taaxes);
 
                     let discountValue = +$('#discountValue').html();
                     if (discountValue !== 0) {
@@ -601,217 +777,203 @@
                         $('#discount ').html(`${discountEGP.toFixed(2)}`);
                         $('#charge').html(totalAfterdiscount.toFixed(2));
                     }
+                })
 
+                // decrease count
+                $('.arrow-down').click(function(e) {
+                    let count = +($(e.target).closest('.count').children('.no').children().val())
+                    count--;
+                    if (count >= 0) {
+                        $(e.target).closest('.count').children('.no').children().val(count);
+                        let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
+
+                        let subtootal = +$('#subtotal').html();
+                        subtootal -= price;
+
+                        let taaxes = subtootal * taxesPercentage;
+
+                        $('#subtotal').html(subtootal);
+
+                        $('#taxes').html(taaxes.toFixed(2));
+                        $('#total').html(subtootal + taaxes)
+                            // $('#charge').html(subtootal + taaxes)
+
+                        let discountValue = +$('#discountValue').html();
+                        if (discountValue !== 0) {
+                            let discountEGP = (discountValue / 100) * (subtootal + taaxes);
+                            let totalAfterdiscount = (subtootal + taaxes) - discountEGP;
+
+                            $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                            $('#charge').html(totalAfterdiscount.toFixed(2));
+                        }
+
+                    }
+
+                })
+
+
+                // choose category
+                $('#grill').click(function(e) {
+                    $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                    $('#grill img').attr('src', './assets/grilling-white.png ');
+                    $('#pizza img').attr('src', './assets/pizza.png ');
+                    $('#fish img').attr('src', './assets/fish.png ');
+                    $('#soup img').attr('src', './assets/soup.png ');
+                    $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
+                    $('#dessert img').attr('src', './assets/ice-cream.png');
+                    grid.isotope({
+                        filter: '.grill'
+                    })
+                });
+                $('#pizza').click(function(e) {
+                    $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                    $('#grill img').attr('src', './assets/grilling.png ');
+                    $('#pizza img').attr('src', './assets/pizza-white.png ');
+                    $('#fish img').attr('src', './assets/fish.png ');
+                    $('#soup img').attr('src', './assets/soup.png ');
+                    $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
+                    $('#dessert img').attr('src', './assets/ice-cream.png');
+                    grid.isotope({
+                        filter: '.pizza'
+                    })
+                });
+                $('#fish').click(function(e) {
+                    $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                    $('#grill img').attr('src', './assets/grilling.png ');
+                    $('#pizza img').attr('src', './assets/pizza.png ');
+                    $('#fish img').attr('src', './assets/fish-white.png ');
+                    $('#soup img').attr('src', './assets/soup.png ');
+                    $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
+                    $('#dessert img').attr('src', './assets/ice-cream.png');
+                    grid.isotope({
+                        filter: '.fish'
+                    })
+                });
+                $('#soup').click(function(e) {
+                    $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                    $('#grill img').attr('src', './assets/grilling.png ');
+                    $('#pizza img').attr('src', './assets/pizza.png ');
+                    $('#fish img').attr('src', './assets/fish.png ');
+                    $('#soup img').attr('src', './assets/soup-white.png ');
+                    $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
+                    $('#dessert img').attr('src', './assets/ice-cream.png');
+                    grid.isotope({
+                        filter: '.soup'
+                    })
+                });
+                $('#italianFood').click(function(e) {
+                    $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                    $('#grill img').attr('src', './assets/grilling.png ');
+                    $('#pizza img').attr('src', './assets/pizza.png ');
+                    $('#fish img').attr('src', './assets/fish.png ');
+                    $('#soup img').attr('src', './assets/soup.png ');
+                    $('#italianFood img').attr('src', './assets/bucatini-carbonara-white.png ');
+                    $('#dessert img').attr('src', './assets/ice-cream.png');
+                    grid.isotope({
+                        filter: '.italianFood'
+                    });
+                })
+                $('#dessert').click(function(e) {
+                    $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                    $('#grill img').attr('src', './assets/grilling.png ');
+                    $('#pizza img').attr('src', './assets/pizza.png ');
+                    $('#fish img').attr('src', './assets/fish.png ');
+                    $('#soup img').attr('src', './assets/soup.png ');
+                    $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
+                    $('#dessert img').attr('src', './assets/ice-cream-white.png');
+                    grid.isotope({
+                        filter: '.dessert'
+                    });
+                })
+
+
+                // choose subcategory
+                $('#burger').click(function(e) {
+                    $(this).addClass("food-selected").siblings().removeClass("food-selected ");
+                    $('#burger img').attr('src', './assets/Outline-white.png  ');
+                    $('#seaFood img').attr('src', './assets/fish.png ');
+                    $('#meat img').attr('src', './assets/steak.png  ');
+                    $('#chicken img').attr('src', './assets/boiled.png');
+                    card.isotope({
+                        filter: '.grill'
+                    })
+                });
+                $('#seaFood').click(function(e) {
+                    $(this).addClass("food-selected").siblings().removeClass("food-selected ");
+                    $('#burger img').attr('src', './assets/Outline.png  ');
+                    $('#seaFood img').attr('src', './assets/fish-white.png ');
+                    $('#meat img').attr('src', './assets/steak.png  ');
+                    $('#chicken img').attr('src', './assets/boiled.png');
+                    card.isotope({
+                        filter: '.pizza'
+                    })
+                });
+                $('#meat').click(function(e) {
+                    $(this).addClass("food-selected").siblings().removeClass("food-selected ");
+                    $('#burger img').attr('src', './assets/Outline.png  ');
+                    $('#seaFood img').attr('src', './assets/fish.png ');
+                    $('#meat img').attr('src', './assets/steak-white.png  ');
+                    $('#chicken img').attr('src', './assets/boiled.png');
+                    card.isotope({
+                        filter: '.fish'
+                    })
+                });
+                $('#chicken').click(function(e) {
+                    $(this).addClass("food-selected").siblings().removeClass("food-selected ");
+                    $('#burger img').attr('src', './assets/Outline.png  ');
+                    $('#seaFood img').attr('src', './assets/fish.png ');
+                    $('#meat img').attr('src', './assets/steak.png  ');
+                    $('#chicken img').attr('src', './assets/boiled-white.png');
+                    card.isotope({
+                        filter: '.soup'
+                    })
+                });
+
+            });
+
+            function deleteItem(e) {
+                const taxesPercentage = 14 / 100;
+
+                let price = +$(e.target).closest('.order').children(".order-details").children('.price')[0].textContent.split(' ')[0];
+                let quantity = +$(e.target).closest('.order').children(".order-details").children('.count').children('.no').children().val();
+                let PriceOfItemDeleted = price * quantity;
+                let subtotal = +$('#subtotal').html();
+                subtotal -= PriceOfItemDeleted;
+
+                let taxes = subtotal * taxesPercentage;
+                $('#subtotal').html(subtotal);
+                $('#taxes').html(taxes.toFixed(2));
+                $('#total').html(subtotal + taxes);
+
+                $(e.target).closest('.order').remove();
+
+                // calculate discount
+                let discountValue = +$('#discountValue').html();
+                if (discountValue !== 0) {
+                    let discountEGP = (discountValue / 100) * (subtotal + taxes);
+                    let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+
+                    $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                    $('#charge').html(totalAfterdiscount.toFixed(2));
                 }
-
-            })
-
-
-            // choose category
-            $('#grill').click(function(e) {
-                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
-                $('#grill img').attr('src', './assets/grilling-white.png ');
-                $('#pizza img').attr('src', './assets/pizza.png ');
-                $('#fish img').attr('src', './assets/fish.png ');
-                $('#soup img').attr('src', './assets/soup.png ');
-                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
-                $('#dessert img').attr('src', './assets/ice-cream.png');
-                grid.isotope({
-                    filter: '.grill'
-                })
-            });
-            $('#pizza').click(function(e) {
-                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
-                $('#grill img').attr('src', './assets/grilling.png ');
-                $('#pizza img').attr('src', './assets/pizza-white.png ');
-                $('#fish img').attr('src', './assets/fish.png ');
-                $('#soup img').attr('src', './assets/soup.png ');
-                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
-                $('#dessert img').attr('src', './assets/ice-cream.png');
-                grid.isotope({
-                    filter: '.pizza'
-                })
-            });
-            $('#fish').click(function(e) {
-                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
-                $('#grill img').attr('src', './assets/grilling.png ');
-                $('#pizza img').attr('src', './assets/pizza.png ');
-                $('#fish img').attr('src', './assets/fish-white.png ');
-                $('#soup img').attr('src', './assets/soup.png ');
-                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
-                $('#dessert img').attr('src', './assets/ice-cream.png');
-                grid.isotope({
-                    filter: '.fish'
-                })
-            });
-            $('#soup').click(function(e) {
-                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
-                $('#grill img').attr('src', './assets/grilling.png ');
-                $('#pizza img').attr('src', './assets/pizza.png ');
-                $('#fish img').attr('src', './assets/fish.png ');
-                $('#soup img').attr('src', './assets/soup-white.png ');
-                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
-                $('#dessert img').attr('src', './assets/ice-cream.png');
-                grid.isotope({
-                    filter: '.soup'
-                })
-            });
-            $('#italianFood').click(function(e) {
-                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
-                $('#grill img').attr('src', './assets/grilling.png ');
-                $('#pizza img').attr('src', './assets/pizza.png ');
-                $('#fish img').attr('src', './assets/fish.png ');
-                $('#soup img').attr('src', './assets/soup.png ');
-                $('#italianFood img').attr('src', './assets/bucatini-carbonara-white.png ');
-                $('#dessert img').attr('src', './assets/ice-cream.png');
-                grid.isotope({
-                    filter: '.italianFood'
-                });
-            })
-            $('#dessert').click(function(e) {
-                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
-                $('#grill img').attr('src', './assets/grilling.png ');
-                $('#pizza img').attr('src', './assets/pizza.png ');
-                $('#fish img').attr('src', './assets/fish.png ');
-                $('#soup img').attr('src', './assets/soup.png ');
-                $('#italianFood img').attr('src', './assets/bucatini-carbonara.png ');
-                $('#dessert img').attr('src', './assets/ice-cream-white.png');
-                grid.isotope({
-                    filter: '.dessert'
-                });
-            })
-
-
-            // choose subategory
-            $('#burger').click(function(e) {
-                $(this).addClass("food-selected").siblings().removeClass("food-selected ");
-                $('#burger img').attr('src', './assets/Outline-white.png  ');
-                $('#seaFood img').attr('src', './assets/fish.png ');
-                $('#meat img').attr('src', './assets/steak.png  ');
-                $('#chicken img').attr('src', './assets/boiled.png');
-                card.isotope({
-                    filter: '.grill'
-                })
-            });
-            $('#seaFood').click(function(e) {
-                $(this).addClass("food-selected").siblings().removeClass("food-selected ");
-                $('#burger img').attr('src', './assets/Outline.png  ');
-                $('#seaFood img').attr('src', './assets/fish-white.png ');
-                $('#meat img').attr('src', './assets/steak.png  ');
-                $('#chicken img').attr('src', './assets/boiled.png');
-                card.isotope({
-                    filter: '.pizza'
-                })
-            });
-            $('#meat').click(function(e) {
-                $(this).addClass("food-selected").siblings().removeClass("food-selected ");
-                $('#burger img').attr('src', './assets/Outline.png  ');
-                $('#seaFood img').attr('src', './assets/fish.png ');
-                $('#meat img').attr('src', './assets/steak-white.png  ');
-                $('#chicken img').attr('src', './assets/boiled.png');
-                card.isotope({
-                    filter: '.fish'
-                })
-            });
-            $('#chicken').click(function(e) {
-                $(this).addClass("food-selected").siblings().removeClass("food-selected ");
-                $('#burger img').attr('src', './assets/Outline.png  ');
-                $('#seaFood img').attr('src', './assets/fish.png ');
-                $('#meat img').attr('src', './assets/steak.png  ');
-                $('#chicken img').attr('src', './assets/boiled-white.png');
-                card.isotope({
-                    filter: '.soup'
-                })
-            });
-
-
-
-            // close Modal
-            $('.close').click(function() {
-                $('#myModal').css('display', 'none');
-            })
-        });
-
-        // open modal
-        function addDiscount() {
-            $('#myModal').css('display', 'block');
-        }
-
-        function deleteItem(e) {
-            const taxesPercentage = 14 / 100;
-
-            let price = +$(e.target).closest('.order').children(".order-details").children('.price')[0].textContent.split(' ')[0];
-            let quantity = +$(e.target).closest('.order').children(".order-details").children('.count').children('.no').children().val();
-            let PriceOfItemDeleted = price * quantity;
-            let subtotal = +$('#subtotal').html();
-            subtotal -= PriceOfItemDeleted;
-
-            let taxes = subtotal * taxesPercentage;
-            $('#subtotal').html(subtotal);
-            $('#taxes').html(taxes.toFixed(2));
-            $('#total').html(subtotal + taxes);
-
-            $(e.target).closest('.order').remove();
-
-            // calculate discount
-            let discountValue = +$('#discountValue').html();
-            if (discountValue !== 0) {
-                let discountEGP = (discountValue / 100) * (subtotal + taxes);
-                let totalAfterdiscount = (subtotal + taxes) - discountEGP;
-
-                $('#discount ').html(`${discountEGP.toFixed(2)}`);
-                $('#charge').html(totalAfterdiscount.toFixed(2));
-            }
-        }
-
-        function increaseQuantity(e) {
-            const taxesPercentage = 14 / 100;
-
-            let count = +($(e.target).closest('.count').children('.no').children().val())
-            count++;
-            $(e.target).closest('.count').children('.no').children().val(count);
-            let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
-            let subtootal = +$('#subtotal').html();
-            subtootal += price;
-            let taxes = subtootal * taxesPercentage;
-
-            $('#subtotal').html(subtootal);
-            $('#taxes').html(taxes.toFixed(2));
-            $('#total').html(subtootal + taxes);
-            // $('#charge').html(subtootal + taxes);
-
-            let discountValue = +$('#discountValue').html();
-            if (discountValue !== 0) {
-                let discountEGP = (discountValue / 100) * (subtootal + taxes);
-                let totalAfterdiscount = (subtootal + taxes) - discountEGP;
-
-                $('#discount').html(`${discountEGP.toFixed(2)}`);
-                $('#charge').html(totalAfterdiscount.toFixed(2));
             }
 
+            function increaseQuantity(e) {
+                const taxesPercentage = 14 / 100;
 
-        }
-
-        function decreaseQuantity(e) {
-            const taxesPercentage = 14 / 100;
-
-            let count = +($(e.target).closest('.count').children('.no').children().val())
-            count--;
-            if (count >= 0) {
+                let count = +($(e.target).closest('.count').children('.no').children().val())
+                count++;
                 $(e.target).closest('.count').children('.no').children().val(count);
                 let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
-
                 let subtootal = +$('#subtotal').html();
-                subtootal -= price;
-
+                subtootal += price;
                 let taxes = subtootal * taxesPercentage;
 
                 $('#subtotal').html(subtootal);
-
                 $('#taxes').html(taxes.toFixed(2));
+                $('#total').html(subtootal + taxes);
+                // $('#charge').html(subtootal + taxes);
 
-                $('#total').html(subtootal + taxes)
-                    // $('#charge').html(subtootal + taxes)
                 let discountValue = +$('#discountValue').html();
                 if (discountValue !== 0) {
                     let discountEGP = (discountValue / 100) * (subtootal + taxes);
@@ -821,52 +983,111 @@
                     $('#charge').html(totalAfterdiscount.toFixed(2));
                 }
 
+
             }
 
-        }
+            function decreaseQuantity(e) {
+                const taxesPercentage = 14 / 100;
 
-        function addToMyOrder(e) {
-            const taxesPercentage = 14 / 100;
+                let count = +($(e.target).closest('.count').children('.no').children().val())
+                count--;
+                if (count >= 0) {
+                    $(e.target).closest('.count').children('.no').children().val(count);
+                    let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
 
+                    let subtootal = +$('#subtotal').html();
+                    subtootal -= price;
 
-            let subtotal = +$('#subtotal').html();
+                    let taxes = subtootal * taxesPercentage;
 
+                    $('#subtotal').html(subtootal);
 
-
-            let description = $(e.target).closest('.card').children('.card-body').children('.card-title')[0].textContent;
-            let priceAddItem = +$(e.target).closest('.card').children('.card-body').children('.card-text')[0].textContent.split(' ')[0];
-            let thisTypeIsEXIST;
-            let quantityIfExist;
-            let itemPriceIfExit;
-            $('.cheque > .order').each(function(index, order) {
-                let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
-                let descriptioperOne = $(order).children(".order-details").children('.order-info')[0].textContent;
-                if (description === descriptioperOne && priceAddItem === pricePerOne) {
-                    quantityIfExist = +$(order).children(".order-details").children('.count').children('.no').children().val();
-                    thisTypeIsEXIST = true;
-                    quantityIfExist++;
-                    $(order).children(".order-details").children('.count').children('.no').children().val(quantityIfExist);
-
-
-                    subtotal += priceAddItem;
-                    let taxes = subtotal * taxesPercentage;
-
-                    $('#subtotal').html(subtotal);
                     $('#taxes').html(taxes.toFixed(2));
-                    $('#total').html(subtotal + taxes);
-                    // $('#charge').html(subtotal + taxes);
+
+                    $('#total').html(subtootal + taxes)
+                        // $('#charge').html(subtootal + taxes)
                     let discountValue = +$('#discountValue').html();
                     if (discountValue !== 0) {
-                        let discountEGP = (discountValue / 100) * (subtotal + taxes);
-                        let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+                        let discountEGP = (discountValue / 100) * (subtootal + taxes);
+                        let totalAfterdiscount = (subtootal + taxes) - discountEGP;
 
-                        $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                        $('#discount').html(`${discountEGP.toFixed(2)}`);
                         $('#charge').html(totalAfterdiscount.toFixed(2));
                     }
+
                 }
-            });
-            if (!thisTypeIsEXIST) {
-                $('.cheque ').append(` <div class="order ">
+
+            }
+
+            function changeQuantityInput(e) {
+                if (e.target.value) {
+                    let subtotal = 0;
+                    const taxesPercentage = 14 / 100;
+
+
+                    $('.cheque > .order').each(function(index, order) {
+                        let quantity = +$(order).children(".order-details").children('.count').children('.no').children().val();
+                        let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
+                        let totalPriceOfOneOrder = quantity * pricePerOne;
+                        subtotal += totalPriceOfOneOrder;
+                    });
+                    let taxes = subtotal * taxesPercentage;
+
+                    let discountValue = +$('#discountValue').html();
+                    let discountEGP = (discountValue / 100) * (subtotal + taxes);
+                    let totalAfteriscount = (subtotal + taxes) - discountEGP;
+
+                    $('#discount').html(`${discountEGP.toFixed(2)}`);
+
+                    $('#taxes').html(taxes.toFixed(2));
+                    $('#subtotal').html(subtotal.toFixed(2));
+                    $('#total').html((subtotal + taxes).toFixed(2));
+                    $('#charge').html(totalAfteriscount.toFixed(2));
+                }
+            }
+
+            function addToMyOrder(e) {
+                const taxesPercentage = 14 / 100;
+
+
+                let subtotal = +$('#subtotal').html();
+
+
+
+                let description = $(e.target).closest('.card').children('.card-body').children('.card-title')[0].textContent;
+                let priceAddItem = +$(e.target).closest('.card').children('.card-body').children('.card-text')[0].textContent.split(' ')[0];
+                let thisTypeIsEXIST;
+                let quantityIfExist;
+                let itemPriceIfExit;
+                $('.cheque > .order').each(function(index, order) {
+                    let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
+                    let descriptioperOne = $(order).children(".order-details").children('.order-info')[0].textContent;
+                    if (description === descriptioperOne && priceAddItem === pricePerOne) {
+                        quantityIfExist = +$(order).children(".order-details").children('.count').children('.no').children().val();
+                        thisTypeIsEXIST = true;
+                        quantityIfExist++;
+                        $(order).children(".order-details").children('.count').children('.no').children().val(quantityIfExist);
+
+
+                        subtotal += priceAddItem;
+                        let taxes = subtotal * taxesPercentage;
+
+                        $('#subtotal').html(subtotal);
+                        $('#taxes').html(taxes.toFixed(2));
+                        $('#total').html(subtotal + taxes);
+                        // $('#charge').html(subtotal + taxes);
+                        let discountValue = +$('#discountValue').html();
+                        if (discountValue !== 0) {
+                            let discountEGP = (discountValue / 100) * (subtotal + taxes);
+                            let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+
+                            $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                            $('#charge').html(totalAfterdiscount.toFixed(2));
+                        }
+                    }
+                });
+                if (!thisTypeIsEXIST) {
+                    $('.cheque ').append(` <div class="order ">
                             <div class="delete-icon" onclick="deleteItem(event)">
                                 <img src="./assets/trash-bin.png" alt="">
                             </div>
@@ -880,130 +1101,175 @@
                                 <div class="price ">${priceAddItem} EGP</div>
                             </div>
                         </div>`)
-                $(".cheque").animate({
-                    scrollTop: $(
-                        'html, body').get(0).scrollHeight
-                }, 2000);
+                    $(".cheque").animate({
+                        scrollTop: $(
+                            'html, body').get(0).scrollHeight
+                    }, 2000);
 
 
 
-                subtotal += priceAddItem;
-                let taxes = subtotal * taxesPercentage;
-                $('#subtotal').html(subtotal);
-                $('#taxes').html(taxes.toFixed(2))
+                    subtotal += priceAddItem;
+                    let taxes = subtotal * taxesPercentage;
+                    $('#subtotal').html(subtotal);
+                    $('#taxes').html(taxes.toFixed(2))
 
-                $('#total').html(subtotal + taxes);
-                // $('#charge').html(subtotal + taxes);
-                let discountValue = +$('#discountValue').html();
-                if (discountValue !== 0) {
-                    let discountEGP = (discountValue / 100) * (subtotal + taxes);
-                    let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+                    $('#total').html(subtotal + taxes);
+                    // $('#charge').html(subtotal + taxes);
+                    let discountValue = +$('#discountValue').html();
+                    if (discountValue !== 0) {
+                        let discountEGP = (discountValue / 100) * (subtotal + taxes);
+                        let totalAfterdiscount = (subtotal + taxes) - discountEGP;
 
-                    $('#discount ').html(`${discountEGP.toFixed(2)}`);
-                    $('#charge').html(totalAfterdiscount.toFixed(2));
+                        $('#discount ').html(`${discountEGP.toFixed(2)}`);
+                        $('#charge').html(totalAfterdiscount.toFixed(2));
+                    }
                 }
-            }
-
-        }
-
-
-        function discard() {
-            console.log('a')
-            $('.cheque > .order').each(function(index, order) {
-                $(order).remove()
-            });
-            $('#total').html(0);
-            $('#subtotal').html(0);
-            $('#taxes').html(0);
-            $('#charge').html(0);
-            $('#discount').html(0);
-            $('#discountValue').html(0)
-
-
-
-        }
-
-        function applyDiscount() {
-            if (+$('#discountInput').val()) {
-
-                let discountValue = +$('#discountInput').val();
-                $('#discountInput').val('');
-                let total = +$('#total').html();
-
-                let discountEGP = (discountValue / 100) * total;
-                let totalAfteriscount = total - discountEGP;
-
-                $('#discount').html(`${discountEGP.toFixed(2)}`);
-                $('#discountValue').html(`${discountValue}`);
-                $('#charge').html(totalAfteriscount.toFixed(2));
-            }
-            $('#myModal').css('display', 'none');
-
-
-        }
-
-        // open add customer modal
-        function addCustomer() {
-            $('#addCustomerModal').css('display', 'block');
-        }
-
-        function cancelModal() {
-            $('#addCustomerModal input').val('');
-            $('#addCustomerModal').css('display', 'none');
-        }
-
-        function createCustomer() {
-
-            let customerName = $('#addCustomerModal #name').val();
-            if (customerName !== "") {
-                $('#addCustomer').html(`<img class="icon " src="./assets/user-added.png " alt=" "> <p class="label ">${customerName}</p> <p onclick="deleteCustomer(event)" class="close">&times;</p>`)
-                $('#addCustomerModal').css('display', 'none');
 
             }
-        }
 
-        function deleteCustomer(e) {
-            e.stopPropagation();
-            $('#addCustomerModal input').val('');
-            $('#addCustomer').html(`<img class="icon " src="./assets/add-user.png " alt=" "> <p class="label ">Add Customer</p>`);
-
-        }
-
-
-        function changeQuantityInput(e) {
-            if (e.target.value) {
-                let subtotal = 0;
-                const taxesPercentage = 14 / 100;
-
-
+            function discard() {
                 $('.cheque > .order').each(function(index, order) {
-                    let quantity = +$(order).children(".order-details").children('.count').children('.no').children().val();
-                    let pricePerOne = +$(order).children(".order-details").children('.price')[0].textContent.split(' ')[0];
-                    let totalPriceOfOneOrder = quantity * pricePerOne;
-                    subtotal += totalPriceOfOneOrder;
+                    $(order).remove()
                 });
-                let taxes = subtotal * taxesPercentage;
-
-
-                let discountValue = +$('#discountValue').html();
-                let discountEGP = (discountValue / 100) * (subtotal + taxes);
-                let totalAfteriscount = (subtotal + taxes) - discountEGP;
-
-                $('#discount').html(`${discountEGP.toFixed(2)}`);
-
-                $('#taxes').html(taxes.toFixed(2));
-                $('#subtotal').html(subtotal.toFixed(2));
-                $('#total').html((subtotal + taxes).toFixed(2));
-                $('#charge').html(totalAfteriscount.toFixed(2));
+                $('#total').html(0);
+                $('#subtotal').html(0);
+                $('#taxes').html(0);
+                $('#charge').html(0);
+                $('#discount').html(0);
+                $('#discountValue').html(0)
 
 
 
             }
-        }
-    </script>
+
+            function applyDiscount() {
+                if (+$('#discountInput').val()) {
+
+                    let discountValue = +$('#discountInput').val();
+                    $('#discountInput').val('');
+                    let total = +$('#total').html();
+
+                    let discountEGP = (discountValue / 100) * total;
+                    let totalAfteriscount = total - discountEGP;
+
+                    $('#discount').html(`${discountEGP.toFixed(2)}`);
+                    $('#discountValue').html(`${discountValue}`);
+                    $('#charge').html(totalAfteriscount.toFixed(2));
+                }
+                $('#discountModal').css('display', 'none');
+
+
+            }
+
+
+            function reserveTable(e) {
+
+                let table = $(e.target).closest('.table')[0];
+                if ($(table).children().hasClass('bg-success')) {
+                    $(table).children('.badge').removeClass('bg-success').addClass('bg-danger');
+                    $(table).children('.badge').html('Reserved');
+
+                } else {
+                    $(table).children('.badge').removeClass('bg-danger').addClass('bg-success');
+                    $(table).children('.badge').html('Available');
+                }
+
+            }
+
+            // open modal
+            function openModal(modalName) {
+                switch (modalName) {
+                    case 'discount':
+                        $('#discountModal').css('display', 'block');
+                        break;
+
+                    case 'addCustomer':
+                        $('#addCustomerModal').css('display', 'block');
+                        break;
+
+                    case 'deliveryMan':
+                        $('#deliveryManModal').css('display', 'block');
+                        break;
+                    case 'shippingArea':
+                        $('#shippingAreaModal').css('display', 'block');
+                        break;
+
+                    case 'tables':
+                        $('#tablesModal').css('display', 'block');
+                        break;
+
+                    default:
+                }
+
+            }
+
+            // cancel Or close Modal
+            function cancelModal(modalName) {
+
+                switch (modalName) {
+                    case 'discount':
+                        $('#discountModal').css('display', 'none');
+                        break;
+                    case 'addCustomer':
+                        $('#addCustomerModal input').val('');
+                        $('#addCustomerModal').css('display', 'none');
+                        break;
+
+                    case 'deliveryMan':
+                        $('#deliveryManModal select').val('none');
+                        $('#deliveryManModal').css('display', 'none');
+                        break;
+                    case 'shippingArea':
+                        $('#shippingAreaModal').css('display', 'none');
+                        break;
+                    case 'tables':
+                        $('#tablesModal').css('display', 'none');
+                        break;
+                    default:
+
+                }
+
+            }
+
+            function createCustomer() {
+
+                let customerName = $('#addCustomerModal #name').val();
+                if (customerName !== "") {
+                    $('#addCustomer').html(`<img class="icon " src="./assets/user-added.png " alt=" "> <p class="label ">${customerName}</p> <p onclick="deleteCustomerOrDeliverMan(event,'customer')" class="close">&times;</p>`)
+
+                }
+                $('#addCustomerModal').css('display', 'none');
+            }
+
+            function deleteCustomerOrDeliverMan(e, sometingDeleted) {
+                e.stopPropagation();
+                switch (sometingDeleted) {
+                    case 'customer':
+                        $('#addCustomerModal input').val('');
+                        $('#addCustomer').html(`<img class="icon " src="./assets/add-user.png " alt=" "> <p class="label ">Add Customer</p>`);
+                        break;
+
+
+                    case 'deliveryMan':
+                        $('#deliveryManModal select').val('none');
+                        $('.secondOptionDelivery').html(`<img class="icon " src="./assets/delivery-man.png " alt=" "> <p class="label ">Delivery Man</p> `);
+                        break;
+                    default:
+                }
+
+            }
+
+            function addDeliveryMan() {
+
+                if ($('#deliveryMan').val() !== "none") {
+                    $('.secondOptionDelivery').html(`<img class="icon " src="./assets/delivery-man.png " alt=" "> <p class="label ">${$('#deliveryMan').val()}</p> <p class="close" onclick="deleteCustomerOrDeliverMan(event,'deliveryMan')" >&times;</p>`);
+                }
+
+                $('#deliveryManModal').css('display', 'none');
+
+            }
+        </script>
 
 </body>
-
-</html>
 
 </html>
