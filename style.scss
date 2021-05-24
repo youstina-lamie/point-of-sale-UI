@@ -53,7 +53,7 @@
                                             }
                                         }
                                         .selected {
-                                            background-color: rgba(44, 62, 80, .1);
+                                            background-color: rgba(44, 62, 80, 0.1);
                                             border: 1px solid rgb(44, 62, 80);
                                             border-radius: 10px;
                                             color: $primaryColor;
@@ -115,7 +115,8 @@
                                                             }
                                                             input {
                                                                 border: none;
-                                                                padding-left: .5rem;
+                                                                width: 2rem;
+                                                                padding-left: .7rem;
                                                                 outline: none;
                                                                 background-color: transparent;
                                                             }
@@ -250,37 +251,42 @@
                                             height: 25rem !important;
                                             overflow-y: auto;
                                             grid-gap: 2rem 2rem;
-                                            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                                            grid-template-columns: repeat(auto-fit, minmax(17rem, 17rem));
                                             .card {
-                                                margin-top: 1rem;
+                                                margin-top: 1.5rem;
                                                 box-shadow: 0px 3px 6px #00000029;
                                                 border-radius: 10px;
                                                 border: .1rem solid #F5F5F5;
-                                                width: 8rem;
-                                                height: 12rem;
-                                                // height: fit-content;
-                                                cursor: pointer;
+                                                transition: 1s;
                                                 display: inline-block;
                                                 margin-right: 1rem;
-                                                .card-img {
-                                                    width: 100%;
-                                                    height: 5rem;
-                                                    background-size: cover;
-                                                    border-top-left-radius: 10px;
-                                                    border-top-right-radius: 10px;
+                                                width: 17rem;
+                                                height: 8.2rem;
+                                                cursor: pointer;
+                                                .imgAndDisc {
+                                                    height: 8rem;
+                                                    margin-bottom: 1rem;
+                                                    margin-left: 0 !important;
+                                                    .card-img {
+                                                        background-size: cover;
+                                                        border-radius: 10px;
+                                                        height: 8rem;
+                                                        background-position: center;
+                                                    }
                                                 }
                                                 .card-body {
                                                     padding: .3rem;
-                                                    .card-title {
+                                                    margin-left: 2.5%;
+                                                    .card-disc {
                                                         color: $lightFontColor;
-                                                        font-size: 12px;
+                                                        font-size: 10px;
                                                         font-weight: bold;
                                                     }
-                                                    .card-text {
-                                                        color: $lightFontColor;
-                                                        font-size: 14px;
-                                                        font-weight: bold;
-                                                    }
+                                                }
+                                                .card-title {
+                                                    color: $darkFontColor;
+                                                    font-weight: bold;
+                                                    font-size: 14px;
                                                 }
                                                 .deatailsDiv {
                                                     border-radius: 10%;
@@ -294,7 +300,7 @@
                                                     height: 2rem;
                                                     width: 2rem;
                                                     align-items: center;
-                                                    cursor: pointer;
+                                                    // cursor: pointer ;
                                                 }
                                                 .detailsDivSelected {
                                                     border: 1px solid red;
@@ -315,14 +321,14 @@
                                                 position: absolute;
                                                 width: 100%;
                                                 height: 100%;
-                                                -webkit-backface-visibility: hidden;
+                                                backface-visibility: hidden;
                                                 /* Safari */
                                                 backface-visibility: hidden;
                                             }
                                             .flip-card-back {
-                                                background-color: $primaryColor;
-                                                color: white;
-                                                padding: 1rem;
+                                                // background-color: $primaryColor;
+                                                background-color: #E9EBED;
+                                                padding-top: 3rem;
                                                 border-radius: 10px;
                                                 border: .1rem solid #F5F5F5;
                                                 transform: rotateY(180deg);
@@ -743,13 +749,32 @@
                                 @media ( max-height: 1500px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 55vh !important;
+                                            height: 59vh !important;
                                             margin-top: 1rem;
                                             margin-bottom: 1rem;
                                         }
                                         .right-sectoin .cards-container {
-                                            height: 70vh !important;
+                                            height: 75vh !important;
                                             margin-top: 1rem;
+                                        }
+                                    }
+                                }
+                                
+                                @media ( max-height: 1350px) {
+                                    .main-wrapper {
+                                        .middle-section .cheque {
+                                            height: 55vh !important;
+                                        }
+                                        .right-sectoin .cards-container {
+                                            height: 72vh !important;
+                                        }
+                                    }
+                                }
+                                
+                                @media ( max-height: 1350px) {
+                                    .main-wrapper {
+                                        .middle-section .cheque {
+                                            height: 52vh !important;
                                         }
                                     }
                                 }
@@ -757,7 +782,7 @@
                                 @media ( max-height: 1150px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 50vh !important;
+                                            height: 48vh !important;
                                         }
                                         .right-sectoin .cards-container {
                                             height: 67vh !important;
@@ -768,7 +793,7 @@
                                 @media ( max-height: 1050px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 45vh !important;
+                                            height: 40vh !important;
                                         }
                                         .right-sectoin .cards-container {
                                             height: 63vh !important;
@@ -779,7 +804,7 @@
                                 @media ( max-height: 950px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 40vh !important;
+                                            height: 36vh !important;
                                         }
                                         .right-sectoin .cards-container {
                                             height: 60vh !important;
@@ -787,10 +812,18 @@
                                     }
                                 }
                                 
-                                @media ( max-height: 870px) {
+                                @media ( max-height: 900px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 36vh !important;
+                                            height: 32vh !important;
+                                        }
+                                    }
+                                }
+                                
+                                @media ( max-height: 850px) {
+                                    .main-wrapper {
+                                        .middle-section .cheque {
+                                            height: 30vh !important;
                                         }
                                     }
                                 }
@@ -798,7 +831,7 @@
                                 @media ( max-height: 800px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 33vh !important;
+                                            height: 27vh !important;
                                             margin-top: .5rem !important;
                                             margin-bottom: .5rem !important;
                                         }
@@ -812,7 +845,7 @@
                                 @media ( max-height: 770px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 30vh !important;
+                                            height: 25vh !important;
                                         }
                                         .right-sectoin .cards-container {
                                             height: 55vh !important;
@@ -823,7 +856,7 @@
                                 @media ( max-height: 740px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 28vh !important;
+                                            height: 22vh !important;
                                         }
                                         .right-sectoin .cards-container {
                                             height: 54vh !important;
@@ -834,7 +867,7 @@
                                 @media ( max-height: 700px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 26vh !important;
+                                            height: 21vh !important;
                                         }
                                         .right-sectoin .cards-container {
                                             height: 52vh !important;
@@ -845,7 +878,7 @@
                                 @media ( max-height: 680px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 24vh !important;
+                                            height: 15vh !important;
                                         }
                                         .right-sectoin .cards-container {
                                             height: 50vh !important;
@@ -856,7 +889,7 @@
                                 @media ( max-height: 660px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 22vh !important;
+                                            height: 14vh !important;
                                         }
                                     }
                                 }
@@ -864,15 +897,7 @@
                                 @media ( max-height: 640px) {
                                     .main-wrapper {
                                         .middle-section .cheque {
-                                            height: 20vh !important;
-                                        }
-                                    }
-                                }
-                                
-                                @media ( max-height: 640px) {
-                                    .main-wrapper {
-                                        .middle-section .cheque {
-                                            height: 18vh !important;
+                                            height: 10vh !important;
                                         }
                                     }
                                 }
