@@ -69,7 +69,7 @@
 
 .main-wrapper .middle-section .selected {
   background-color: rgba(44, 62, 80, 0.1);
-  border: 1px solid #2c3e50;
+  border: 1px solid rgba(44, 62, 80, 0.2);
   border-radius: 10px;
   color: #2c3e50;
 }
@@ -544,7 +544,7 @@
 
 .categoryActive {
   background-color: rgba(44, 62, 80, 0.1);
-  border: 1px solid #2c3e50;
+  border: 1px solid rgba(44, 62, 80, 0.2);
   border-radius: 10px;
   color: #2c3e50;
 }
@@ -573,7 +573,7 @@
 
 .food-selected {
   background-color: rgba(44, 62, 80, 0.1);
-  border: 1px solid #2c3e50;
+  border: 1px solid rgba(44, 62, 80, 0.2);
   border-radius: 10px;
   color: #2c3e50;
 }

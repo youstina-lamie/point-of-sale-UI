@@ -54,7 +54,7 @@
                                         }
                                         .selected {
                                             background-color: rgba(44, 62, 80, 0.1);
-                                            border: 1px solid rgb(44, 62, 80);
+                                            border: 1px solid rgba(44, 62, 80, .2);
                                             border-radius: 10px;
                                             color: $primaryColor;
                                         }
@@ -411,7 +411,7 @@
                                 
                                 .categoryActive {
                                     background-color: rgba(44, 62, 80, .1);
-                                    border: 1px solid rgb(44, 62, 80);
+                                    border: 1px solid rgba(44, 62, 80, .2);
                                     // border-radius: 2rem;
                                     border-radius: 10px;
                                     // color: white;
@@ -444,7 +444,7 @@
                                 
                                 .food-selected {
                                     background-color: rgba(44, 62, 80, .1);
-                                    border: 1px solid rgb(44, 62, 80);
+                                    border: 1px solid rgba(44, 62, 80, .2);
                                     border-radius: 10px;
                                     color: $primaryColor;
                                 }
