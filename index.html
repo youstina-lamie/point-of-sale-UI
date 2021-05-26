@@ -1712,14 +1712,12 @@
 
         //print Modal
         function selectClosestMoney(e) {
-            if ($(e.target).hasClass('closestMoney')) {
-                $(e.target).addClass("selectMoney ").siblings().removeClass("selectMoney ");
-                let paid = $(e.target).children('.money')[0].textContent;
-                let total = +$('.totalMoneyPrint').html();
-                let change = paid - total;
-                $('#change').html(change.toFixed(2));
-                $('.changeDiv').css('display', 'block');
-            }
+            $(e.target).closest('.closestMoney').addClass("selectMoney ").siblings().removeClass("selectMoney ");
+            let paid = $(e.target).closest('.closestMoney').children('.money')[0].textContent;
+            let total = +$('.totalMoneyPrint').html();
+            let change = paid - total;
+            $('#change').html(change.toFixed(2));
+            $('.changeDiv').css('display', 'block');
         }
     </script>
 
