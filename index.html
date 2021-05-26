@@ -63,7 +63,7 @@
 
                 <div class=" mt-3 ">
                     <div id="dineInOptions" class="row display-flex display-none">
-                        <div id="addCustomer" class="add-user col-lg-5 col-md-5 firstOptionDineIn" onclick="openModal('addCustomer')">
+                        <div class="add-user col-lg-5 col-md-5 firstOptionDineIn addCustomer" onclick="openModal('addCustomer')">
                             <img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" ">
                             <p class="label ">Add Customer</p>
                         </div>
@@ -75,7 +75,7 @@
 
                     <!-- second option -->
                     <div id="toGoOptions" class="row display-flex ">
-                        <div id="addCustomer" class="add-user col-lg-5  col-md-5 firstOptiontoGo" onclick="openModal('addCustomer')">
+                        <div class="add-user col-lg-5  col-md-5 firstOptiontoGo addCustomer" onclick="openModal('addCustomer')">
                             <img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" ">
                             <p class="label ">Add Customer</p>
                         </div>
@@ -87,7 +87,7 @@
 
                     <!-- third -->
                     <div id="deliveryOptions" class="row display-flex display-none">
-                        <div id="addCustomer" class="add-user col-lg-5  col-md-5 firstOptionDelivery" onclick="openModal('addCustomer')">
+                        <div class="add-user col-lg-5  col-md-5 firstOptionDelivery addCustomer" onclick="openModal('addCustomer')">
                             <img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" ">
                             <p class="label ">Add Customer</p>
                         </div>
@@ -900,7 +900,7 @@
                         <div class="col-lg-6 ">
                             <div class="margin-bottom ">
                                 <label for="name " style="float: left; ">Name</label>
-                                <input type="text " name="name " id="name " style="display: block; width:100% " placeholder="Name ">
+                                <input type="text " name="name " id="name" style="display: block; width:100% " placeholder="Name ">
                             </div>
                             <div class="margin-bottom ">
                                 <div class="column-six ">
@@ -1620,12 +1620,14 @@
 
         }
 
-        function createCustomerDineIn() {
+        function createCustomer() {
 
             let customerName = $('#addCustomerModal #name').val();
-            if (customerName !== " ") {
-                $('#addCustomer').html(`<img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" "> <p class="label ">${customerName}</p> <p onclick="deleteCustomerOrDeliverMan(event, 'customer') " class="close ">&times;</p>`)
 
+            if (customerName !== " ") {
+                $('.addCustomer').html(`<img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" ">
+                 <p class="label "> ${customerName}</p> 
+                 <p onclick="deleteCustomerOrDeliverMan(event, 'customer') " class="close ">&times;</p>`)
             }
             $('#addCustomerModal').css('display', 'none');
         }
@@ -1635,7 +1637,7 @@
             switch (sometingDeleted) {
                 case 'customer':
                     $('#addCustomerModal input').val('');
-                    $('#addCustomer').html(`<img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" "> <p class="label ">Add Customer</p>`);
+                    $('.addCustomer').html(`<img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" "> <p class="label ">Add Customer</p>`);
                     break;
 
 
