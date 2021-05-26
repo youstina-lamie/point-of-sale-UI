@@ -330,27 +330,37 @@
                     </div>
                     <div class="cards-container cardContainer ">
 
-                        <div class="card grill flip-card " onclick="addToMyOrder(event) ">
-                            <div class="flip-card-inner ">
-                                <div class="flip-card-front ">
-                                    <div class="row imgAndDisc ">
-                                        <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                                        <div class="col-lg-7 col-md-7 card-body ">
-                                            <p class="card-title ">Cramel Frappuccino</p>
-                                            <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
-                                            <p class="card-title " style="text-align: right; ">35 EGP</p>
+
+
+
+                        <div class="card grill " onclick="addToMyOrder(event) ">
+
+                            <div class="row imgAndDisc ">
+                                <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
+                                <div class="col-lg-7 col-md-7 card-body ">
+                                    <p class="card-title ">Cramel Frappuccino</p>
+                                    <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
+                                    <div class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 offset-1 p-0">
+                                            <div class="container">
+                                                <label>S</label>
+                                                <input type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="label">M</label>
+                                                <input type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label>L</label>
+                                                <input type="radio" name="size" id="">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title ">35 EGP</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="flip-card-back ">
-                                    <div class=" row display-flex justify-content-around align-items-center ">
-
-                                        <div class=" deatailsDiv ">S</div>
-                                        <div class="deatailsDiv ">M</div>
-                                        <div class="deatailsDiv ">L</div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -957,8 +967,8 @@
             <form method=" ">
                 <div style="padding: 20px; height:10vh; ">
                     <div class="row margin-bottom ">
-                        <label for="deliveryMan " class="mr-2 "> Choose Delivery Man:  </label>
-                        <select name=" " id="deliveryMan ">
+                        <label for="deliveryMan" class="mr-2 "> Choose Delivery Man:  </label>
+                        <select name=" " id="deliveryMan">
                             <option value="none ">....</option>
                             <option value="Ahmed ">Ahmed</option>
                             <option value="Omar ">Omar</option>
@@ -1033,63 +1043,63 @@
             <div style="padding: 40px; height:50vh;overflow-x: hidden; overflow-y: auto; display:grid;grid-gap: 1rem 1rem; grid-template-columns: repeat(auto-fit, minmax(8rem, 8rem)); ">
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">1</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">2</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">3</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">4</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">5</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">6</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">7</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">8</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/chair.png " alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">9</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
@@ -1543,7 +1553,7 @@
             if ($(table).children().hasClass('bg-success')) {
                 $(table).children('.badge').removeClass('bg-success').addClass('bg-danger');
                 $(table).children('.badge').html('Reserved');
-                $('#Tables').html(` <img class="icon " src="./assets/chair.png " alt=" "> <p class="label "> NO : <span class='reservedtableNo'>${tableNo}</span></p><p onclick="deleteCustomerOrDeliverMan(event, 'table') " class="close ">&times;</p>`);
+                $('#Tables').html(` <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" "> <p class="label "> NO : <span class='reservedtableNo'>${tableNo}</span></p><p onclick="deleteCustomerOrDeliverMan(event, 'table') " class="close ">&times;</p>`);
                 $('#tablesModal').css('display', 'none');
 
             } else {
@@ -1610,11 +1620,11 @@
 
         }
 
-        function createCustomer() {
+        function createCustomerDineIn() {
 
             let customerName = $('#addCustomerModal #name').val();
             if (customerName !== " ") {
-                $('#addCustomer').html(`<img class="icon " src="./assets/user-added.png " alt=" "> <p class="label ">${customerName}</p> <p onclick="deleteCustomerOrDeliverMan(event, 'customer') " class="close ">&times;</p>`)
+                $('#addCustomer').html(`<img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" "> <p class="label ">${customerName}</p> <p onclick="deleteCustomerOrDeliverMan(event, 'customer') " class="close ">&times;</p>`)
 
             }
             $('#addCustomerModal').css('display', 'none');
@@ -1625,13 +1635,13 @@
             switch (sometingDeleted) {
                 case 'customer':
                     $('#addCustomerModal input').val('');
-                    $('#addCustomer').html(`<img class="icon " src="./assets/add-user.png " alt=" "> <p class="label ">Add Customer</p>`);
+                    $('#addCustomer').html(`<img class="icon " src="./assets/icons8-add-user-male-40.png " alt=" "> <p class="label ">Add Customer</p>`);
                     break;
 
 
                 case 'deliveryMan':
                     $('#deliveryManModal select').val('none');
-                    $('.secondOptionDelivery').html(`<img class="icon " src="./assets/delivery-man.png " alt=" "> <p class="label ">Delivery Man</p> `);
+                    $('.secondOptionDelivery').html(`<img class="icon " src="./assets/icons8-delivery-scooter-40.png " alt=" "> <p class="label ">Delivery Man</p> `);
                     break;
 
                 case 'table':
@@ -1645,7 +1655,7 @@
                         }
 
                     })
-                    $('#Tables').html(` <img class="icon " src="./assets/chair.png " alt=" "> <p class="label ">Tables</p>`);
+                    $('#Tables').html(` <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" "> <p class="label ">Tables</p>`);
                     break;
                 default:
             }
@@ -1655,7 +1665,7 @@
         function addDeliveryMan() {
 
             if ($('#deliveryMan').val() !== "none ") {
-                $('.secondOptionDelivery').html(`<img class="icon " src="./assets/delivery-man.png " alt=" "> <p class="label ">${$('#deliveryMan').val()}</p> <p class="close " onclick="deleteCustomerOrDeliverMan(event, 'deliveryMan') " >&times;</p>`);
+                $('.secondOptionDelivery').html(`<img class="icon " src="./assets/icons8-delivery-scooter-40.png"  alt=" "> <p class="label ">${$('#deliveryMan').val()}</p> <p class="close " onclick="deleteCustomerOrDeliverMan(event, 'deliveryMan') " >&times;</p>`);
             }
 
             $('#deliveryManModal').css('display', 'none');

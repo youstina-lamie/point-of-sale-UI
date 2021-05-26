@@ -383,71 +383,21 @@
   font-weight: bold;
 }
 
+.main-wrapper .right-sectoin .cards-container .card .card-body .container {
+  display: inline-block;
+  padding: 0;
+  width: 1.2rem;
+  text-align: center;
+}
+
+.main-wrapper .right-sectoin .cards-container .card .card-body label {
+  margin-bottom: 0 !important;
+}
+
 .main-wrapper .right-sectoin .cards-container .card .card-title {
   color: #3E3E3E;
   font-weight: bold;
   font-size: 14px;
-}
-
-.main-wrapper .right-sectoin .cards-container .card .deatailsDiv {
-  border-radius: 10%;
-  margin-bottom: 2rem;
-  background-color: #E8E8E8;
-  font-size: 14px;
-  font-weight: bold;
-  color: #707070;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 2rem;
-  width: 2rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.main-wrapper .right-sectoin .cards-container .card .detailsDivSelected {
-  border: 1px solid red;
-}
-
-.main-wrapper .right-sectoin .cards-container .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: -webkit-transform 0.8s;
-  transition: -webkit-transform 0.8s;
-  transition: transform 0.8s;
-  transition: transform 0.8s, -webkit-transform 0.8s;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-}
-
-.main-wrapper .right-sectoin .cards-container .flip-card:hover .flip-card-inner {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-.main-wrapper .right-sectoin .cards-container .flip-card-front,
-.main-wrapper .right-sectoin .cards-container .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  /* Safari */
-  backface-visibility: hidden;
-}
-
-.main-wrapper .right-sectoin .cards-container .flip-card-back {
-  background-color: #E9EBED;
-  padding-top: 3rem;
-  border-radius: 10px;
-  border: .1rem solid #F5F5F5;
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
 }
 
 .main-wrapper .right-sectoin ::-webkit-scrollbar {

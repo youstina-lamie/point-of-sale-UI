@@ -282,56 +282,21 @@
                                                         font-size: 10px;
                                                         font-weight: bold;
                                                     }
+                                                    .container {
+                                                        display: inline-block;
+                                                        padding: 0;
+                                                        width: 1.2rem;
+                                                        text-align: center;
+                                                    }
+                                                    label {
+                                                        margin-bottom: 0 !important;
+                                                    }
                                                 }
                                                 .card-title {
                                                     color: $darkFontColor;
                                                     font-weight: bold;
                                                     font-size: 14px;
                                                 }
-                                                .deatailsDiv {
-                                                    border-radius: 10%;
-                                                    margin-bottom: 2rem;
-                                                    background-color: #E8E8E8;
-                                                    font-size: 14px;
-                                                    font-weight: bold;
-                                                    color: $lightFontColor;
-                                                    display: flex;
-                                                    justify-content: center;
-                                                    height: 2rem;
-                                                    width: 2rem;
-                                                    align-items: center;
-                                                    // cursor: pointer ;
-                                                }
-                                                .detailsDivSelected {
-                                                    border: 1px solid red;
-                                                }
-                                            }
-                                            .flip-card-inner {
-                                                position: relative;
-                                                width: 100%;
-                                                height: 100%;
-                                                transition: transform 0.8s;
-                                                transform-style: preserve-3d;
-                                            }
-                                            .flip-card:hover .flip-card-inner {
-                                                transform: rotateY(180deg);
-                                            }
-                                            .flip-card-front,
-                                            .flip-card-back {
-                                                position: absolute;
-                                                width: 100%;
-                                                height: 100%;
-                                                backface-visibility: hidden;
-                                                /* Safari */
-                                                backface-visibility: hidden;
-                                            }
-                                            .flip-card-back {
-                                                // background-color: $primaryColor;
-                                                background-color: #E9EBED;
-                                                padding-top: 3rem;
-                                                border-radius: 10px;
-                                                border: .1rem solid #F5F5F5;
-                                                transform: rotateY(180deg);
                                             }
                                         }
                                          ::-webkit-scrollbar {
@@ -412,9 +377,7 @@
                                 .categoryActive {
                                     background-color: rgba(44, 62, 80, .1);
                                     border: 1px solid rgba(44, 62, 80, .2);
-                                    // border-radius: 2rem;
                                     border-radius: 10px;
-                                    // color: white;
                                     color: $primaryColor;
                                 }
                                 
@@ -425,16 +388,12 @@
                                     font-weight: bold;
                                     font-size: 14px;
                                     cursor: pointer;
-                                    // transition: .5s;
                                     box-shadow: 0px 3px 6px #00000029;
                                     border-radius: 10px;
                                     padding: .5rem;
                                     .icon {
                                         margin-top: .3rem;
                                     }
-                                    // &:hover {
-                                    //     transform: scale(1.2);
-                                    // }
                                 }
                                 
                                 .foodType {
