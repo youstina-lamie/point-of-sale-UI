@@ -209,22 +209,17 @@
 
             <div class=" footer row mt-3 d-flex justify-content-center flex-wrap ">
                 <div id="dineIn" class="middle-icon-container col-lg-3 col-md-3" style="background-color: #ecf0f1; color: #2c3e50; " onclick="discard() ">
-                    <!-- <span style="font-size: 1.8rem; "><i class="far fa-trash-alt "></i></span> -->
                     <img src="./assets/icons8-trash-40.png" alt="">
                     <p class="icon-name ">Discard</p>
                 </div>
                 <div id="toGo " class="middle-icon-container col-lg-3 col-md-3 offset-1 " onclick="openModal( 'discount') " style="background-color: #ecf0f1;
                 color: #2c3e50;">
-                    <!-- <span style="font-size: 1.8rem; "><i class="fas fa-hand-holding-usd "></i></span> -->
                     <img src="./assets/icons8-get-a-discount-40.png" alt="">
-
                     <p class="icon-name ">Discount</p>
                 </div>
-                <div id="delivery " class="middle-icon-container col-lg-3 offset-1 col-md-3 " style="background-color: #ecf0f1;
+                <div id="delivery " class="middle-icon-container col-lg-3 offset-1 col-md-3 " onclick="openModal('print')" style="background-color: #ecf0f1;
                 color: #2c3e50;">
-                    <!-- <span style="font-size: 1.8rem; "><i class="fas fa-print "></i></span> -->
                     <img src="./assets/icons8-print-40.png" alt="">
-
                     <p class="icon-name ">Print</p>
                 </div>
             </div>
@@ -341,7 +336,7 @@
                                     <p class="card-title ">Cramel Frappuccino</p>
                                     <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
                                     <div class=" row " style="position: relative; ">
-                                        <div class="col-lg-6 offset-1 p-0">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0">
                                             <div class="container">
                                                 <label>S</label>
                                                 <input type="radio" name="size" id="">
@@ -355,7 +350,7 @@
                                                 <input type="radio" name="size" id="">
                                             </div>
                                         </div>
-                                        <div class="col-lg-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                        <div class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
                                             <p class="card-title ">35 EGP</p>
                                         </div>
                                     </div>
@@ -883,9 +878,58 @@
             </form>
         </div>
     </div>
+    <!-- print modal -->
+    <div id="printModal" class="modal ">
+        <!-- Modal content -->
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <p style=" font-size: 1rem; font-weight: bold; ">Print</p>
+                <p class="close " onclick="cancelModal('print') ">&times;</p>
+            </div>
+
+            <div style="padding: 20px; height:40vh; ">
+                <div class="row margin-bottom ">
+                    <p class="m-auto "><span class="totalMoneyPrint" style="font-weight: bold; font-size: 2rem; "></span> EGP</p>
+                    <div class=" footer row d-flex justify-content-center flex-wrap" style="padding:0 10rem; margin: 2rem 0 !important">
+                        <div id="cash" class="middle-icon-container col-lg-2 col-md-2 cashCard selectDiv">
+
+                            <img src="./assets/icons8-trash-40.png " alt=" ">
+                            <p class="icon-name ">Cash</p>
+                        </div>
+                        <div id="creditCard" class="middle-icon-container col-lg-2 col-md-2 offset-2 cashCard">
+                            <img src="./assets/icons8-get-a-discount-40.png " alt=" ">
+                            <p class="icon-name ">Credit Card</p>
+                        </div>
+                        <div id="giftCard" class="middle-icon-container col-lg-2 offset-2 col-md-2 cashCard">
+                            <img src="./assets/icons8-print-40.png " alt=" ">
+                            <p class="icon-name ">Gift Card</p>
+                        </div>
+                    </div>
+                    <div class="row mt-5 d-flex justify-content-center " style="padding:0 10rem; margin: .5rem 0 !important">
+                        <div class="closestMoney">
+                            <span class="money">170 </span>EGP
+                        </div>
+                        <div class="closestMoney">
+                            <span class="money">200 </span>EGP
+                        </div>
+                    </div>
+                    <div class="m-auto changeDiv" style="display: none;">
+                        <span style="font-weight: bold; font-size: 1.2rem;"> Change:</span> <span id="change">10 </span> EGP
+                    </div>
+
+                </div>
+            </div>
+            <hr style=" width: 100%; ">
+
+            <div class="btnsContainer offset-9 col-lg-3 ">
+                <div class="btn button ">Tender</div>
+                <div class="btn button " onclick="cancelModal( 'print') ">Cancel</div>
+            </div>
+        </div>
+    </div>
 
     <!-- add customer modal -->
-    <div id="addCustomerModal" class="modal ">
+    <div id="addCustomerModal " class="modal ">
         <!-- Modal content -->
         <div class="modal-content ">
             <div class="modal-header ">
@@ -900,7 +944,7 @@
                         <div class="col-lg-6 ">
                             <div class="margin-bottom ">
                                 <label for="name " style="float: left; ">Name</label>
-                                <input type="text " name="name " id="name" style="display: block; width:100% " placeholder="Name ">
+                                <input type="text " name="name " id="name " style="display: block; width:100% " placeholder="Name ">
                             </div>
                             <div class="margin-bottom ">
                                 <div class="column-six ">
@@ -956,7 +1000,7 @@
     </div>
 
     <!-- delivery man modal -->
-    <div id="deliveryManModal" class="modal ">
+    <div id="deliveryManModal " class="modal ">
         <!-- Modal content -->
         <div class="modal-content ">
             <div class="modal-header ">
@@ -967,8 +1011,8 @@
             <form method=" ">
                 <div style="padding: 20px; height:10vh; ">
                     <div class="row margin-bottom ">
-                        <label for="deliveryMan" class="mr-2 "> Choose Delivery Man:  </label>
-                        <select name=" " id="deliveryMan">
+                        <label for="deliveryMan " class="mr-2 "> Choose Delivery Man:  </label>
+                        <select name=" " id="deliveryMan ">
                             <option value="none ">....</option>
                             <option value="Ahmed ">Ahmed</option>
                             <option value="Omar ">Omar</option>
@@ -990,7 +1034,7 @@
     </div>
 
     <!-- shipping area modal -->
-    <div id="shippingAreaModal" class="modal ">
+    <div id="shippingAreaModal " class="modal ">
         <!-- Modal content -->
         <div class="modal-content ">
             <div class="modal-header ">
@@ -1032,7 +1076,7 @@
     </div>
 
     <!-- tables modal -->
-    <div id="tablesModal" class="modal ">
+    <div id="tablesModal " class="modal ">
         <!-- Modal content -->
         <div class="modal-content ">
             <div class="modal-header ">
@@ -1043,63 +1087,63 @@
             <div style="padding: 40px; height:50vh;overflow-x: hidden; overflow-y: auto; display:grid;grid-gap: 1rem 1rem; grid-template-columns: repeat(auto-fit, minmax(8rem, 8rem)); ">
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">1</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">2</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">3</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">4</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">5</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">6</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">7</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">8</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
                 </div>
                 <div class="table " onclick="reserveTable(event) ">
                     <div class="middle-icon-container " style="width: 8rem; ">
-                        <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" ">
+                        <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" ">
                         <p class="icon-name ">Table No : <span class="tableNo ">9</span></p>
                     </div>
                     <span class="badge rounded-pill bg-success mt-3 ">Available</span>
@@ -1186,6 +1230,8 @@
                 $(this).addClass("selected ").siblings().removeClass("selected ");
             })
 
+
+
             // increase count
             $('.arrow-up').click(function(e) {
                 let count = +($(e.target).closest('.count').children('.no').children().val());
@@ -1247,13 +1293,13 @@
 
             // choose category
             $('#grill').click(function(e) {
-                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                $(this).addClass("categoryActive ").siblings().removeClass("categoryActive ");
                 grid.isotope({
                     filter: '.grill'
                 })
             });
             $('#pizza').click(function(e) {
-                $(this).addClass("categoryActive").siblings().removeClass("categoryActive");
+                $(this).addClass("categoryActive ").siblings().removeClass("categoryActive ");
                 grid.isotope({
                     filter: '.pizza'
                 })
@@ -1308,6 +1354,28 @@
                 card.isotope({
                     filter: '.soup'
                 })
+            });
+
+            // choose Print Modal 
+            $('#cash').click(function(e) {
+                $(this).addClass("selectDiv ").siblings().removeClass("selectDiv ");
+            });
+            // choose Print Modal 
+            $('#creditCard').click(function(e) {
+                $(this).addClass("selectDiv ").siblings().removeClass("selectDiv ");
+            });
+            // choose Print Modal 
+            $('#giftCard').click(function(e) {
+                $(this).addClass("selectDiv ").siblings().removeClass("selectDiv ");
+            });
+            $('.closestMoney').click(function(e) {
+                $(this).addClass("selectMoney ").siblings().removeClass("selectMoney ");
+                let paid = $(this).children('.money')[0].textContent;
+                let total = +$('.totalMoneyPrint').html();
+                let change = paid - total;
+                $('#change').html(change.toFixed(2))
+                $('.changeDiv').css('display', 'block');
+
             });
 
         });
@@ -1469,8 +1537,8 @@
             });
             if (!thisTypeIsEXIST) {
                 $('.cheque ').append(` <div class="order ">
-                            <div class="delete-icon" onclick="deleteItem(event)">
-                                <img src="./assets/icons8-trash-25.png" alt="">
+                            <div class="delete-icon " onclick="deleteItem(event) ">
+                                <img src="./assets/icons8-trash-25.png " alt=" ">
                             </div>
                             <div class="order-details ">
                                 <div class="order-info ">${description}</div>
@@ -1480,7 +1548,7 @@
                                     <div class="arrow-down " onclick="decreaseQuantity(event) "><i class="fas fa-chevron-down "></i></div>
                                 </div>
                                 <div class="price ">${priceAddItem} EGP</div>
-                                <img src="./assets/icons8-edit-25.png" style="cursor: pointer;" onclick="writeNoteOnOrder(event)">
+                                <img src="./assets/icons8-edit-25.png " style="cursor: pointer; " onclick="writeNoteOnOrder(event) ">
 
                             </div>
                         </div>`)
@@ -1553,7 +1621,8 @@
             if ($(table).children().hasClass('bg-success')) {
                 $(table).children('.badge').removeClass('bg-success').addClass('bg-danger');
                 $(table).children('.badge').html('Reserved');
-                $('#Tables').html(` <img class="icon " src="./assets/icons8-restaurant-table-40.png" alt=" "> <p class="label "> NO : <span class='reservedtableNo'>${tableNo}</span></p><p onclick="deleteCustomerOrDeliverMan(event, 'table') " class="close ">&times;</p>`);
+                $('#Tables').html(` <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" "> <p class="label "> NO : <span class='reservedtableNo'>${tableNo}</span></p><p onclick="deleteCustomerOrDeliverMan(event, 'table')
+                            " class="close ">&times;</p>`);
                 $('#tablesModal').css('display', 'none');
 
             } else {
@@ -1570,6 +1639,11 @@
             switch (modalName) {
                 case 'discount':
                     $('#discountModal').css('display', 'block');
+                    break;
+                case 'print':
+                    let total = $('#charge').html()
+                    $('.totalMoneyPrint').html(total)
+                    $('#printModal').css('display', 'block');
                     break;
 
                 case 'addCustomer':
@@ -1598,6 +1672,9 @@
             switch (modalName) {
                 case 'discount':
                     $('#discountModal').css('display', 'none');
+                    break;
+                case 'print':
+                    $('#printModal').css('display', 'none');
                     break;
                 case 'addCustomer':
                     $('#addCustomerModal input').val('');
@@ -1667,7 +1744,7 @@
         function addDeliveryMan() {
 
             if ($('#deliveryMan').val() !== "none ") {
-                $('.secondOptionDelivery').html(`<img class="icon " src="./assets/icons8-delivery-scooter-40.png"  alt=" "> <p class="label ">${$('#deliveryMan').val()}</p> <p class="close " onclick="deleteCustomerOrDeliverMan(event, 'deliveryMan') " >&times;</p>`);
+                $('.secondOptionDelivery').html(`<img class="icon " src="./assets/icons8-delivery-scooter-40.png "  alt=" "> <p class="label ">${$('#deliveryMan').val()}</p> <p class="close " onclick="deleteCustomerOrDeliverMan(event, 'deliveryMan') " >&times;</p>`);
             }
 
             $('#deliveryManModal').css('display', 'none');

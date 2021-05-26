@@ -629,6 +629,29 @@
   color: white;
 }
 
+.modal .cashCard {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+}
+
+.modal .selectDiv {
+  background-color: rgba(44, 62, 80, 0.8);
+  color: white;
+}
+
+.modal .closestMoney {
+  height: 2rem;
+  line-height: 1.7rem;
+  width: 6rem;
+  border: 1px solid #2c3e50;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modal .selectMoney {
+  background-color: rgba(44, 62, 80, 0.1);
+}
+
 .table {
   margin-top: 1rem;
   -webkit-transition: 1s;

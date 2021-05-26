@@ -488,6 +488,26 @@
                                         background-color: $primaryColor;
                                         color: white;
                                     }
+                                    // print modal
+                                    .cashCard {
+                                        background-color: #ecf0f1;
+                                        color: #2c3e50;
+                                    }
+                                    .selectDiv {
+                                        background-color: rgba(44, 62, 80, .8);
+                                        color: white;
+                                    }
+                                    .closestMoney {
+                                        height: 2rem;
+                                        line-height: 1.7rem;
+                                        width: 6rem;
+                                        border: 1px solid $primaryColor;
+                                        text-align: center;
+                                        cursor: pointer;
+                                    }
+                                    .selectMoney {
+                                        background-color: rgba(44, 62, 80, .1);
+                                    }
                                 }
                                 
                                 .table {
