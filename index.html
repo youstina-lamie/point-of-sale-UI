@@ -905,13 +905,8 @@
                             <p class="icon-name ">Gift Card</p>
                         </div>
                     </div>
-                    <div class="row mt-5 d-flex justify-content-center " style="padding:0 10rem; margin: .5rem 0 !important">
-                        <div class="closestMoney">
-                            <span class="money">170 </span>EGP
-                        </div>
-                        <div class="closestMoney">
-                            <span class="money">200 </span>EGP
-                        </div>
+                    <div id="suggestionMoney" class="row mt-5 d-flex justify-content-center " style="padding:0 10rem; margin: .5rem 0 !important">
+
                     </div>
                     <div class="m-auto changeDiv" style="display: none;">
                         <span style="font-weight: bold; font-size: 1.2rem;"> Change:</span> <span id="change">10 </span> EGP
@@ -1368,15 +1363,6 @@
             $('#giftCard').click(function(e) {
                 $(this).addClass("selectDiv ").siblings().removeClass("selectDiv ");
             });
-            $('.closestMoney').click(function(e) {
-                $(this).addClass("selectMoney ").siblings().removeClass("selectMoney ");
-                let paid = $(this).children('.money')[0].textContent;
-                let total = +$('.totalMoneyPrint').html();
-                let change = paid - total;
-                $('#change').html(change.toFixed(2))
-                $('.changeDiv').css('display', 'block');
-
-            });
 
         });
 
@@ -1409,7 +1395,6 @@
 
         function increaseQuantity(e) {
             const taxesPercentage = 14 / 100;
-
             let count = +($(e.target).closest('.count').children('.no').children().val())
             count++;
             $(e.target).closest('.count').children('.no').children().val(count);
@@ -1417,63 +1402,45 @@
             let subtootal = +$('#subtotal').html();
             subtootal += price;
             let taxes = subtootal * taxesPercentage;
-
             $('#subtotal').html(subtootal);
             $('#taxes').html(taxes.toFixed(2));
             $('#total').html(subtootal + taxes);
-            // $('#charge').html(subtootal + taxes);
-
             let discountValue = +$('#discountValue').html();
             if (discountValue !== 0) {
                 let discountEGP = (discountValue / 100) * (subtootal + taxes);
                 let totalAfterdiscount = (subtootal + taxes) - discountEGP;
-
                 $('#discount').html(`${discountEGP.toFixed(2)}`);
                 $('#charge').html(totalAfterdiscount.toFixed(2));
             }
-
-
         }
 
         function decreaseQuantity(e) {
             const taxesPercentage = 14 / 100;
-
             let count = +($(e.target).closest('.count').children('.no').children().val())
             count--;
             if (count >= 0) {
                 $(e.target).closest('.count').children('.no').children().val(count);
                 let price = +$(e.target).closest('.order').children('.order-details').children('.price')[0].textContent.split(' ')[0];
-
                 let subtootal = +$('#subtotal').html();
                 subtootal -= price;
-
                 let taxes = subtootal * taxesPercentage;
-
                 $('#subtotal').html(subtootal);
-
                 $('#taxes').html(taxes.toFixed(2));
-
                 $('#total').html(subtootal + taxes)
-                    // $('#charge').html(subtootal + taxes)
                 let discountValue = +$('#discountValue').html();
                 if (discountValue !== 0) {
                     let discountEGP = (discountValue / 100) * (subtootal + taxes);
                     let totalAfterdiscount = (subtootal + taxes) - discountEGP;
-
                     $('#discount').html(`${discountEGP.toFixed(2)}`);
                     $('#charge').html(totalAfterdiscount.toFixed(2));
                 }
-
             }
-
         }
 
         function changeQuantityInput(e) {
             if (e.target.value) {
                 let subtotal = 0;
                 const taxesPercentage = 14 / 100;
-
-
                 $('.cheque > .order').each(function(index, order) {
                     let quantity = +$(order).children(".order-details ").children('.count').children('.no').children().val();
                     let pricePerOne = +$(order).children(".order-details ").children('.price')[0].textContent.split(' ')[0];
@@ -1481,13 +1448,10 @@
                     subtotal += totalPriceOfOneOrder;
                 });
                 let taxes = subtotal * taxesPercentage;
-
                 let discountValue = +$('#discountValue').html();
                 let discountEGP = (discountValue / 100) * (subtotal + taxes);
                 let totalAfteriscount = (subtotal + taxes) - discountEGP;
-
                 $('#discount').html(`${discountEGP.toFixed(2)}`);
-
                 $('#taxes').html(taxes.toFixed(2));
                 $('#subtotal').html(subtotal.toFixed(2));
                 $('#total').html((subtotal + taxes).toFixed(2));
@@ -1497,12 +1461,7 @@
 
         function addToMyOrder(e) {
             const taxesPercentage = 14 / 100;
-
-
             let subtotal = +$('#subtotal').html();
-
-
-
             let description = $(e.target).closest('.card').children('.card-body').children('.card-title')[0].textContent;
             let priceAddItem = +$(e.target).closest('.card').children('.card-body').children('.card-text')[0].textContent.split(' ')[0];
             let thisTypeIsEXIST;
@@ -1516,20 +1475,15 @@
                     thisTypeIsEXIST = true;
                     quantityIfExist++;
                     $(order).children(".order-details ").children('.count').children('.no').children().val(quantityIfExist);
-
-
                     subtotal += priceAddItem;
                     let taxes = subtotal * taxesPercentage;
-
                     $('#subtotal').html(subtotal);
                     $('#taxes').html(taxes.toFixed(2));
                     $('#total').html(subtotal + taxes);
-                    // $('#charge').html(subtotal + taxes);
                     let discountValue = +$('#discountValue').html();
                     if (discountValue !== 0) {
                         let discountEGP = (discountValue / 100) * (subtotal + taxes);
                         let totalAfterdiscount = (subtotal + taxes) - discountEGP;
-
                         $('#discount ').html(`${discountEGP.toFixed(2)}`);
                         $('#charge').html(totalAfterdiscount.toFixed(2));
                     }
@@ -1588,50 +1542,37 @@
             $('#charge').html(0);
             $('#discount').html(0);
             $('#discountValue').html(0)
-
-
-
         }
 
         function applyDiscount() {
             if (+$('#discountInput').val()) {
-
                 let discountValue = +$('#discountInput').val();
                 $('#discountInput').val('');
                 let total = +$('#total').html();
-
                 let discountEGP = (discountValue / 100) * total;
                 let totalAfteriscount = total - discountEGP;
-
                 $('#discount').html(`${discountEGP.toFixed(2)}`);
                 $('#discountValue').html(`${discountValue}`);
                 $('#charge').html(totalAfteriscount.toFixed(2));
             }
             $('#discountModal').css('display', 'none');
-
-
         }
 
 
         function reserveTable(e) {
-
             let table = $(e.target).closest('.table')[0];
             let tableNo = $(e.target).closest('.table').children().children().children('.tableNo')[0].textContent;
-
             if ($(table).children().hasClass('bg-success')) {
                 $(table).children('.badge').removeClass('bg-success').addClass('bg-danger');
                 $(table).children('.badge').html('Reserved');
                 $('#Tables').html(` <img class="icon " src="./assets/icons8-restaurant-table-40.png " alt=" "> <p class="label "> NO : <span class='reservedtableNo'>${tableNo}</span></p><p onclick="deleteCustomerOrDeliverMan(event, 'table')
                             " class="close ">&times;</p>`);
                 $('#tablesModal').css('display', 'none');
-
             } else {
                 $(table).children('.badge').removeClass('bg-danger').addClass('bg-success');
                 $(table).children('.badge').html('Available');
                 $('#Tables').html(` <img class="icon " src="./assets/chair.png " alt=" "> <p class="label ">Tables</p>`);
-
             }
-
         }
 
         // open modal
@@ -1641,40 +1582,63 @@
                     $('#discountModal').css('display', 'block');
                     break;
                 case 'print':
-                    let total = $('#charge').html()
-                    $('.totalMoneyPrint').html(total)
+                    let total = +$('#charge').html();
+                    let totaal = +total.toFixed(0);
+                    $('.totalMoneyPrint').html(total);
+                    $('#suggestionMoney').html('');
+
+                    if (totaal <= 50) {
+                        $('#suggestionMoney').html(`<div class = "closestMoney" onclick = "selectClosestMoney(event)" >
+                                <span class = "money" > 50 </span>EGP 
+                            </div>
+                            <div class = "closestMoney" onclick = "selectClosestMoney(event)" >
+                                <span class = "money" > 100 </span>EGP 
+                            </div>
+                            <div class = "closestMoney" onclick = "selectClosestMoney(event)" >
+                                <span class = "money"> 200 </span>EGP 
+                            </div>`)
+                    }
+                    if (totaal <= 100 && totaal > 50) {
+                        $('#suggestionMoney').html(` <div class = "closestMoney" onclick = "selectClosestMoney(event)" >
+                                <span class = "money" > 100 </span>EGP 
+                            </div> <div class = "closestMoney" onclick = "selectClosestMoney(event)" >
+                                <span class = "money"> 200 </span>EGP 
+                            </div>`)
+                    }
+                    if (totaal <= 200 && totaal > 100) {
+                        $('#suggestionMoney').html(`
+                        <div class="closestMoney" onclick="selectClosestMoney(event)">
+                            <span class="money">200 </span>EGP
+                        </div>`)
+                    }
                     $('#printModal').css('display', 'block');
                     break;
-
                 case 'addCustomer':
                     $('#addCustomerModal').css('display', 'block');
                     break;
-
                 case 'deliveryMan':
                     $('#deliveryManModal').css('display', 'block');
                     break;
                 case 'shippingArea':
                     $('#shippingAreaModal').css('display', 'block');
                     break;
-
                 case 'tables':
                     $('#tablesModal').css('display', 'block');
                     break;
-
                 default:
             }
-
         }
 
         // cancel Or close Modal
         function cancelModal(modalName) {
-
             switch (modalName) {
                 case 'discount':
                     $('#discountModal').css('display', 'none');
                     break;
                 case 'print':
                     $('#printModal').css('display', 'none');
+                    $('.changeDiv').css('display', 'none');
+
                     break;
                 case 'addCustomer':
                     $('#addCustomerModal input').val('');
@@ -1692,9 +1656,7 @@
                     $('#tablesModal').css('display', 'none');
                     break;
                 default:
-
             }
-
         }
 
         function createCustomer() {
@@ -1742,16 +1704,27 @@
         }
 
         function addDeliveryMan() {
-
             if ($('#deliveryMan').val() !== "none ") {
                 $('.secondOptionDelivery').html(`<img class="icon " src="./assets/icons8-delivery-scooter-40.png "  alt=" "> <p class="label ">${$('#deliveryMan').val()}</p> <p class="close " onclick="deleteCustomerOrDeliverMan(event, 'deliveryMan') " >&times;</p>`);
             }
-
             $('#deliveryManModal').css('display', 'none');
+        }
 
+        //print Modal
+        function selectClosestMoney(e) {
+            if ($(e.target).hasClass('closestMoney')) {
+                $(e.target).addClass("selectMoney ").siblings().removeClass("selectMoney ");
+                let paid = $(e.target).children('.money')[0].textContent;
+                let total = +$('.totalMoneyPrint').html();
+                let change = paid - total;
+                $('#change').html(change.toFixed(2));
+                $('.changeDiv').css('display', 'block');
+            }
         }
     </script>
 
 </body>
+
+</html>
 
 </html>
