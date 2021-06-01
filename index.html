@@ -8,8 +8,6 @@
     <title>Point Of Sale</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -114,7 +112,8 @@
 
 
                     <div class="order-details ">
-                        <div class="order-info">Big Testy Chicken Medium Value Meal
+                        <div class="order-info">
+                            <span id="order-name">Big Testy Chicken Medium Value Meal</span>
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
@@ -133,7 +132,8 @@
                         <img src="./assets/icons8-trash-25.png" alt="">
                     </div>
                     <div class="order-details ">
-                        <div class="order-info">Big Testy Chicken Medium Value Meal
+                        <div class="order-info">
+                            <span id="order-name">Big Testy Chicken Medium Value Meal</span>
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
@@ -151,7 +151,8 @@
                         <img src="./assets/icons8-trash-25.png" alt="">
                     </div>
                     <div class="order-details ">
-                        <div class="order-info">Big Testy Chicken Medium Value Meal
+                        <div class="order-info">
+                            <span id="order-name">Big Testy Chicken Medium Value Meal</span>
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
@@ -168,8 +169,9 @@
                     <div class="delete-icon" onclick="deleteItem(event)">
                         <img src="./assets/icons8-trash-25.png" alt="">
                     </div>
-                    <div class="order-details ">
-                        <div class="order-info">Big Testy Chicken Medium Value Meal
+                    <div class="order-details">
+                        <div class="order-info">
+                            <span id="order-name">Big Testy Chicken Medium Value Meal</span>
                             <p class="sub-info">cheese cake coca cola cup - medium</p>
                         </div>
                         <div class="count">
@@ -191,6 +193,10 @@
             <div class="row total-cheque ">
                 <p>taxes</p>
                 <p><span id="taxes"></span> EGP</p>
+            </div>
+            <div id="serviceContainer" class="row total-cheque " style="display:none">
+                <p>service</p>
+                <p><span id="service">00.00</span> EGP</p>
             </div>
             <div class="row total-cheque total ">
                 <p>total</p>
@@ -229,7 +235,7 @@
             <header class="row ">
                 <div class="search col-lg-8 col-md-8 pt-1 mt-2 m-auto ">
                     <label for="search-input " class="col-lg-1 col-md-1 "><img  src="./assets/Group 103.png " alt=" "></label>
-                    <input class="search-input col-lg-11 col-md-10 " placeholder="Search Items " type="text " name=" " id="search-input ">
+                    <input class="search-input col-lg-11 col-md-10 " placeholder="Search Items " type="text " name=" " id="search-input " oninput="SearchByName(event)">
                 </div>
                 <div class="col-lg-2 col-md-2 offset-1 "><img class="barcode " src="./assets/Group 88.png " alt=" "></div>
             </header>
@@ -325,512 +331,236 @@
                     </div>
                     <div class="cards-container cardContainer ">
 
-
-
-
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-
+                        <div class="card grill" onclick="addToMyOrder(event) ">
                             <div class="row imgAndDisc ">
                                 <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
                                 <div class="col-lg-7 col-md-7 card-body ">
-                                    <p class="card-title ">Cramel Frappuccino</p>
+                                    <p class="card-title ">sasba</p>
                                     <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
-                                    <div class=" row " style="position: relative; ">
-                                        <div class="col-lg-6 col-md-6 offset-1 p-0">
+                                    <div id="sizeAndPriceConatiner" class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0 size">
                                             <div class="container">
-                                                <label>S</label>
-                                                <input type="radio" name="size" id="">
+                                                <label class="container-label">S</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
                                             </div>
                                             <div class="container">
-                                                <label class="label">M</label>
-                                                <input type="radio" name="size" id="">
+                                                <label class="label container-label">M</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
                                             </div>
                                             <div class="container">
-                                                <label>L</label>
-                                                <input type="radio" name="size" id="">
+                                                <label class="container-label">L</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
                                             </div>
                                         </div>
-                                        <div class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
-                                            <p class="card-title ">35 EGP</p>
+                                        <div id="priceContainer" class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title "><span id="price"> 35</span> EGP</p>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
 
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">italian food</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">grill</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif ) "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">itlalian food</p>
-                                <p class="card-text ">35 EGP.</p>
+                        <div class="card pizza" onclick="addToMyOrder(event) ">
+                            <div class="row imgAndDisc ">
+                                <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
+                                <div class="col-lg-7 col-md-7 card-body ">
+                                    <p class="card-title ">avdggfr</p>
+                                    <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
+                                    <div id="sizeAndPriceConatiner" class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0 size">
+                                            <div class="container">
+                                                <label class="container-label">S</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="label container-label">M</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="container-label">L</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                        </div>
+                                        <div id="priceContainer" class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title "><span id="price"> 35</span> EGP</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">italian food</p>
-                                <p class="card-text ">35 EGP.</p>
+                        <div class="card fish" onclick="addToMyOrder(event) ">
+                            <div class="row imgAndDisc ">
+                                <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
+                                <div class="col-lg-7 col-md-7 card-body ">
+                                    <p class="card-title ">Cramel</p>
+                                    <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
+                                    <div id="sizeAndPriceConatiner" class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0 size">
+                                            <div class="container">
+                                                <label class="container-label">S</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="label container-label">M</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="container-label">L</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                        </div>
+                                        <div id="priceContainer" class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title "><span id="price"> 35</span> EGP</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">grill</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif) "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif) "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">itlalian food</p>
-                                <p class="card-text ">35 EGP.</p>
+                        <div class="card soup" onclick="addToMyOrder(event) ">
+                            <div class="row imgAndDisc ">
+                                <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
+                                <div class="col-lg-7 col-md-7 card-body ">
+                                    <p class="card-title ">afssfs</p>
+                                    <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
+                                    <div id="sizeAndPriceConatiner" class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0 size">
+                                            <div class="container">
+                                                <label class="container-label">S</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="label container-label">M</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="container-label">L</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                        </div>
+                                        <div id="priceContainer" class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title "><span id="price"> 35</span> EGP</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">italian food</p>
-                                <p class="card-text ">35 EGP.</p>
+
+                        <div class="card grill" onclick="addToMyOrder(event) ">
+                            <div class="row imgAndDisc ">
+                                <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
+                                <div class="col-lg-7 col-md-7 card-body ">
+                                    <p class="card-title ">bdcvt</p>
+                                    <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
+                                    <div id="sizeAndPriceConatiner" class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0 size">
+                                            <div class="container">
+                                                <label class="container-label">S</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="label container-label">M</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="container-label">L</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                        </div>
+                                        <div id="priceContainer" class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title "><span id="price"> 35</span> EGP</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">grill</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif ) "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">itlalian food</p>
-                                <p class="card-text ">35 EGP.</p>
+                        <div class="card pizza" onclick="addToMyOrder(event) ">
+                            <div class="row imgAndDisc ">
+                                <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
+                                <div class="col-lg-7 col-md-7 card-body ">
+                                    <p class="card-title ">cnjcne</p>
+                                    <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
+                                    <div id="sizeAndPriceConatiner" class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0 size">
+                                            <div class="container">
+                                                <label class="container-label">S</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="label container-label">M</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="container-label">L</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                        </div>
+                                        <div id="priceContainer" class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title "><span id="price"> 35</span> EGP</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">italian food</p>
-                                <p class="card-text ">35 EGP.</p>
+                        <div class="card fish" onclick="addToMyOrder(event) ">
+                            <div class="row imgAndDisc ">
+                                <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
+                                <div class="col-lg-7 col-md-7 card-body ">
+                                    <p class="card-title ">Abc</p>
+                                    <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
+                                    <div id="sizeAndPriceConatiner" class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0 size">
+                                            <div class="container">
+                                                <label class="container-label">S</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="label container-label">M</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="container-label">L</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                        </div>
+                                        <div id="priceContainer" class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title "><span id="price"> 35</span> EGP</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">grill</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif ) "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">itlalian food</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">italian food</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">grill</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif ) "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">itlalian food</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">italian food</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">grill</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif ) "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">pizza</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card fish " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">fish</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card soup " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1571091655789-405eb7a3a3a8.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">soup</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-                        <div class="card grill " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1568901346375-23c9450c58cd.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">itlalian food</p>
-                                <p class="card-text ">35 EGP.</p>
-                            </div>
-                        </div>
-
-                        <div class="card pizza " onclick="addToMyOrder(event) ">
-                            <div class="card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
-                            <div class="card-body ">
-                                <p class="card-title ">dessert</p>
-                                <p class="card-text ">35 EGP.</p>
+                        <div class="card soup" onclick="addToMyOrder(event) ">
+                            <div class="row imgAndDisc ">
+                                <div class="col-lg-4 col-md-4 card-img " style="background-image: url(./assets/photo-1550317138-10000687a72b.jfif); "></div>
+                                <div class="col-lg-7 col-md-7 card-body ">
+                                    <p class="card-title ">CGD</p>
+                                    <p class="card-disc ">Caramel syrup with coffe, milk and whipped cream</p>
+                                    <div id="sizeAndPriceConatiner" class=" row " style="position: relative; ">
+                                        <div class="col-lg-6 col-md-6 offset-1 p-0 size">
+                                            <div class="container">
+                                                <label class="container-label">S</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="label container-label">M</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                            <div class="container">
+                                                <label class="container-label">L</label>
+                                                <input class="container-checkox" type="radio" name="size" id="">
+                                            </div>
+                                        </div>
+                                        <div id="priceContainer" class="col-lg-5 col-md-5" style="position: absolute; padding: 0; text-align: right; top: 1rem; right:1.5rem;">
+                                            <p class="card-title "><span id="price"> 35</span> EGP</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -890,7 +620,7 @@
             <div style="padding: 20px; height:40vh; ">
                 <div class="row margin-bottom ">
                     <p class="m-auto "><span class="totalMoneyPrint" style="font-weight: bold; font-size: 2rem; "></span> EGP</p>
-                    <div class=" footer row d-flex justify-content-center flex-wrap" style="padding:0 10rem; margin: 2rem 0 !important">
+                    <div class=" footer row d-flex justify-content-center flex-wrap" style="padding:0 10rem; margin: 1.5rem .5rem !important">
                         <div id="cash" class="middle-icon-container col-lg-2 col-md-2 cashCard selectDiv">
 
                             <img src="./assets/payment-method.png" alt=" " style="width:35% ;">
@@ -905,11 +635,17 @@
                             <p class="icon-name ">Gift Card</p>
                         </div>
                     </div>
-                    <div id="suggestionMoney" class="row mt-5 d-flex justify-content-center " style="padding:0 10rem; margin: .5rem 0 !important">
+                    <div id="suggestionMoney" class="row  " style="display:flex;justify-content: center; padding:0 10rem; margin: 1.2rem  !important">
 
                     </div>
-                    <div class="m-auto changeDiv" style="display: none;">
-                        <span style="font-weight: bold; font-size: 1.2rem;"> Change:</span> <span id="change">10 </span> EGP
+                    <div class="m-auto changeDiv">
+                        <input id="paidMoney" type="number" placeholder="Enter a Paid Money" value=" " style="margin-right:1rem" oninput="enterPaidMoney(event)">
+                        <span style="font-weight: bold; font-size: 1.2rem;"> Change:</span> <span id="change">00.00</span> EGP
+                    </div>
+                    <div class="m-auto giftCardinputContainer btnsContainer" style="display:none;">
+                        <input id="giftCardInput" type="Text" placeholder="Enter a Gift Code" value="" style="height: 2.3rem; width: 15rem; border: none; outline: none; ">
+                        <div class="btn button" onclick="applyGiftCode()">Apply</div>
+                        <div id="validationMessageOfGiftCard" tyle="font-weight: bold; font-size: 1rem;"></div>
                     </div>
 
                 </div>
@@ -917,7 +653,7 @@
             <hr style=" width: 100%; ">
 
             <div class="btnsContainer offset-9 col-lg-3 ">
-                <div class="btn button ">Tender</div>
+                <div class="btn button " onclick="printCheque()">Print</div>
                 <div class="btn button " onclick="cancelModal( 'print') ">Cancel</div>
             </div>
         </div>
@@ -1169,7 +905,8 @@
 
             // subtotal in the first time
             let subtotal = 0;
-            const taxesPercentage = 14 / 100;
+            const taxesPercentage = 14 / 100;;
+            let service = 0;
 
             $('.cheque > .order').each(function(index, order) {
                 let quantity = +$(order).children(".order-details ").children('.count').children('.no').children().val();
@@ -1181,8 +918,8 @@
             let discEGP = +$('#discount').html();
             $('#taxes').html(taxes.toFixed(2));
             $('#subtotal').html(subtotal.toFixed(2));
-            $('#total').html((subtotal + taxes).toFixed(2));
-            $('#charge').html((subtotal + taxes - discEGP).toFixed(2));
+            $('#total').html((subtotal + taxes + service).toFixed(2));
+            $('#charge').html((subtotal + taxes + service - discEGP).toFixed(2));
 
 
 
@@ -1191,14 +928,40 @@
             $('#dineIn').click(function(e) {
                 $(this).addClass("food-selected ").siblings().removeClass("food-selected ");
                 $('#dineInOptions').removeClass('display-none').siblings().addClass('display-none');
+                subtotal = +$('#subtotal').html();
+                service = subtotal * 12 / 100;
+                taxes = subtotal * taxesPercentage;
+                $('#total').html((subtotal + taxes + service).toFixed(2));
+                discEGP = (subtotal + taxes + service) * 10 / 100;
+                $('#charge').html((subtotal + taxes + service - discEGP).toFixed(2));
+                $('#discount').html(discEGP);
+                $('#service').html(service);
+                $('#serviceContainer').css('display', 'flex');
+
             })
             $('#toGo').click(function(e) {
                 $(this).addClass("food-selected ").siblings().removeClass("food-selected ");
                 $('#toGoOptions').removeClass('display-none').siblings().addClass('display-none');
+                service = 0;
+                $('#total').html((subtotal + taxes + service).toFixed(2));
+                discEGP = (subtotal + taxes + service) * 10 / 100;
+                $('#charge').html((subtotal + taxes + service - discEGP).toFixed(2));
+                $('#discount').html(discEGP);
+                $('#service').html('00.00');
+                $('#serviceContainer').css('display', 'none')
+
             })
             $('#delivery').click(function(e) {
                 $(this).addClass("food-selected ").siblings().removeClass("food-selected ");
                 $('#deliveryOptions').removeClass('display-none').siblings().addClass('display-none');
+                service = 0;
+                $('#total').html((subtotal + taxes + service).toFixed(2));
+                discEGP = (subtotal + taxes + service) * 10 / 100;
+                $('#charge').html((subtotal + taxes + service - discEGP).toFixed(2));
+                $('#service').html('00.00');
+                $('#discount').html(discEGP);
+                $('#serviceContainer').css('display', 'none')
+
             })
 
 
@@ -1240,13 +1003,12 @@
 
                 $('#subtotal').html(subtootal);
                 $('#taxes').html(taaxes.toFixed(2));
-                $('#total').html(subtootal + taaxes);
-                // $('#charge').html(subtootal + taaxes);
+                $('#total').html(subtootal + taaxes + service);
 
                 let discountValue = +$('#discountValue').html();
                 if (discountValue !== 0) {
-                    let discountEGP = (discountValue / 100) * (subtootal + taaxes);
-                    let totalAfterdiscount = (subtootal + taaxes) - discountEGP;
+                    let discountEGP = (discountValue / 100) * (subtootal + taaxes + service);
+                    let totalAfterdiscount = (subtootal + taaxes + service) - discountEGP;
 
                     $('#discount ').html(`${discountEGP.toFixed(2)}`);
                     $('#charge').html(totalAfterdiscount.toFixed(2));
@@ -1269,13 +1031,13 @@
                     $('#subtotal').html(subtootal);
 
                     $('#taxes').html(taaxes.toFixed(2));
-                    $('#total').html(subtootal + taaxes)
-                        // $('#charge').html(subtootal + taaxes)
+                    $('#total').html(subtootal + taaxes + service)
+
 
                     let discountValue = +$('#discountValue').html();
                     if (discountValue !== 0) {
-                        let discountEGP = (discountValue / 100) * (subtootal + taaxes);
-                        let totalAfterdiscount = (subtootal + taaxes) - discountEGP;
+                        let discountEGP = (discountValue / 100) * (subtootal + taaxes + service);
+                        let totalAfterdiscount = (subtootal + taaxes + service) - discountEGP;
 
                         $('#discount ').html(`${discountEGP.toFixed(2)}`);
                         $('#charge').html(totalAfterdiscount.toFixed(2));
@@ -1354,14 +1116,25 @@
             // choose Print Modal 
             $('#cash').click(function(e) {
                 $(this).addClass("selectDiv ").siblings().removeClass("selectDiv ");
+                $('#suggestionMoney').css('display', 'flex');
+                $('.changeDiv').css('display', 'block');
+                $('.giftCardinputContainer').css('display', 'none');
+
             });
             // choose Print Modal 
             $('#creditCard').click(function(e) {
                 $(this).addClass("selectDiv ").siblings().removeClass("selectDiv ");
+                $('#suggestionMoney').css('display', 'none');
+                $('.changeDiv').css('display', 'none');
+                $('.giftCardinputContainer').css('display', 'none');
+
             });
             // choose Print Modal 
             $('#giftCard').click(function(e) {
                 $(this).addClass("selectDiv ").siblings().removeClass("selectDiv ");
+                $('#suggestionMoney').css('display', 'none');
+                $('.changeDiv').css('display', 'none');
+                $('.giftCardinputContainer').css('display', 'block');
             });
 
         });
@@ -1376,17 +1149,24 @@
             subtotal -= PriceOfItemDeleted;
 
             let taxes = subtotal * taxesPercentage;
+
+            let service;
+            if ($('#dineIn').hasClass('food-selected')) {
+                service = subtotal * 12 / 100;
+                $('#service').html(service);
+            } else service = 0;
+
             $('#subtotal').html(subtotal);
             $('#taxes').html(taxes.toFixed(2));
-            $('#total').html(subtotal + taxes);
+            $('#total').html(subtotal + taxes + service);
 
             $(e.target).closest('.order').remove();
 
             // calculate discount
             let discountValue = +$('#discountValue').html();
             if (discountValue !== 0) {
-                let discountEGP = (discountValue / 100) * (subtotal + taxes);
-                let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+                let discountEGP = (discountValue / 100) * (subtotal + taxes + service);
+                let totalAfterdiscount = (subtotal + taxes + service) - discountEGP;
 
                 $('#discount ').html(`${discountEGP.toFixed(2)}`);
                 $('#charge').html(totalAfterdiscount.toFixed(2));
@@ -1402,13 +1182,20 @@
             let subtootal = +$('#subtotal').html();
             subtootal += price;
             let taxes = subtootal * taxesPercentage;
+
+            let service;
+            if ($('#dineIn').hasClass('food-selected')) {
+                service = subtotal * 12 / 100;
+                $('#service').html(service);
+            } else service = 0;
+
             $('#subtotal').html(subtootal);
             $('#taxes').html(taxes.toFixed(2));
-            $('#total').html(subtootal + taxes);
+            $('#total').html(subtootal + taxes + service);
             let discountValue = +$('#discountValue').html();
             if (discountValue !== 0) {
-                let discountEGP = (discountValue / 100) * (subtootal + taxes);
-                let totalAfterdiscount = (subtootal + taxes) - discountEGP;
+                let discountEGP = (discountValue / 100) * (subtootal + taxes + service);
+                let totalAfterdiscount = (subtootal + taxes + service) - discountEGP;
                 $('#discount').html(`${discountEGP.toFixed(2)}`);
                 $('#charge').html(totalAfterdiscount.toFixed(2));
             }
@@ -1424,13 +1211,20 @@
                 let subtootal = +$('#subtotal').html();
                 subtootal -= price;
                 let taxes = subtootal * taxesPercentage;
+
+                let service;
+                if ($('#dineIn').hasClass('food-selected')) {
+                    service = subtotal * 12 / 100;
+                    $('#service').html(service);
+                } else service = 0;
+
                 $('#subtotal').html(subtootal);
                 $('#taxes').html(taxes.toFixed(2));
-                $('#total').html(subtootal + taxes)
+                $('#total').html(subtootal + taxes + service)
                 let discountValue = +$('#discountValue').html();
                 if (discountValue !== 0) {
-                    let discountEGP = (discountValue / 100) * (subtootal + taxes);
-                    let totalAfterdiscount = (subtootal + taxes) - discountEGP;
+                    let discountEGP = (discountValue / 100) * (subtootal + taxes + service);
+                    let totalAfterdiscount = (subtootal + taxes + service) - discountEGP;
                     $('#discount').html(`${discountEGP.toFixed(2)}`);
                     $('#charge').html(totalAfterdiscount.toFixed(2));
                 }
@@ -1448,13 +1242,19 @@
                     subtotal += totalPriceOfOneOrder;
                 });
                 let taxes = subtotal * taxesPercentage;
+                let service;
+                if ($('#dineIn').hasClass('food-selected')) {
+                    service = subtotal * 12 / 100;
+                    $('#service').html(service);
+                } else service = 0;
+
                 let discountValue = +$('#discountValue').html();
-                let discountEGP = (discountValue / 100) * (subtotal + taxes);
-                let totalAfteriscount = (subtotal + taxes) - discountEGP;
+                let discountEGP = (discountValue / 100) * (subtotal + taxes + service);
+                let totalAfteriscount = (subtotal + taxes + service) - discountEGP;
                 $('#discount').html(`${discountEGP.toFixed(2)}`);
                 $('#taxes').html(taxes.toFixed(2));
                 $('#subtotal').html(subtotal.toFixed(2));
-                $('#total').html((subtotal + taxes).toFixed(2));
+                $('#total').html((subtotal + taxes + service).toFixed(2));
                 $('#charge').html(totalAfteriscount.toFixed(2));
             }
         }
@@ -1462,72 +1262,91 @@
         function addToMyOrder(e) {
             const taxesPercentage = 14 / 100;
             let subtotal = +$('#subtotal').html();
-            let description = $(e.target).closest('.card').children('.card-body').children('.card-title')[0].textContent;
-            let priceAddItem = +$(e.target).closest('.card').children('.card-body').children('.card-text')[0].textContent.split(' ')[0];
+            let cardNameClicked = $(e.target).closest('.card').children('.imgAndDisc').children('.card-body').children('.card-title')[0].textContent;
+            let cardDescriptionClicked = $(e.target).closest('.card').children('.imgAndDisc').children('.card-body').children('.card-disc')[0].textContent;
+            let cardPricelicked = +$(e.target).closest('.card').children('.imgAndDisc').children('.card-body').children('#sizeAndPriceConatiner').children('#priceContainer').children('.card-title').children('#price')[0].textContent;
+
             let thisTypeIsEXIST;
             let quantityIfExist;
             let itemPriceIfExit;
             $('.cheque > .order').each(function(index, order) {
                 let pricePerOne = +$(order).children(".order-details ").children('.price')[0].textContent.split(' ')[0];
-                let descriptioperOne = $(order).children(".order-details ").children('.order-info')[0].textContent;
-                if (description === descriptioperOne && priceAddItem === pricePerOne) {
+                let namePerOne = $(order).children(".order-details").children('.order-info').children('#order-name')[0].textContent;
+
+                if (cardNameClicked === namePerOne && cardPricelicked === pricePerOne) {
                     quantityIfExist = +$(order).children(".order-details ").children('.count').children('.no').children().val();
                     thisTypeIsEXIST = true;
                     quantityIfExist++;
                     $(order).children(".order-details ").children('.count').children('.no').children().val(quantityIfExist);
-                    subtotal += priceAddItem;
+                    subtotal += cardPricelicked;
                     let taxes = subtotal * taxesPercentage;
+                    let service;
+
+                    if ($('#dineIn').hasClass('food-selected')) {
+                        service = subtotal * 12 / 100;
+                        $('#service').html(service);
+                    } else service = 0;
+
                     $('#subtotal').html(subtotal);
                     $('#taxes').html(taxes.toFixed(2));
-                    $('#total').html(subtotal + taxes);
+                    $('#total').html((subtotal + taxes + service).toFixed(2));
                     let discountValue = +$('#discountValue').html();
+
                     if (discountValue !== 0) {
-                        let discountEGP = (discountValue / 100) * (subtotal + taxes);
-                        let totalAfterdiscount = (subtotal + taxes) - discountEGP;
+                        let discountEGP = (discountValue / 100) * (subtotal + taxes + service);
+                        let totalAfterdiscount = (subtotal + taxes + service) - discountEGP;
                         $('#discount ').html(`${discountEGP.toFixed(2)}`);
                         $('#charge').html(totalAfterdiscount.toFixed(2));
-                    }
+                    } else $('#charge').html((subtotal + taxes + service).toFixed(2));
+
                 }
             });
             if (!thisTypeIsEXIST) {
-                $('.cheque ').append(` <div class="order ">
-                            <div class="delete-icon " onclick="deleteItem(event) ">
-                                <img src="./assets/icons8-trash-25.png " alt=" ">
-                            </div>
-                            <div class="order-details ">
-                                <div class="order-info ">${description}</div>
-                                <div class="count ">
-                                    <div class="no "><input type="number " value="1 " min="1 " oninput="changeQuantityInput(event) "></div>
-                                    <div class="arrow-up " onclick="increaseQuantity(event) "><i class="fas fa-chevron-up "></i></div>
-                                    <div class="arrow-down " onclick="decreaseQuantity(event) "><i class="fas fa-chevron-down "></i></div>
-                                </div>
-                                <div class="price ">${priceAddItem} EGP</div>
-                                <img src="./assets/icons8-edit-25.png " style="cursor: pointer; " onclick="writeNoteOnOrder(event) ">
+                $('.cheque ').append(`  <div class="order ">
+                    <div class="delete-icon" onclick="deleteItem(event)">
+                        <img src="./assets/icons8-trash-25.png" alt="">
+                    </div>
 
-                            </div>
-                        </div>`)
+
+                    <div class="order-details ">
+                        <div class="order-info">
+                            <span id="order-name">${cardNameClicked}</span>
+                            <p class="sub-info">${cardDescriptionClicked}</p>
+                        </div>
+                        <div class="count">
+                            <div class="no"><input type="number" value="1" min="1" oninput="changeQuantityInput(event)"></div>
+                            <div class="arrow-up" onclick="increaseQuantity(event) "><i class="fas fa-chevron-up"></i></div>
+                            <div class="arrow-down" onclick="decreaseQuantity(event) "><i class="fas fa-chevron-down"></i></div>
+                        </div>
+                        <div class="price ">${cardPricelicked} EGP</div>
+                        <img src="./assets/icons8-edit-25.png" style="cursor: pointer; " onclick="writeNoteOnOrder(event)">
+
+
+                    </div>
+                </div>`)
                 $(".cheque ").animate({
                     scrollTop: $(
                         'html, body').get(0).scrollHeight
                 }, 1000);
 
-
-
-                subtotal += priceAddItem;
+                subtotal += cardPricelicked;
                 let taxes = subtotal * taxesPercentage;
+                let service;
+                if ($('#dineIn').hasClass('food-selected')) {
+                    service = subtotal * 12 / 100;
+                    $('#service').html(service);
+                } else service = 0;
                 $('#subtotal').html(subtotal);
                 $('#taxes').html(taxes.toFixed(2))
-
-                $('#total').html(subtotal + taxes);
-                // $('#charge').html(subtotal + taxes);
+                $('#total').html((subtotal + taxes + service).toFixed(2));
                 let discountValue = +$('#discountValue').html();
                 if (discountValue !== 0) {
-                    let discountEGP = (discountValue / 100) * (subtotal + taxes);
-                    let totalAfterdiscount = (subtotal + taxes) - discountEGP;
-
+                    let discountEGP = (discountValue / 100) * (subtotal + taxes + service);
+                    let totalAfterdiscount = (subtotal + taxes + service) - discountEGP;
                     $('#discount ').html(`${discountEGP.toFixed(2)}`);
                     $('#charge').html(totalAfterdiscount.toFixed(2));
-                }
+
+                } else $('#charge').html((subtotal + taxes + service).toFixed(2));
             }
 
         }
@@ -1539,6 +1358,7 @@
             $('#total').html(0);
             $('#subtotal').html(0);
             $('#taxes').html(0);
+            $('#service').html(0);
             $('#charge').html(0);
             $('#discount').html(0);
             $('#discountValue').html(0)
@@ -1713,11 +1533,118 @@
         //print Modal
         function selectClosestMoney(e) {
             $(e.target).closest('.closestMoney').addClass("selectMoney ").siblings().removeClass("selectMoney ");
-            let paid = $(e.target).closest('.closestMoney').children('.money')[0].textContent;
+            let paid = +$(e.target).closest('.closestMoney').children('.money')[0].textContent;
+            $('#paidMoney')[0].value = paid;
             let total = +$('.totalMoneyPrint').html();
             let change = paid - total;
             $('#change').html(change.toFixed(2));
-            $('.changeDiv').css('display', 'block');
+        }
+
+        function enterPaidMoney(e) {
+            let paid = +(e.target.value);
+            if (paid) {
+                let total = +$('.totalMoneyPrint').html();
+                let change = paid - total;
+                $('#change').html(change.toFixed(2));
+            } else $('#change').html('00.00');
+        }
+
+        function applyGiftCode() {
+            let giftCode = "aaa1";
+            let validationMessage;
+            let code = $('#giftCardInput')[0].value;
+
+
+            if (code !== giftCode) {
+                validationMessage = 'the gift card you are using is invalid';
+                $('#validationMessageOfGiftCard').css('color', 'red');
+                $('#validationMessageOfGiftCard').html(validationMessage);
+            } else {
+                validationMessage = 'the gift card you are using is valid';
+                $('#validationMessageOfGiftCard').css('color', 'green');
+                $('#validationMessageOfGiftCard').html(validationMessage);
+            }
+        }
+
+        function printCheque() {
+            let printWindow = window.open("", "", "width=700,height=900");
+            $(printWindow.document.body).append(`<div id="printPage">
+            <table style="width: 30rem;  padding: 0; margin: auto;">
+                <thead>
+                    <tr style="height:5rem">
+                    <th>Quantity</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table></div>
+            <div style=" background-color: rgb(44, 62, 80); color: white; width:8rem;height;8rem;border-radius:10px;text-align:center;margin:auto; cursor:pointer" onclick="console.log('aaa');window.print()">Print</div>`);
+            $('.order').each(function(index, elem) {
+                let pricePerOne = +$(elem).children(".order-details ").children('.price')[0].textContent.split(' ')[0];
+                let namePerOne = $(elem).children(".order-details").children('.order-info').children('#order-name')[0].textContent;
+                let quantity = +$(elem).children(".order-details ").children('.count').children('.no').children().val();
+
+                $(printWindow.document.body).children('#printPage').children('table').children('tbody').append(`<tr style="height:2rem"> 
+                    <td style="text-align:center;">${quantity}</td>
+                    <td style="text-align:center;">${namePerOne}</td>
+                    <td style="text-align:center;">${pricePerOne*quantity}</td>
+                    </tr> `);
+            });
+            let subtotal = $('#subtotal').html();
+            let taxes = $('#taxes').html();
+            let service = $('#service').html();
+            let total = $('#total').html();
+            let discount = $('#discount').html();
+            let charge = $('#charge').html();
+            $(printWindow.document.body).children('#printPage').append(`<div style="  display: flex; justify-content: space-between; align-items: center;  padding: 0 1.25rem;  font-weight: bold; font-size: 20px;height: 1.5rem;">
+                <p>subtotal</p>
+                <p style="font-size: 14px;">${subtotal} EGP</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;  padding: 0 1.25rem;  font-weight: bold; font-size: 20px;height: 1.5rem;">
+                <p>taxes</p>
+                <p style="font-size: 14px;">${taxes} EGP</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;  padding: 0 1.25rem;  font-weight: bold; font-size: 20px;height: 1.5rem;">
+                <p>service</p>
+                <p style="font-size: 14px;">${service} EGP</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;  padding: 0 1.25rem;  font-weight: bold; font-size: 20px;height: 1.5rem;">
+                <p>total</p>
+                <p style="font-size: 14px;">${total} EGP</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;  padding: 0 1.25rem;  font-weight: bold; font-size: 20px;height: 1.5rem;">
+                <p>discount</p>
+                <p style="font-size: 14px;">${discount} EGP</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;  padding: 0 1.25rem;  font-weight: bold; font-size: 20px;height: 1.5rem; margin-bottom:5rem">
+                <p>charge</p>
+                <p style="font-size: 14px;">${charge} EGP</p>
+            </div>
+        `)
+
+
+        }
+
+        function SearchByName(e) {
+            let searchInput = (e.target.value).toLocaleLowerCase();
+            let cards = $('.card');
+            if (searchInput !== '') {
+                for (let i = 0; i < cards.length; i++) {
+                    let cardName = $(cards[i]).children('.imgAndDisc').children('.card-body').children('.card-title')[0].textContent.toLocaleLowerCase();
+                    if (cardName.startsWith((searchInput))) {
+                        console.log(cardName)
+                        $(cards[i]).css('display', 'inline-block')
+                    } else {
+                        $(cards[i]).css('display', 'none')
+                    }
+                }
+            } else {
+                for (let i = 0; i < cards.length; i++) {
+                    $(cards[i]).css('display', 'inline-block')
+                }
+            }
         }
     </script>
 
